@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { readFile, readdir } from 'fs/promises';
+import { parseMarkdown } from '../../utils/markdown';
+import { markdownToHtml } from '../../utils/markdownToHtml';
+
+export async function getStaticPaths() {
+	const files = await readdir('./elaren_site_content/work');
+	const markdownFiles = files.filter(f => f.endsWith('.md'));
+	
+	return markdownFiles.map(file => ({
+		params: { slug: file.replace('.md', '') }
+	}));
+}
+
+const { slug } = Astro.params;
+
+let content: string;
+try {
+	content = await readFile(`./elaren_site_content/work/${slug}.md`, 'utf-8');
+} catch {
+	return Astro.redirect('/404');
+}
+
+const { frontmatter, body } = parseMarkdown(content);
+const htmlContent = markdownToHtml(body);
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.summary || frontmatter.description}>
+	<Header />
+	<main>
+		<section class="container py-16 md:py-24">
+			<div class="max-w-3xl">
+				<div class="prose" set:html={htmlContent} />
+			</div>
+		</section>
+	</main>
+	<Footer />
+</BaseLayout>
+

@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@layer base {
+	:root {
+		--clr-ink: #101317;
+		--clr-paper: #ffffff;
+		--clr-accent: #3A78FF;
+		--clr-slate-900: #0F1720;
+		--clr-slate-100: #E6EAF0;
+
+		--ff-sans: "Inter", system-ui, sans-serif;
+		--ff-serif: "Source Serif 4", serif;
+
+		--fs-h1: 2.5rem;
+		--fs-h2: 2rem;
+		--fs-h3: 1.5rem;
+		--fs-body: 1rem;
+		--fs-small: 0.875rem;
+
+		--radius: 14px;
+		--shadow: 0 6px 30px rgba(16,19,23,0.08);
+		--gap: 1.25rem;
+		--line: 1px solid var(--clr-slate-100);
+	}
+
+	html {
+		font-family: var(--ff-sans);
+		color: var(--clr-ink);
+		background: var(--clr-paper);
+	}
+
+	body {
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--ff-sans);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: 0.01em;
+	}
+
+	h1 {
+		font-size: var(--fs-h1);
+	}
+
+	h2 {
+		font-size: var(--fs-h2);
+	}
+
+	h3 {
+		font-size: var(--fs-h3);
+	}
+
+	p {
+		font-size: var(--fs-body);
+	}
+
+	a {
+		color: var(--clr-accent);
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	a:hover {
+		opacity: 0.8;
+		text-decoration: underline;
+	}
+
+	/* Container */
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	@media (min-width: 768px) {
+		.container {
+			padding: 0 40px;
+		}
+	}
+
+	/* Prose styling */
+	.prose {
+		color: var(--clr-ink);
+	}
+
+	.prose h1,
+	.prose h2,
+	.prose h3 {
+		font-family: var(--ff-sans);
+		font-weight: 600;
+		color: var(--clr-ink);
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.prose h1 {
+		font-size: var(--fs-h1);
+		line-height: 1.1;
+	}
+
+	.prose h2 {
+		font-size: var(--fs-h2);
+		line-height: 1.15;
+	}
+
+	.prose h3 {
+		font-size: var(--fs-h3);
+		line-height: 1.2;
+	}
+
+	.prose p {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+
+	.prose a {
+		color: var(--clr-accent);
+		text-decoration: none;
+	}
+
+	.prose a:hover {
+		text-decoration: underline;
+	}
+
+	.prose ul,
+	.prose ol {
+		margin: 1.5rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.prose li {
+		margin: 0.5rem 0;
+	}
+
+	.prose strong {
+		font-weight: 600;
+		color: var(--clr-ink);
+	}
+
+	.prose table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.5rem 0;
+	}
+
+	.prose table th,
+	.prose table td {
+		padding: 0.75rem;
+		border: 1px solid var(--clr-slate-100);
+		text-align: left;
+	}
+
+	.prose table th {
+		font-weight: 600;
+		background: var(--clr-slate-100);
+	}
+
+	.prose blockquote {
+		border-left: 4px solid var(--clr-accent);
+		padding-left: 1.5rem;
+		margin: 1.5rem 0;
+		font-style: italic;
+		color: var(--clr-ink);
+		opacity: 0.8;
+	}
+}

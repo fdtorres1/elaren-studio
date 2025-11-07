@@ -1,43 +1,40 @@
-# Astro Starter Kit: Minimal
+# Elaren Studio Website
 
-```sh
-npm create astro@latest -- --template minimal
+A clean, fast static website built with Astro, TypeScript, and Tailwind CSS.
+
+## Setup
+
+1. Install dependencies:
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+2. Start the development server:
+```bash
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. Build for production:
+```bash
+npm run build
+```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Contact Form Setup
 
-Any static assets, like images, can be placed in the `public/` directory.
+The contact form uses [Web3Forms](https://web3forms.com/) (free, no signup required). To set it up:
 
-## 🧞 Commands
+1. Visit https://web3forms.com/
+2. Enter your email address to get an access key
+3. Replace `YOUR_WEB3FORMS_ACCESS_KEY` in `src/pages/contact.astro` with your access key
 
-All commands are run from the root of the project, from a terminal:
+## Content
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Content is managed in the `elaren_site_content/` folder. Each markdown file includes frontmatter with metadata (title, slug, description) and the page content below.
 
-## 👀 Want to learn more?
+## Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This site is configured for Vercel deployment. Simply connect your repository to Vercel and it will automatically build and deploy.
+
+## Brand Guidelines
+
+See `elaren_brand_kit.md` for complete brand guidelines, colors, typography, and design tokens.

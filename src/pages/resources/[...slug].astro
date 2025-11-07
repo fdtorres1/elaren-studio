@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { readFile } from 'fs/promises';
+import { parseMarkdown } from '../../utils/markdown';
+import { markdownToHtml } from '../../utils/markdownToHtml';
+
+export async function getStaticPaths() {
+	// Known resource paths
+	return [
+		{ params: { slug: 'guides/keep-a-static-site-fresh' } },
+		{ params: { slug: 'templates/project-brief' } },
+	];
+}
+
+const { slug } = Astro.params;
+const slugPath = Array.isArray(slug) ? slug.join('/') : slug;
+
+let content: string;
+try {
+	content = await readFile(`./elaren_site_content/resources/${slugPath}.md`, 'utf-8');
+} catch {
+	return Astro.redirect('/404');
+}
+
+const { frontmatter, body } = parseMarkdown(content);
+const htmlContent = markdownToHtml(body);
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+	<Header />
+	<main>
+		<section class="container py-16 md:py-24">
+			<div class="max-w-3xl">
+				<div class="prose" set:html={htmlContent} />
+				<div class="mt-8 pt-8 border-t border-slate-100">
+					<a href="/resources" class="text-accent hover:underline">← Back to Resources</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</BaseLayout>
+
