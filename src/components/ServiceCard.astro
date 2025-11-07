@@ -1,0 +1,49 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	features?: string[];
+	price?: string;
+	link?: string;
+	linkText?: string;
+}
+
+const { title, description, features = [], price, link, linkText = "Learn more →" } = Astro.props;
+---
+
+<div class="bg-paper border border-slate-100 rounded-xl p-8 hover:shadow-brand transition-all duration-300 h-full flex flex-col">
+	<div class="flex-1">
+		<h3 class="text-h3 font-semibold mb-4 text-ink">{title}</h3>
+		<p class="text-ink/70 mb-6 leading-relaxed">{description}</p>
+		
+		{features.length > 0 && (
+			<ul class="space-y-2 mb-6">
+				{features.map((feature) => (
+					<li class="flex items-start text-sm text-ink/70">
+						<svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+						</svg>
+						<span>{feature}</span>
+					</li>
+				))}
+			</ul>
+		)}
+		
+		{price && (
+			<p class="text-lg font-semibold text-ink mb-4">{price}</p>
+		)}
+	</div>
+	
+	{link && (
+		<a
+			href={link}
+			class="text-accent font-medium hover:underline inline-flex items-center group"
+		>
+			{linkText}
+			<svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+			</svg>
+		</a>
+	)}
+</div>
+

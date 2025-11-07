@@ -1,0 +1,24 @@
+---
+interface Props {
+	title: string;
+	summary: string;
+	link: string;
+}
+
+const { title, summary, link } = Astro.props;
+---
+
+<a
+	href={link}
+	class="block bg-paper border border-slate-100 rounded-xl p-8 hover:shadow-brand hover:border-accent/20 transition-all duration-300 group"
+>
+	<h3 class="text-xl font-semibold mb-3 text-ink group-hover:text-accent transition-colors">{title}</h3>
+	<p class="text-ink/70 leading-relaxed mb-4">{summary}</p>
+	<span class="text-accent font-medium inline-flex items-center group-hover:underline">
+		View case study
+		<svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+		</svg>
+	</span>
+</a>
+

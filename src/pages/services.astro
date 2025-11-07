@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
 import { readFile } from 'fs/promises';
 import { parseMarkdown } from '../utils/markdown';
 import { markdownToHtml } from '../utils/markdownToHtml';
@@ -14,12 +16,63 @@ const htmlContent = markdownToHtml(body);
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
 	<Header />
 	<main>
+		<!-- Hero -->
 		<section class="container py-16 md:py-24">
 			<div class="max-w-3xl">
+				<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink">Services</h1>
+				<p class="text-xl text-ink/80 leading-relaxed">
+					Simple services built for clarity and longevity. Every project follows a transparent process—no surprises.
+				</p>
+			</div>
+		</section>
+
+		<!-- Services Grid -->
+		<section class="container py-12 md:py-16 border-t border-slate-100">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+				<ServiceCard
+					title="Design & Build"
+					description="We create custom static websites with modern frameworks, clear hierarchy, and precise typography."
+					features={[
+						"10-day launch window",
+						"Responsive design",
+						"Global CDN deploy (Vercel or Netlify)",
+						"SEO and analytics setup"
+					]}
+					price="Starting at $2,500"
+				/>
+				<ServiceCard
+					title="Care Plans"
+					description="We keep your site current, secure, and fast—so you never worry about it again."
+					link="/plans"
+					linkText="View Care Plans →"
+				/>
+				<ServiceCard
+					title="Landing Pages"
+					description="Campaign-ready pages that convert. Fast turnaround, measurable results."
+					features={[
+						"Fast turnaround",
+						"Preview-first workflow",
+						"Conversion optimized"
+					]}
+					price="From $1,000"
+				/>
+			</div>
+
+			<div class="max-w-3xl">
 				<div class="prose" set:html={htmlContent} />
+				<div class="mt-12 pt-8 border-t border-slate-100">
+					<p class="text-lg text-ink/70 mb-6">
+						Not sure where to start?
+					</p>
+					<a
+						href="/contact"
+						class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all"
+					>
+						Schedule a quick chat
+					</a>
+				</div>
 			</div>
 		</section>
 	</main>
 	<Footer />
 </BaseLayout>
-

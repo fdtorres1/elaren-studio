@@ -166,4 +166,9 @@
 		color: var(--clr-ink);
 		opacity: 0.8;
 	}
+
+	/* Enhanced visual elements */
+	.bg-slate-50 {
+		background-color: #f8f9fa;
+	}
 }

@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WorkCard from '../components/WorkCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
 import { readFile } from 'fs/promises';
 import { parseMarkdown } from '../utils/markdown';
 import { markdownToHtml } from '../utils/markdownToHtml';
@@ -14,12 +16,48 @@ const htmlContent = markdownToHtml(body);
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
 	<Header />
 	<main>
+		<!-- Hero -->
 		<section class="container py-16 md:py-24">
 			<div class="max-w-3xl">
+				<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink">Work</h1>
+				<p class="text-xl text-ink/80 leading-relaxed">
+					We build websites that outlast trends. Each project begins with structure and ends with care.
+				</p>
+			</div>
+		</section>
+
+		<!-- Case Studies Grid -->
+		<section class="container py-12 md:py-16 border-t border-slate-100">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+				<WorkCard
+					title="Brightfield Arts"
+					summary="A lean redesign that cut load times by 78%."
+					link="/work/brightfield-arts"
+				/>
+				<WorkCard
+					title="Havenline Consulting"
+					summary="A new brand presence and simplified site map."
+					link="/work/havenline-consulting"
+				/>
+				<WorkCard
+					title="Redfern Books"
+					summary="Static build with ongoing updates under our Standard Plan."
+					link="/work/redfern-books"
+				/>
+			</div>
+
+			<div class="max-w-3xl">
 				<div class="prose" set:html={htmlContent} />
+				<div class="mt-12 pt-8 border-t border-slate-100">
+					<a
+						href="/contact"
+						class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all"
+					>
+						Start a Project
+					</a>
+				</div>
 			</div>
 		</section>
 	</main>
 	<Footer />
 </BaseLayout>
-

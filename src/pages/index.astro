@@ -2,36 +2,165 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import WorkCard from '../components/WorkCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
 import { readFile } from 'fs/promises';
 import { parseMarkdown } from '../utils/markdown';
 import { markdownToHtml } from '../utils/markdownToHtml';
 
 const content = await readFile('./elaren_site_content/index.md', 'utf-8');
 const { frontmatter, body } = parseMarkdown(content);
-const htmlContent = markdownToHtml(body);
 ---
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
 	<Header />
 	<main>
-		<section class="container py-16 md:py-24">
-			<div class="max-w-3xl">
-				<h1 class="text-h1 font-semibold mb-6 text-ink">Bright, enduring websites.</h1>
-				<p class="text-xl text-ink/80 mb-8 leading-relaxed">
+		<!-- Hero Section -->
+		<section class="container py-20 md:py-32">
+			<div class="max-w-4xl">
+				<h1 class="text-5xl md:text-6xl font-semibold mb-6 text-ink leading-tight">
+					Bright, enduring websites.
+				</h1>
+				<p class="text-xl md:text-2xl text-ink/80 mb-10 leading-relaxed max-w-3xl">
 					We design, launch, and care for clean, fast sites—so your team can focus on the work that matters.
 				</p>
+				<div class="flex flex-col sm:flex-row gap-4">
+					<a
+						href="/contact"
+						class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all text-lg"
+					>
+						Start a project
+					</a>
+					<a
+						href="/plans"
+						class="inline-flex items-center justify-center px-8 py-4 bg-paper border-2 border-slate-100 text-ink rounded-xl font-medium no-underline hover:border-accent/30 hover:shadow-sm transition-all text-lg"
+					>
+						View care plans
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section class="container py-16 md:py-24 border-t border-slate-100">
+			<SectionHeading
+				kicker="What we do"
+				title="Simple services built for clarity and longevity"
+				description="Every project follows a transparent process—no surprises, just clean results."
+			/>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<ServiceCard
+					title="Design & Build"
+					description="Custom static websites with modern frameworks, clear hierarchy, and precise typography."
+					features={[
+						"10-day launch window",
+						"Responsive design",
+						"Global CDN deploy",
+						"SEO and analytics setup"
+					]}
+					price="Starting at $2,500"
+					link="/services"
+					linkText="Learn more →"
+				/>
+				<ServiceCard
+					title="Care Plans"
+					description="We keep your site current, secure, and fast—so you never worry about it again."
+					features={[
+						"Monthly updates",
+						"Uptime monitoring",
+						"Security patches",
+						"Priority support"
+					]}
+					price="From $129/month"
+					link="/plans"
+					linkText="View plans →"
+				/>
+				<ServiceCard
+					title="Landing Pages"
+					description="Campaign-ready pages that convert. Fast turnaround, measurable results."
+					features={[
+						"Fast turnaround",
+						"Preview-first workflow",
+						"Conversion optimized",
+						"Analytics included"
+					]}
+					price="From $1,000"
+					link="/services"
+					linkText="Learn more →"
+				/>
+			</div>
+		</section>
+
+		<!-- Approach Section -->
+		<section class="container py-16 md:py-24 border-t border-slate-100">
+			<div class="max-w-3xl">
+				<SectionHeading
+					kicker="Our approach"
+					title="Structure. Light. Clarity."
+				/>
+				<div class="prose prose-lg" set:html={markdownToHtml("Every Elaren site starts with a clear structure, intentional typography, and a global CDN. No clutter. No bloat. Just clean, enduring architecture that stands the test of time.")} />
+			</div>
+		</section>
+
+		<!-- Work Preview -->
+		<section class="container py-16 md:py-24 border-t border-slate-100">
+			<SectionHeading
+				kicker="Selected work"
+				title="Websites that outlast trends"
+				description="Each project begins with structure and ends with care."
+			/>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<WorkCard
+					title="Brightfield Arts"
+					summary="A lean redesign that cut load times by 78%."
+					link="/work/brightfield-arts"
+				/>
+				<WorkCard
+					title="Havenline Consulting"
+					summary="A new brand presence and simplified site map."
+					link="/work/havenline-consulting"
+				/>
+				<WorkCard
+					title="Redfern Books"
+					summary="Static build with ongoing updates under our Standard Plan."
+					link="/work/redfern-books"
+				/>
+			</div>
+			<div class="mt-12 text-center">
 				<a
-					href="/contact"
-					class="inline-block px-6 py-3 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all"
+					href="/work"
+					class="text-accent font-medium hover:underline inline-flex items-center"
 				>
-					Start a project
+					View all work
+					<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+					</svg>
 				</a>
 			</div>
 		</section>
 
-		<section class="container py-12 border-t border-slate-100">
-			<div class="max-w-3xl">
-				<div class="prose" set:html={htmlContent} />
+		<!-- CTA Section -->
+		<section class="container py-16 md:py-24 border-t border-slate-100">
+			<div class="max-w-3xl mx-auto text-center bg-slate-50 rounded-2xl p-12 md:p-16">
+				<h2 class="text-3xl md:text-4xl font-semibold mb-4 text-ink">Ready to build something enduring?</h2>
+				<p class="text-lg text-ink/70 mb-8 leading-relaxed">
+					Let's start with a conversation about your goals and how we can help.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a
+						href="/contact"
+						class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all"
+					>
+						Start a project
+					</a>
+					<a
+						href="/contact"
+						class="inline-flex items-center justify-center px-8 py-4 bg-paper border-2 border-slate-200 text-ink rounded-xl font-medium no-underline hover:border-accent/30 transition-all"
+					>
+						Book a call
+					</a>
+				</div>
 			</div>
 		</section>
 	</main>

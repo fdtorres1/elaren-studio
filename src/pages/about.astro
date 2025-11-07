@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
 import { readFile } from 'fs/promises';
 import { parseMarkdown } from '../utils/markdown';
 import { markdownToHtml } from '../utils/markdownToHtml';
@@ -14,12 +15,72 @@ const htmlContent = markdownToHtml(body);
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
 	<Header />
 	<main>
+		<!-- Hero -->
 		<section class="container py-16 md:py-24">
 			<div class="max-w-3xl">
-				<div class="prose" set:html={htmlContent} />
+				<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink">Structure illuminated.</h1>
+				<p class="text-xl text-ink/80 leading-relaxed">
+					Elaren Studio was founded on a simple idea: websites should be as clear and enduring as the work they represent.
+				</p>
+			</div>
+		</section>
+
+		<!-- Main Content -->
+		<section class="container py-12 md:py-16 border-t border-slate-100">
+			<div class="max-w-3xl">
+				<div class="prose prose-lg" set:html={htmlContent} />
+			</div>
+		</section>
+
+		<!-- Values Section -->
+		<section class="container py-16 md:py-24 border-t border-slate-100">
+			<SectionHeading
+				kicker="Our values"
+				title="Clarity · Craft · Reliability · Pace · Respect"
+			/>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+				<div class="bg-slate-50 rounded-xl p-8 border border-slate-100">
+					<h3 class="text-xl font-semibold mb-3 text-ink">Clarity by design</h3>
+					<p class="text-ink/70 leading-relaxed">
+						Simple layouts, typographic hierarchy, lean components. We strip away complexity to reveal what matters.
+					</p>
+				</div>
+				<div class="bg-slate-50 rounded-xl p-8 border border-slate-100">
+					<h3 class="text-xl font-semibold mb-3 text-ink">Built to endure</h3>
+					<p class="text-ink/70 leading-relaxed">
+						Static stack, global CDN, minimal dependencies. Your site stays fast and reliable for years, not months.
+					</p>
+				</div>
+				<div class="bg-slate-50 rounded-xl p-8 border border-slate-100">
+					<h3 class="text-xl font-semibold mb-3 text-ink">Care that scales</h3>
+					<p class="text-ink/70 leading-relaxed">
+						Lightweight monthly updates, proactive checks, usage alerts. We handle the details so you don't have to.
+					</p>
+				</div>
+				<div class="bg-slate-50 rounded-xl p-8 border border-slate-100">
+					<h3 class="text-xl font-semibold mb-3 text-ink">Respect for your time</h3>
+					<p class="text-ink/70 leading-relaxed">
+						No unnecessary meetings, no jargon, no surprises. Just clear communication and steady progress.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="container py-16 md:py-24 border-t border-slate-100">
+			<div class="max-w-2xl mx-auto text-center">
+				<h2 class="text-3xl font-semibold mb-4 text-ink">Ready to work together?</h2>
+				<p class="text-lg text-ink/70 mb-8 leading-relaxed">
+					Let's start a conversation about your project.
+				</p>
+				<a
+					href="/contact"
+					class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all"
+				>
+					Start a Project
+				</a>
 			</div>
 		</section>
 	</main>
 	<Footer />
 </BaseLayout>
-
