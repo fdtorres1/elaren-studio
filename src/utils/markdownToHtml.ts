@@ -47,7 +47,7 @@ export function markdownToHtml(markdown: string): string {
 	html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
 
 	// Links [text](url)
-	html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-accent hover:underline">$1</a>');
+	html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-ink font-medium hover:text-accent hover:underline transition-colors">$1</a>');
 
 	// Lists - handle unordered lists
 	const listRegex = /((?:^\- .+(?:\n|$))+)/gm;
