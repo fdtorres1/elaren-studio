@@ -36,9 +36,9 @@ const { name, price, features, popular = false } = Astro.props;
 	</div>
 	<a
 		href="/contact"
-		class={`block text-center px-6 py-3 rounded-xl font-medium no-underline transition-all ${
+		class={`block text-center px-6 py-3 rounded-xl font-semibold no-underline transition-all duration-200 ${
 			popular
-				? 'bg-accent text-paper hover:opacity-90 hover:shadow-brand'
+				? 'bg-accent text-paper shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5'
 				: 'bg-slate-50 text-ink border border-slate-100 hover:border-accent/30'
 		}`}
 	>

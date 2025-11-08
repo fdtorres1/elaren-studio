@@ -7,7 +7,6 @@ export default {
 				ink: '#101317',
 				paper: '#ffffff',
 				accent: '#3A78FF', // Original brand blue (Lumen)
-				accentOld: '#2C3E50', // Deep charcoal slate - kept for reference
 				slate: {
 					50: '#F8F9FA',
 					100: '#E6EAF0',

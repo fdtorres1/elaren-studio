@@ -18,8 +18,6 @@
 		--fs-small: 0.875rem;
 
 		--radius: 14px;
-		--shadow: 0 6px 30px rgba(16,19,23,0.08);
-		--gap: 1.25rem;
 		--line: 1px solid var(--clr-slate-100);
 	}
 
@@ -173,29 +171,20 @@
 		background-color: #f8f9fa;
 	}
 
-	/* Custom gradient stops for hero */
-	.bg-gradient-to-t.from-slate-150 {
-		background: linear-gradient(to top, #e2e8f0 0%, #f1f5f9 50%, #ffffff 100%);
-	}
-
-	/* Ensure accent color works for buttons */
+	/* Button styles - consolidated */
 	.bg-accent {
 		background-color: var(--clr-accent) !important;
-	}
-
-	/* Ensure button text is white */
-	.bg-accent,
-	.bg-accent * {
 		color: var(--clr-paper) !important;
-	}
-
-	/* Enhanced button hover effects - works with Tailwind classes */
-	.bg-accent {
 		transition: all 0.2s ease-in-out;
 		box-shadow: 0 10px 25px rgba(58, 120, 255, 0.25) !important;
+	}
+
+	.bg-accent * {
+		color: var(--clr-paper) !important;
 	}
 
 	.bg-accent:hover {
 		box-shadow: 0 15px 35px rgba(58, 120, 255, 0.4) !important;
 	}
+
 }
