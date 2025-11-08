@@ -19,18 +19,14 @@ const navItems = [
 				{navItems.map((item) => (
 					<a
 						href={item.href}
-						class={`text-sm font-medium no-underline transition-colors ${
-							currentPath === item.href || currentPath.startsWith(item.href + '/')
-								? 'text-accent'
-								: 'text-ink/70 hover:text-ink'
-						}`}
+						class="text-sm font-medium no-underline text-ink hover:text-ink/80 transition-colors !text-ink"
 					>
 						{item.label}
 					</a>
 				))}
 				<a
 					href="/contact"
-					class="px-5 py-2.5 bg-accent text-paper rounded-xl text-sm font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all"
+					class="px-5 py-2.5 bg-accent text-paper rounded-xl text-sm font-semibold no-underline shadow-md shadow-accent/30 hover:shadow-lg hover:shadow-accent/40 hover:-translate-y-0.5 transition-all duration-200"
 				>
 					Start a project
 				</a>

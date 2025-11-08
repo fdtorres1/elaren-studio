@@ -11,8 +11,13 @@ interface Props {
 const { title, description, features = [], price, link, linkText = "Learn more →" } = Astro.props;
 ---
 
-<div class="bg-paper border border-slate-100 rounded-xl p-8 hover:shadow-brand transition-all duration-300 h-full flex flex-col">
+<div class="bg-paper border-2 border-slate-100 rounded-xl p-8 hover:shadow-brand hover:border-accent/20 transition-all duration-300 h-full flex flex-col group">
 	<div class="flex-1">
+		<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+			<svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+			</svg>
+		</div>
 		<h3 class="text-h3 font-semibold mb-4 text-ink">{title}</h3>
 		<p class="text-ink/70 mb-6 leading-relaxed">{description}</p>
 		

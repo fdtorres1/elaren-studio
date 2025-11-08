@@ -4,7 +4,7 @@
 	:root {
 		--clr-ink: #101317;
 		--clr-paper: #ffffff;
-		--clr-accent: #3A78FF;
+		--clr-accent: #3A78FF; /* Original brand blue (Lumen) */
 		--clr-slate-900: #0F1720;
 		--clr-slate-100: #E6EAF0;
 
@@ -57,13 +57,14 @@
 		font-size: var(--fs-body);
 	}
 
-	a {
+	/* Base link styles - can be overridden by Tailwind classes */
+	a:not([class*="text-"]) {
 		color: var(--clr-accent);
 		text-decoration: none;
 		transition: opacity 0.2s;
 	}
 
-	a:hover {
+	a:not([class*="text-"]):hover {
 		opacity: 0.8;
 		text-decoration: underline;
 	}
@@ -170,5 +171,21 @@
 	/* Enhanced visual elements */
 	.bg-slate-50 {
 		background-color: #f8f9fa;
+	}
+
+	/* Ensure accent color works for buttons */
+	.bg-accent {
+		background-color: var(--clr-accent) !important;
+	}
+
+	/* Ensure button text is white */
+	.bg-accent,
+	.bg-accent * {
+		color: var(--clr-paper) !important;
+	}
+
+	/* Enhanced button hover effects - works with Tailwind classes */
+	.bg-accent {
+		transition: all 0.2s ease-in-out;
 	}
 }

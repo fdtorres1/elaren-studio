@@ -10,8 +10,10 @@ const { title, summary, link } = Astro.props;
 
 <a
 	href={link}
-	class="block bg-paper border border-slate-100 rounded-xl p-8 hover:shadow-brand hover:border-accent/20 transition-all duration-300 group"
+	class="block bg-paper border-2 border-slate-100 rounded-xl p-8 hover:shadow-brand hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
 >
+	<div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+	<div class="relative z-10">
 	<h3 class="text-xl font-semibold mb-3 text-ink group-hover:text-accent transition-colors">{title}</h3>
 	<p class="text-ink/70 leading-relaxed mb-4">{summary}</p>
 	<span class="text-accent font-medium inline-flex items-center group-hover:underline">
@@ -20,5 +22,6 @@ const { title, summary, link } = Astro.props;
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 		</svg>
 	</span>
+	</div>
 </a>
 

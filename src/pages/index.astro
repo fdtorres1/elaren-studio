@@ -16,150 +16,213 @@ const { frontmatter, body } = parseMarkdown(content);
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
 	<Header />
 	<main>
-		<!-- Hero Section -->
-		<section class="container py-20 md:py-32">
-			<div class="max-w-4xl">
-				<h1 class="text-5xl md:text-6xl font-semibold mb-6 text-ink leading-tight">
-					Bright, enduring websites.
-				</h1>
-				<p class="text-xl md:text-2xl text-ink/80 mb-10 leading-relaxed max-w-3xl">
-					We design, launch, and care for clean, fast sites—so your team can focus on the work that matters.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4">
+		<!-- Hero Section with gradient background -->
+		<section class="relative bg-gradient-to-br from-slate-50 via-paper to-slate-100 py-20 md:py-32 overflow-hidden">
+			<!-- Decorative elements -->
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+			<div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-200/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+			
+			<div class="container relative z-10">
+				<div class="max-w-4xl">
+					<h1 class="text-5xl md:text-6xl font-semibold mb-6 text-ink leading-tight">
+						Bright, enduring websites.
+					</h1>
+					<p class="text-xl md:text-2xl text-ink/80 mb-10 leading-relaxed max-w-3xl">
+						We design, launch, and care for clean, fast sites—so your team can focus on the work that matters.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a
+							href="/contact"
+							class="group inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5 transition-all duration-200 text-lg"
+						>
+							Start a project
+							<svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+							</svg>
+						</a>
+						<a
+							href="/plans"
+							class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5 transition-all duration-200 text-lg"
+						>
+							View care plans
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Section with light background -->
+		<section class="bg-slate-50 py-16 md:py-24 relative">
+			<div class="container">
+				<SectionHeading
+					kicker="What we do"
+					title="Simple services built for clarity and longevity"
+					description="Every project follows a transparent process—no surprises, just clean results."
+				/>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<ServiceCard
+						title="Design & Build"
+						description="Custom static websites with modern frameworks, clear hierarchy, and precise typography."
+						features={[
+							"10-day launch window",
+							"Responsive design",
+							"Global CDN deploy",
+							"SEO and analytics setup"
+						]}
+						price="Starting at $2,500"
+						link="/services"
+						linkText="Learn more →"
+					/>
+					<ServiceCard
+						title="Care Plans"
+						description="We keep your site current, secure, and fast—so you never worry about it again."
+						features={[
+							"Monthly updates",
+							"Uptime monitoring",
+							"Security patches",
+							"Priority support"
+						]}
+						price="From $129/month"
+						link="/plans"
+						linkText="View plans →"
+					/>
+					<ServiceCard
+						title="Landing Pages"
+						description="Campaign-ready pages that convert. Fast turnaround, measurable results."
+						features={[
+							"Fast turnaround",
+							"Preview-first workflow",
+							"Conversion optimized",
+							"Analytics included"
+						]}
+						price="From $1,000"
+						link="/services"
+						linkText="Learn more →"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Approach Section with accent accent -->
+		<section class="bg-paper py-16 md:py-24 relative">
+			<div class="container">
+				<div class="max-w-4xl">
+					<div class="flex items-start gap-6 mb-12">
+						<div class="w-2 h-24 bg-gradient-to-b from-slate-600 to-slate-400 rounded-full flex-shrink-0 mt-2"></div>
+						<div class="flex-1">
+							<SectionHeading
+								kicker="Our approach"
+								title="Structure. Light. Clarity."
+							/>
+							<div class="prose prose-lg" set:html={markdownToHtml("Every Elaren site starts with a clear structure, intentional typography, and a global CDN. No clutter. No bloat. Just clean, enduring architecture that stands the test of time.")} />
+						</div>
+					</div>
+					
+					<!-- Visual elements -->
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+						<div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-200">
+							<div class="w-12 h-12 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-3">
+								<svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+								</svg>
+							</div>
+							<h4 class="font-semibold text-ink mb-1">Structure</h4>
+							<p class="text-sm text-ink/60">Clear hierarchy</p>
+						</div>
+						<div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-200">
+							<div class="w-12 h-12 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-3">
+								<svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+								</svg>
+							</div>
+							<h4 class="font-semibold text-ink mb-1">Light</h4>
+							<p class="text-sm text-ink/60">Fast & lean</p>
+						</div>
+						<div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-200">
+							<div class="w-12 h-12 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-3">
+								<svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+								</svg>
+							</div>
+							<h4 class="font-semibold text-ink mb-1">Clarity</h4>
+							<p class="text-sm text-ink/60">Purposeful design</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Work Preview with prominent gradient background -->
+		<section class="relative bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200/60 py-16 md:py-24 overflow-hidden">
+			<!-- Decorative gradient elements -->
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-300/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+			<div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-300/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+			
+			<div class="container relative z-10">
+				<SectionHeading
+					kicker="Selected work"
+					title="Websites that outlast trends"
+					description="Each project begins with structure and ends with care."
+				/>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<WorkCard
+						title="Brightfield Arts"
+						summary="A lean redesign that cut load times by 78%."
+						link="/work/brightfield-arts"
+					/>
+					<WorkCard
+						title="Havenline Consulting"
+						summary="A new brand presence and simplified site map."
+						link="/work/havenline-consulting"
+					/>
+					<WorkCard
+						title="Redfern Books"
+						summary="Static build with ongoing updates under our Standard Plan."
+						link="/work/redfern-books"
+					/>
+				</div>
+				<div class="mt-12 text-center">
 					<a
-						href="/contact"
-						class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all text-lg"
+						href="/work"
+						class="inline-flex items-center px-6 py-3 bg-accent text-paper rounded-xl font-semibold shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5 transition-all duration-200"
 					>
-						Start a project
-					</a>
-					<a
-						href="/plans"
-						class="inline-flex items-center justify-center px-8 py-4 bg-paper border-2 border-slate-100 text-ink rounded-xl font-medium no-underline hover:border-accent/30 hover:shadow-sm transition-all text-lg"
-					>
-						View care plans
+						View all work
+						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+						</svg>
 					</a>
 				</div>
 			</div>
 		</section>
 
-		<!-- Services Section -->
-		<section class="container py-16 md:py-24 border-t border-slate-100">
-			<SectionHeading
-				kicker="What we do"
-				title="Simple services built for clarity and longevity"
-				description="Every project follows a transparent process—no surprises, just clean results."
-			/>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				<ServiceCard
-					title="Design & Build"
-					description="Custom static websites with modern frameworks, clear hierarchy, and precise typography."
-					features={[
-						"10-day launch window",
-						"Responsive design",
-						"Global CDN deploy",
-						"SEO and analytics setup"
-					]}
-					price="Starting at $2,500"
-					link="/services"
-					linkText="Learn more →"
-				/>
-				<ServiceCard
-					title="Care Plans"
-					description="We keep your site current, secure, and fast—so you never worry about it again."
-					features={[
-						"Monthly updates",
-						"Uptime monitoring",
-						"Security patches",
-						"Priority support"
-					]}
-					price="From $129/month"
-					link="/plans"
-					linkText="View plans →"
-				/>
-				<ServiceCard
-					title="Landing Pages"
-					description="Campaign-ready pages that convert. Fast turnaround, measurable results."
-					features={[
-						"Fast turnaround",
-						"Preview-first workflow",
-						"Conversion optimized",
-						"Analytics included"
-					]}
-					price="From $1,000"
-					link="/services"
-					linkText="Learn more →"
-				/>
-			</div>
-		</section>
-
-		<!-- Approach Section -->
-		<section class="container py-16 md:py-24 border-t border-slate-100">
-			<div class="max-w-3xl">
-				<SectionHeading
-					kicker="Our approach"
-					title="Structure. Light. Clarity."
-				/>
-				<div class="prose prose-lg" set:html={markdownToHtml("Every Elaren site starts with a clear structure, intentional typography, and a global CDN. No clutter. No bloat. Just clean, enduring architecture that stands the test of time.")} />
-			</div>
-		</section>
-
-		<!-- Work Preview -->
-		<section class="container py-16 md:py-24 border-t border-slate-100">
-			<SectionHeading
-				kicker="Selected work"
-				title="Websites that outlast trends"
-				description="Each project begins with structure and ends with care."
-			/>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				<WorkCard
-					title="Brightfield Arts"
-					summary="A lean redesign that cut load times by 78%."
-					link="/work/brightfield-arts"
-				/>
-				<WorkCard
-					title="Havenline Consulting"
-					summary="A new brand presence and simplified site map."
-					link="/work/havenline-consulting"
-				/>
-				<WorkCard
-					title="Redfern Books"
-					summary="Static build with ongoing updates under our Standard Plan."
-					link="/work/redfern-books"
-				/>
-			</div>
-			<div class="mt-12 text-center">
-				<a
-					href="/work"
-					class="text-accent font-medium hover:underline inline-flex items-center"
-				>
-					View all work
-					<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-					</svg>
-				</a>
-			</div>
-		</section>
-
-		<!-- CTA Section -->
-		<section class="container py-16 md:py-24 border-t border-slate-100">
-			<div class="max-w-3xl mx-auto text-center bg-slate-50 rounded-2xl p-12 md:p-16">
-				<h2 class="text-3xl md:text-4xl font-semibold mb-4 text-ink">Ready to build something enduring?</h2>
-				<p class="text-lg text-ink/70 mb-8 leading-relaxed">
-					Let's start with a conversation about your goals and how we can help.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a
-						href="/contact"
-						class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-medium no-underline hover:opacity-90 hover:shadow-brand transition-all"
-					>
-						Start a project
-					</a>
-					<a
-						href="/contact"
-						class="inline-flex items-center justify-center px-8 py-4 bg-paper border-2 border-slate-200 text-ink rounded-xl font-medium no-underline hover:border-accent/30 transition-all"
-					>
-						Book a call
-					</a>
+		<!-- CTA Section with distinct white background and border -->
+		<section class="bg-paper border-t-2 border-slate-200 py-16 md:py-24">
+			<div class="container">
+				<div class="max-w-3xl mx-auto text-center">
+					<div class="inline-block mb-8">
+						<div class="w-16 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 rounded-full mx-auto"></div>
+					</div>
+					<h2 class="text-3xl md:text-4xl font-semibold mb-4 text-ink">Ready to build something enduring?</h2>
+					<p class="text-lg text-ink/70 mb-8 leading-relaxed">
+						Let's start with a conversation about your goals and how we can help.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<a
+							href="/contact"
+							class="group inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5 transition-all duration-200"
+						>
+							Start a project
+							<svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+							</svg>
+						</a>
+						<a
+							href="/contact"
+							class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5 transition-all duration-200"
+						>
+							Book a call
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
