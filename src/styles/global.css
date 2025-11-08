@@ -173,6 +173,11 @@
 		background-color: #f8f9fa;
 	}
 
+	/* Custom gradient stops for hero */
+	.bg-gradient-to-t.from-slate-150 {
+		background: linear-gradient(to top, #e2e8f0 0%, #f1f5f9 50%, #ffffff 100%);
+	}
+
 	/* Ensure accent color works for buttons */
 	.bg-accent {
 		background-color: var(--clr-accent) !important;
@@ -187,5 +192,10 @@
 	/* Enhanced button hover effects - works with Tailwind classes */
 	.bg-accent {
 		transition: all 0.2s ease-in-out;
+		box-shadow: 0 10px 25px rgba(58, 120, 255, 0.25) !important;
+	}
+
+	.bg-accent:hover {
+		box-shadow: 0 15px 35px rgba(58, 120, 255, 0.4) !important;
 	}
 }
