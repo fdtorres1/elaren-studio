@@ -2,26 +2,19 @@
 interface Props {
 	title: string;
 	summary: string;
-	link: string;
+	link?: string;
 }
 
 const { title, summary, link } = Astro.props;
 ---
 
-<a
-	href={link}
+<div
 	class="block bg-paper border-2 border-slate-200 rounded-xl p-8 shadow-md hover:shadow-xl hover:shadow-slate-900/10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden text-ink"
 >
 	<div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 	<div class="relative z-10">
-	<h3 class="text-xl font-semibold mb-3">{title}</h3>
-	<p class="leading-relaxed mb-4">{summary}</p>
-	<span class="font-medium inline-flex items-center group-hover:underline">
-		View case study
-		<svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-		</svg>
-	</span>
+		<h3 class="text-xl font-semibold mb-3">{title}</h3>
+		<p class="leading-relaxed">{summary}</p>
 	</div>
-</a>
+</div>
 
