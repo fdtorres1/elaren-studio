@@ -1,0 +1,657 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PricingProofSection from '../components/PricingProofSection.astro';
+
+// Format currency
+const usd = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+// WaaS Plans
+const WAAS_PLANS = [
+	{
+		key: 'starter',
+		title: 'Starter',
+		price: 175,
+		badge: undefined,
+		features: [
+			'Up to 5 pages',
+			'Unlimited small edits (≤15 min each)',
+			'2‑business‑day response time',
+			'Quarterly performance & SEO tune‑up',
+			'Own design & code after 12 months',
+		],
+	},
+	{
+		key: 'standard',
+		title: 'Standard',
+		price: 275,
+		badge: 'Most Popular',
+		features: [
+			'Up to 10 pages',
+			'Unlimited small edits (≤15 min each)',
+			'+1 hour dev time / month + 1 new page / quarter',
+			'Priority 48‑hour response time',
+			'Monthly analytics email',
+			'24‑month price lock + design refresh',
+		],
+	},
+	{
+		key: 'plus',
+		title: 'Plus',
+		price: 425,
+		badge: undefined,
+		features: [
+			'Up to 15 pages',
+			'Unlimited small edits (≤15 min each)',
+			'+2 hours dev time / month + 1 new page / quarter',
+			'Quarterly UX/SEO review + content piece',
+			'24‑hour response time',
+			'24‑month price lock + design refresh',
+		],
+	},
+];
+
+const BUNDLE = {
+	title: 'All‑in Growth Bundle',
+	priceMonthly: 1600,
+	priceAnnual: 17600,
+	bullets: [
+		'WaaS management (hosting, SSL/CDN, backups, monitoring, DNS, analytics, small edits)',
+		'Full ongoing SEO (technical & on‑page upkeep, local/GBP, content optimization, light link acquisition, reporting call)',
+		'1 SEO‑researched blog post (800–1,000 words) per month',
+		'Local Exclusivity: one client per industry per city while engaged. Multi‑city or multi‑service exclusivity available as a paid upgrade.',
+	],
+};
+
+const BUILDS = [
+	{
+		key: 'launch',
+		title: 'Launch',
+		price: 3800,
+		bullets: [
+			'Custom Next.js/Tailwind',
+			'Up to 5 pages',
+			'Mobile‑first design',
+			'Performance‑focused',
+			'Training + Loom videos',
+			'60‑day post‑launch warranty',
+		],
+	},
+	{
+		key: 'grow',
+		title: 'Grow',
+		price: 5600,
+		bullets: [
+			'Custom Next.js/Tailwind',
+			'Up to 10 pages',
+			'Mobile‑first design',
+			'Performance‑focused',
+			'Training + Loom videos',
+			'60‑day post‑launch warranty',
+		],
+	},
+	{
+		key: 'prime',
+		title: 'Prime (optional)',
+		price: 7200,
+		bullets: [
+			'Custom Next.js/Tailwind',
+			'Up to 15 pages',
+			'Mobile‑first design',
+			'Performance‑focused',
+			'Training + Loom videos',
+			'60‑day post‑launch warranty',
+		],
+	},
+];
+
+const CARE = [
+	{
+		key: 'lite',
+		title: 'Care‑Lite',
+		price: 25,
+		bullets: ['Hosting & SSL', 'Backups & uptime monitoring', 'Core updates'],
+	},
+	{
+		key: 'unlimited',
+		title: 'Care‑Unlimited',
+		price: 75,
+		bullets: ['Everything in Lite', 'Unlimited small edits'],
+	},
+];
+
+const ADDONS_PRIMARY = [
+	{ title: 'SEO – Core', price: '$750/mo', desc: 'Foundational ongoing SEO for SMBs' },
+	{ title: 'SEO – Pro', price: '$1,200/mo', desc: 'Deeper SEO incl. local + light link acquisition' },
+	{ title: 'Blog writing', price: '$150/post • 2/mo $280 • 4/mo $540', desc: '800–1,000 words, SEO brief, on‑page optimization' },
+	{ title: 'Google Business Profile setup/optimize', price: '$249 one‑time', desc: 'Listing claim, categories, visuals, optimization' },
+	{ title: 'Email setup (Google/Microsoft)', price: '$150 one‑time', desc: 'DNS + SPF/DKIM; mailbox fees pass‑through' },
+	{ title: 'Additional page (post‑launch)', price: '$150/page', desc: 'Design + build (content provided)' },
+	{ title: 'Performance sprint', price: '$450 one‑time', desc: 'Core Web Vitals improvements' },
+];
+
+const ADDONS_ADVANCED = [
+	{ title: 'Accessibility audit', price: '$650 one‑time', desc: 'WCAG 2.1 AA checklist + fixes plan' },
+	{ title: 'Booking/Calendaring integration', price: '$300 one‑time', desc: 'Calendly/SavvyCal embed + routing' },
+	{ title: 'Analytics Pro', price: '$200 one‑time + $15/mo', desc: 'Custom dashboards, goals/events' },
+	{ title: 'Illustration/Iconography', price: '$150 each', desc: 'Custom SVGs matching your brand' },
+	{ title: '24/7 content support add‑on', price: '$29/mo', desc: 'Human coverage for non‑emergency edits' },
+];
+
+const waasRows = [
+	{ label: 'Pages included', values: ['Up to 5', 'Up to 10', 'Up to 15'] },
+	{ label: 'Small edits', values: ['Unlimited', 'Unlimited', 'Unlimited'] },
+	{ label: 'Dev time / month', values: ['—', '1 hour', '2 hours'] },
+	{ label: 'New pages / quarter', values: ['—', '1', '1'] },
+	{ label: 'SLA', values: ['2 business days', '48 hours', '24 hours'] },
+	{ label: 'Quarterly UX/SEO review', values: ['—', '—', 'Included'] },
+	{ label: 'Content included', values: ['—', '—', 'Quarterly blog or landing page'] },
+	{ label: 'Early buy‑out', values: ['6× monthly', '7× monthly', '8× monthly'] },
+];
+---
+
+<BaseLayout title="Pricing" description="Simple, transparent pricing. Two ways to get your website.">
+	<Header />
+	<main>
+		<!-- Sticky sub-nav -->
+		<nav class="sticky top-0 z-20 border-b border-slate-200 bg-paper/80 backdrop-blur">
+			<div class="container flex items-center justify-between py-3 text-sm">
+				<div class="flex gap-4">
+					<a href="#waas" class="text-ink/70 hover:text-accent transition-colors">WaaS</a>
+					<a href="#bundle" class="text-ink/70 hover:text-accent transition-colors">Growth Bundle</a>
+					<a href="#builds" class="text-ink/70 hover:text-accent transition-colors">One‑time Builds</a>
+					<a href="#addons" class="text-ink/70 hover:text-accent transition-colors">Add‑ons</a>
+					<a href="#faqs" class="text-ink/70 hover:text-accent transition-colors">FAQs</a>
+					<a href="#proof" class="text-ink/70 hover:text-accent transition-colors">Why our pricing is fair</a>
+				</div>
+				<div>
+					<a
+						href="/contact"
+						class="inline-flex items-center px-4 py-1.5 bg-accent text-paper rounded-full font-medium no-underline shadow-md shadow-accent/30 hover:shadow-xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+					>
+						Get a proposal
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero -->
+		<section class="container py-16 md:py-24">
+			<div class="max-w-3xl">
+				<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Pricing</p>
+				<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink">Simple, transparent pricing. Two ways to get your website.</h1>
+				<p class="text-xl text-ink/80 leading-relaxed mb-6">
+					Lease it (WaaS) with $0 down and ongoing improvements, or buy it up‑front and add a light monthly care plan.
+				</p>
+				<div class="flex flex-wrap items-center gap-2 mb-6">
+					<span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-ink/70 whitespace-nowrap">Custom‑coded (Next.js + Tailwind)</span>
+					<span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-ink/70 whitespace-nowrap">Hosting, SSL/CDN & backups included</span>
+					<span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-ink/70 whitespace-nowrap">Performance monitoring & analytics</span>
+				</div>
+				<div class="flex flex-wrap gap-3">
+					<a href="#waas" class="inline-flex items-center px-4 py-2 bg-accent text-paper rounded-xl font-medium no-underline shadow-md shadow-accent/30 hover:shadow-xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200">
+						Compare WaaS plans
+					</a>
+					<a href="#builds" class="inline-flex items-center px-4 py-2 border-2 border-slate-200 text-ink rounded-xl font-medium no-underline hover:bg-slate-50 transition-colors">
+						See one‑time builds
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- WAAS PLANS -->
+		<section id="waas" class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
+			<!-- Decorative gradient elements -->
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-300/25 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+			<div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-300/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+			<div class="absolute top-1/2 left-1/4 w-72 h-72 bg-slate-300/15 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+			
+			<div class="container relative z-10">
+				<div class="max-w-3xl mb-8">
+					<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">Website‑as‑a‑Service (WaaS) — $0 down, hosting included</h2>
+					<p class="text-ink/70">
+						All plans include hosting, SSL/CDN, backups, uptime monitoring, analytics, DNS management, and email/ticket support.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+					{WAAS_PLANS.map((p) => (
+						<div
+							class={`relative flex h-full flex-col rounded-xl border-2 bg-paper p-8 shadow-md transition-all duration-300 ${
+								p.badge === 'Most Popular'
+									? 'border-accent shadow-xl shadow-slate-900/20 -translate-y-2'
+									: 'border-slate-200 hover:shadow-xl hover:shadow-slate-900/10 hover:border-accent/30 hover:-translate-y-1'
+							}`}
+						>
+							{/* Fixed height container for badge to align headings */}
+							<div class="h-6 mb-2 relative">
+								{p.badge && (
+									<div class="absolute -top-3 left-1/2 -translate-x-1/2">
+										<span class="inline-block px-4 py-1.5 bg-accent text-paper text-xs font-bold uppercase tracking-wider rounded-full shadow-lg">
+											{p.badge}
+										</span>
+									</div>
+								)}
+							</div>
+							<h3 class="text-2xl font-semibold mb-2 text-ink">{p.title}</h3>
+							<div class="mb-6 flex items-baseline">
+								<span class="text-4xl font-bold text-ink">{usd(p.price)}</span>
+								<span class="text-ink/60 ml-2">/month</span>
+							</div>
+							<ul class="flex-1 space-y-3 mb-8 text-sm text-ink/70">
+								{p.features.map((f) => (
+									<li class="flex items-start">
+										<svg class="w-5 h-5 text-accent mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+										</svg>
+										<span>{f}</span>
+									</li>
+								))}
+							</ul>
+							<a
+								href="/contact"
+								class={`block text-center px-6 py-3 rounded-xl font-semibold no-underline transition-all duration-200 ${
+									p.badge === 'Most Popular'
+										? 'bg-accent text-paper shadow-md shadow-accent/30 hover:shadow-xl hover:shadow-accent/50 hover:-translate-y-1'
+										: 'bg-slate-50 text-ink border border-slate-200 hover:border-accent/30 shadow-md hover:shadow-lg hover:-translate-y-0.5'
+								}`}
+							>
+								Get Started
+							</a>
+						</div>
+					))}
+				</div>
+
+				<!-- Comparison table (optional) -->
+				<details class="max-w-4xl mx-auto">
+					<summary class="cursor-pointer text-sm text-ink/70 hover:text-ink font-medium mb-4 list-none text-center">
+						<span class="inline-flex items-center gap-2">
+							<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+							Compare plans side-by-side
+						</span>
+					</summary>
+					<div class="bg-paper rounded-xl border-2 border-slate-200 shadow-md overflow-hidden mt-4">
+						<div class="overflow-x-auto">
+							<table class="w-full table-fixed border-separate border-spacing-0 text-sm">
+								<thead>
+									<tr class="bg-slate-50">
+										<th class="w-48 px-4 py-3 text-left font-semibold text-ink border-b border-slate-200">Compare</th>
+										{WAAS_PLANS.map((p) => (
+											<th key={p.key} class="w-40 px-4 py-3 text-left font-semibold text-ink border-b border-slate-200">
+												{p.title}
+											</th>
+										))}
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="bg-slate-50 px-4 py-3 font-medium text-ink border-b border-slate-100">Price</td>
+										{WAAS_PLANS.map((p) => (
+											<td key={p.key} class="bg-slate-50 px-4 py-3 text-ink border-b border-slate-100">
+												{usd(p.price)}/mo
+											</td>
+										))}
+									</tr>
+									{waasRows.map((row) => (
+										<tr>
+											<td class="bg-paper px-4 py-3 font-medium text-ink border-b border-slate-100">{row.label}</td>
+											{row.values.map((v, idx) => (
+												<td key={idx} class="bg-paper px-4 py-3 text-ink/70 border-b border-slate-100">
+													{v}
+												</td>
+											))}
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+						<div class="p-4 bg-slate-50 border-t border-slate-200">
+							<p class="text-xs text-ink/70">
+								<strong class="text-ink">Unlimited small edits</strong> = quick tasks ≤15 minutes (text/image swaps, minor
+								styling). Larger changes use included dev time (Standard/Plus) or are scoped separately.
+							</p>
+						</div>
+					</div>
+				</details>
+			</div>
+		</section>
+
+		<!-- ALL‑IN BUNDLE -->
+		<section id="bundle" class="container py-16 md:py-24">
+			<div class="max-w-3xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">All‑in Growth Bundle</h2>
+				<p class="text-ink/70 mb-8">
+					WaaS + Full SEO + 1 SEO blog post per month. One accountable team for your site, SEO, and content—priced simply.
+				</p>
+
+				<div class="rounded-xl border-2 border-accent/30 bg-accent/5 p-6">
+					<div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+						<div>
+							<h3 class="text-lg font-semibold mb-2 text-ink">{BUNDLE.title}</h3>
+							<div class="flex items-baseline gap-2">
+								<div class="text-3xl font-bold text-ink">{usd(BUNDLE.priceMonthly)}</div>
+								<div class="text-sm text-ink/60">/mo</div>
+								<span class="text-xs text-accent font-medium">(Annual: {usd(BUNDLE.priceAnnual)}/yr — 1 month free)</span>
+							</div>
+						</div>
+						<a
+							href="/contact"
+							class="inline-flex items-center px-4 py-2 bg-accent text-paper rounded-xl font-semibold no-underline shadow-md shadow-accent/30 hover:shadow-xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+						>
+							Start the Growth Plan
+						</a>
+					</div>
+					<ul class="grid gap-2 text-sm text-ink/70 sm:grid-cols-2">
+						{BUNDLE.bullets.map((b, i) => (
+							<li key={i} class="flex items-start gap-2">
+								<svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+								</svg>
+								<span>{b}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- ONE‑TIME BUILDS + CARE -->
+		<section id="builds" class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
+			<!-- Decorative gradient elements -->
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-300/25 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+			<div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-300/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+			
+			<div class="container relative z-10">
+				<div class="max-w-3xl mb-8">
+					<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">One‑time Builds (own it on day one)</h2>
+					<p class="text-ink/70">
+						Custom‑coded Next.js/Tailwind. Performance‑first, mobile‑ready, with training and a 60‑day post‑launch warranty.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+					{BUILDS.slice(0, 2).map((b) => (
+						<div class="bg-paper border-2 border-slate-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:shadow-slate-900/10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+							<h3 class="text-lg font-semibold mb-2 text-ink">{b.title}</h3>
+							<div class="mb-4 flex items-baseline gap-1">
+								<div class="text-3xl font-bold text-ink">{usd(b.price)}</div>
+							</div>
+							<ul class="space-y-2 mb-6 text-sm text-ink/70">
+								{b.bullets.map((t) => (
+									<li class="flex items-start gap-2">
+										<svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+										</svg>
+										<span>{t}</span>
+									</li>
+								))}
+							</ul>
+							<div class="flex items-center justify-between">
+								<a
+									href="/contact"
+									class="inline-flex items-center px-4 py-2 bg-accent text-paper rounded-xl font-semibold no-underline shadow-md shadow-accent/30 hover:shadow-xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+								>
+									Get this build
+								</a>
+								<span class="text-xs text-ink/50">Add‑ons: $100/page, Blog integration $250</span>
+							</div>
+						</div>
+					))}
+				</div>
+
+				<!-- Optional Prime -->
+				<details class="max-w-2xl mx-auto mb-10">
+					<summary class="cursor-pointer text-sm text-ink/70 hover:text-ink font-medium mb-4 list-none">
+						<span class="inline-flex items-center gap-2">
+							<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+							See optional <strong>Prime (15 pages)</strong>
+						</span>
+					</summary>
+					<div class="bg-paper border-2 border-slate-200 rounded-xl p-8 shadow-md mt-4">
+						<h3 class="text-lg font-semibold mb-2 text-ink">{BUILDS[2].title}</h3>
+						<div class="mb-4 flex items-baseline gap-1">
+							<div class="text-3xl font-bold text-ink">{usd(BUILDS[2].price)}</div>
+						</div>
+						<ul class="space-y-2 text-sm text-ink/70">
+							{BUILDS[2].bullets.map((t) => (
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+									</svg>
+									<span>{t}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				</details>
+
+				<!-- Care plans -->
+				<div class="max-w-3xl mx-auto">
+					<h3 class="text-lg font-semibold mb-4 text-ink">Care plans (post‑launch; hosting included)</h3>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+						{CARE.map((c) => (
+							<div class="bg-paper border-2 border-slate-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:shadow-slate-900/10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+								<h4 class="text-lg font-semibold mb-2 text-ink">{c.title}</h4>
+								<div class="mb-4 flex items-baseline gap-1">
+									<div class="text-3xl font-bold text-ink">{usd(c.price)}</div>
+									<div class="text-sm text-ink/60">/mo</div>
+								</div>
+								<ul class="space-y-2 mb-6 text-sm text-ink/70">
+									{c.bullets.map((t) => (
+										<li class="flex items-start gap-2">
+											<svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+											</svg>
+											<span>{t}</span>
+										</li>
+									))}
+								</ul>
+								<a
+									href="/contact"
+									class="inline-flex items-center px-3 py-1.5 border-2 border-slate-200 text-ink rounded-xl text-sm font-medium no-underline hover:bg-slate-50 transition-colors"
+								>
+									Add to my build
+								</a>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ADD‑ONS -->
+		<section id="addons" class="container py-16 md:py-24">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">Add‑ons</h2>
+				<p class="text-ink/70 mb-8">Keep it lean, add only what you need. Most clients start with SEO + blog posts.</p>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+					{ADDONS_PRIMARY.map((a) => (
+						<div class="bg-paper border-2 border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+							<div class="flex items-baseline justify-between gap-3 mb-2">
+								<h4 class="text-base font-semibold text-ink">{a.title}</h4>
+								<span class="text-sm text-ink/70 font-medium">{a.price}</span>
+							</div>
+							<p class="text-sm text-ink/70">{a.desc}</p>
+						</div>
+					))}
+				</div>
+
+				<details>
+					<summary class="cursor-pointer text-sm text-ink/70 hover:text-ink font-medium mb-4 list-none">
+						<span class="inline-flex items-center gap-2">
+							<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+							See full menu (advanced)
+						</span>
+					</summary>
+					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+						{ADDONS_ADVANCED.map((a) => (
+							<div class="bg-paper border-2 border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+								<div class="flex items-baseline justify-between gap-3 mb-2">
+									<h4 class="text-base font-semibold text-ink">{a.title}</h4>
+									<span class="text-sm text-ink/70 font-medium">{a.price}</span>
+								</div>
+								<p class="text-sm text-ink/70">{a.desc}</p>
+							</div>
+						))}
+					</div>
+				</details>
+			</div>
+		</section>
+
+		<!-- FAQs -->
+		<section id="faqs" class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
+			<!-- Decorative gradient elements -->
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-300/25 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+			<div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-300/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+			
+			<div class="container relative z-10">
+				<div class="max-w-3xl mx-auto">
+					<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">FAQs & Fine Print</h2>
+					<p class="text-ink/70 mb-8">Clear scope, no surprises.</p>
+
+					<div class="space-y-4">
+						<details class="bg-paper border-2 border-slate-200 rounded-xl p-4 shadow-sm">
+							<summary class="cursor-pointer font-medium text-ink list-none">
+								<span class="inline-flex items-center gap-2">
+									<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+									What counts as "unlimited small edits"?
+								</span>
+							</summary>
+							<p class="mt-2 text-sm text-ink/70">
+								Tasks that take ≤15 minutes each (text/image swaps, minor spacing/color tweaks, small component prop changes).
+								New components, templates, or integrations draw from monthly dev time (Standard/Plus) or are quoted.
+							</p>
+						</details>
+
+						<details class="bg-paper border-2 border-slate-200 rounded-xl p-4 shadow-sm">
+							<summary class="cursor-pointer font-medium text-ink list-none">
+								<span class="inline-flex items-center gap-2">
+									<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+									Who owns the site?
+								</span>
+							</summary>
+							<p class="mt-2 text-sm text-ink/70">
+								WaaS: you own the design and code at month 12 (or earlier via early buy‑out). One‑time builds: you own everything at launch.
+							</p>
+						</details>
+
+						<details class="bg-paper border-2 border-slate-200 rounded-xl p-4 shadow-sm">
+							<summary class="cursor-pointer font-medium text-ink list-none">
+								<span class="inline-flex items-center gap-2">
+									<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+									What's your SLA?
+								</span>
+							</summary>
+							<p class="mt-2 text-sm text-ink/70">
+								Starter: 2 business days • Standard: 48 hours • Plus: 24 hours. Emergencies (site down) are handled 24/7.
+							</p>
+						</details>
+
+						<details class="bg-paper border-2 border-slate-200 rounded-xl p-4 shadow-sm">
+							<summary class="cursor-pointer font-medium text-ink list-none">
+								<span class="inline-flex items-center gap-2">
+									<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+									Can I cancel?
+								</span>
+							</summary>
+							<p class="mt-2 text-sm text-ink/70">
+								WaaS is cancellable any time after month 12. The All‑in Growth bundle is a 6–12 month minimum to allow SEO to produce results.
+							</p>
+						</details>
+
+						<details class="bg-paper border-2 border-slate-200 rounded-xl p-4 shadow-sm">
+							<summary class="cursor-pointer font-medium text-ink list-none">
+								<span class="inline-flex items-center gap-2">
+									<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+									How do payments work?
+								</span>
+							</summary>
+							<p class="mt-2 text-sm text-ink/70">
+								Monthly via card/ACH. The All‑in Growth bundle offers an annual prepay at {usd(BUNDLE.priceAnnual)} (1 month free).
+							</p>
+						</details>
+
+						<details class="bg-paper border-2 border-slate-200 rounded-xl p-4 shadow-sm">
+							<summary class="cursor-pointer font-medium text-ink list-none">
+								<span class="inline-flex items-center gap-2">
+									<svg class="w-4 h-4 transition-transform details-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+									How long until SEO results?
+								</span>
+							</summary>
+							<p class="mt-2 text-sm text-ink/70">
+								Typical local SMBs begin to see measurable movement in 3–6 months, compounding thereafter. We review quarterly and adjust strategy as needed.
+							</p>
+						</details>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- TRUST / PROOF -->
+		<section id="proof" class="container py-16 md:py-24">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">Why our pricing is fair (and in line with the market)</h2>
+				<p class="text-ink/70 mb-8">
+					Independent benchmarks for websites, retainers, SEO, and content. Hover footnotes for source titles; click to open the reference.
+				</p>
+				<PricingProofSection />
+			</div>
+		</section>
+
+		<!-- FOOTER CTA -->
+		<section class="container py-16 md:py-24">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">Ready to get started?</h2>
+				<p class="text-lg text-ink/70 mb-8 leading-relaxed">
+					We'll scope your site in a 20‑minute call and recommend the right tier.
+				</p>
+				<div class="flex flex-col items-center gap-4">
+					<a
+						href="/contact"
+						class="inline-flex items-center px-5 py-2.5 bg-accent text-paper rounded-xl font-semibold no-underline shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+					>
+						Book a consult
+					</a>
+					<span class="text-xs text-ink/60">No pressure. No jargon. Clear next steps.</span>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+	
+	<style>
+		/* Accordion arrow rotation */
+		details[open] summary svg {
+			transform: rotate(90deg);
+		}
+		
+		/* Remove default details marker */
+		details summary::-webkit-details-marker {
+			display: none;
+		}
+		details summary::marker {
+			display: none;
+		}
+	</style>
+</BaseLayout>
+
