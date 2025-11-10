@@ -17,11 +17,11 @@ We create custom static websites with modern frameworks, clear hierarchy, and pr
 - Global CDN deploy (Vercel or Netlify)
 - SEO and analytics setup
 
-**Starting at $2,500**
+**Starting at $3,800**
 
-## Care Plans
-We keep your site current, secure, and fast—so you never worry about it again.  
-[View Care Plans](/plans)
+## Website-as-a-Service
+Lease your site with $0 down and ongoing improvements. Or buy it up-front and add a light monthly care plan.  
+[View Pricing](/pricing)
 
 ## Landing Pages
 Campaign-ready pages that convert. Fast turnaround, measurable results.  

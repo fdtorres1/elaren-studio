@@ -42,14 +42,21 @@ const { frontmatter } = parseMarkdown(content);
 						"Global CDN deploy (Vercel or Netlify)",
 						"SEO and analytics setup"
 					]}
-					price="Starting at $2,500"
+					price="Starting at $3,800"
 					icon="design"
 				/>
 				<ServiceCard
-					title="Care Plans"
-					description="We keep your site current, secure, and fast—so you never worry about it again."
-					link="/plans"
-					linkText="View Care Plans →"
+					title="Website-as-a-Service"
+					description="Lease your site with $0 down and ongoing improvements. Or buy it up-front and add a light monthly care plan."
+					features={[
+						"$0 down, hosting included",
+						"Unlimited small edits",
+						"Uptime monitoring & backups",
+						"Own your site after 12 months"
+					]}
+					price="From $175/month"
+					link="/pricing"
+					linkText="View pricing →"
 					icon="care"
 				/>
 				<ServiceCard

@@ -12,7 +12,7 @@ We design, launch, and care for clean, fast sites—so your team can focus on th
 
 ## What we do
 - **Design & Build** — fast, stable static websites
-- **Care Plans** — effortless updates and uptime monitoring
+- **Website-as-a-Service** — lease your site with $0 down and ongoing improvements
 - **Landing Pages** — focused campaigns that launch in days
 
 ## Our approach
@@ -23,4 +23,4 @@ Every Elaren site starts with a clear structure, intentional typography, and a g
 
 > “Everything just works. It’s refreshing.” — Client Name
 
-[Explore Care Plans](/plans)  [Book a Call](/contact)
+[View Pricing](/pricing)  [Book a Call](/contact)
