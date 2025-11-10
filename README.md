@@ -55,7 +55,9 @@ elaren_studio_com/
 - ✅ Contact page with enhanced form styling and design consistency
 - ✅ Privacy and Terms pages with consistent design patterns
 - ✅ Work items showcase: Wright Wellness, Mesquite Symphony Orchestra, Caminos del Inka
-- ✅ Comprehensive pricing page with WaaS plans, one-time builds, add-ons, FAQs, and market proof
+- ✅ Comprehensive pricing page with WaaS plans, one-time builds, landing pages, add-ons, FAQs, and market proof
+- ✅ Pricing consistency across all pages (Design & Build \$3,800, WaaS from \$175/month, Landing Pages \$1,000)
+- ✅ /plans redirects to /pricing (301 redirect)
 
 ## Contact Form Setup
 
