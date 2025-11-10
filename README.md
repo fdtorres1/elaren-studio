@@ -46,7 +46,7 @@ elaren_studio_com/
 - ✅ Content-driven architecture (markdown files)
 - ✅ Responsive design (mobile-first)
 - ✅ SEO optimized (meta tags, Open Graph)
-- ✅ Contact form (Web3Forms integration)
+- ✅ Contact form (FormSubmit integration)
 - ✅ Fast static generation
 - ✅ Optimized codebase (no redundant CSS, streamlined components)
 - ✅ Hero section binary pattern background (encodes "ELAREN STUDIO" in ASCII)
@@ -58,11 +58,14 @@ elaren_studio_com/
 
 ## Contact Form Setup
 
-The contact form uses [Web3Forms](https://web3forms.com/) (free, no signup required):
+The contact form uses [FormSubmit](https://formsubmit.co/) (free, no signup required) and sends submissions to `hello@elarenstudio.com`.
 
-1. Visit https://web3forms.com/
-2. Enter your email address to get an access key
-3. Replace `YOUR_WEB3FORMS_ACCESS_KEY` in `src/pages/contact.astro` with your access key
+The form is already configured and ready to use. FormSubmit will:
+- Send form submissions directly to your email
+- Handle spam protection automatically
+- Redirect users back to the contact page with a success message
+
+No additional setup required!
 
 ## Content Management
 
