@@ -8,6 +8,25 @@ interface Props {
 
 const { title, description = "Elaren Studio designs and maintains clean, fast websites. Static stack, preview-first workflow, Website-as-a-Service and one-time builds." } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/og-image.png', Astro.site);
+
+// Structured data for SEO
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "ProfessionalService",
+	"name": "Elaren Studio",
+	"description": "Web design studio specializing in clean, fast static websites. Custom builds, Website-as-a-Service, and landing pages.",
+	"url": "https://elarenstudio.com",
+	"logo": "https://elarenstudio.com/favicon.svg",
+	"image": "https://elarenstudio.com/og-image.png",
+	"priceRange": "$$",
+	"serviceType": ["Web Design", "Web Development", "Landing Page Design"],
+	"areaServed": {
+		"@type": "Country",
+		"name": "United States"
+	},
+	"sameAs": []
+};
 ---
 
 <!doctype html>
@@ -31,6 +50,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:site_name" content="Elaren Studio" />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL} />
+		
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 		
 		<!-- Privacy-friendly analytics by Plausible -->
 		<script async src="https://plausible.io/js/pa-XAFTi0n9KiXCd81kQYstd.js"></script>
