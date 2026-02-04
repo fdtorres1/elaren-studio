@@ -10,21 +10,15 @@ const { title, description = "Elaren Studio designs and maintains clean, fast we
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL('/og-image.png', Astro.site);
 
-// Structured data for SEO
+// Structured data for SEO (Organization schema - no address required for online businesses)
 const structuredData = {
 	"@context": "https://schema.org",
-	"@type": "ProfessionalService",
+	"@type": "Organization",
 	"name": "Elaren Studio",
 	"description": "Web design studio specializing in clean, fast static websites. Custom builds, Website-as-a-Service, and landing pages.",
 	"url": "https://elarenstudio.com",
 	"logo": "https://elarenstudio.com/favicon.svg",
 	"image": "https://elarenstudio.com/og-image.png",
-	"priceRange": "$$",
-	"serviceType": ["Web Design", "Web Development", "Landing Page Design"],
-	"areaServed": {
-		"@type": "Country",
-		"name": "United States"
-	},
 	"sameAs": []
 };
 ---
