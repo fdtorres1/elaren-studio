@@ -1,0 +1,513 @@
+---
+/**
+ * Print-optimized one-pager for the Local Accelerator offering.
+ * Designed as a self-contained sales sheet that converts cleanly to PDF.
+ *
+ * PDF generation: node scripts/generate-pdf.mjs
+ */
+---
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>The Local Accelerator | Elaren Studio</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+		:root {
+			--ink: #101317;
+			--paper: #ffffff;
+			--accent: #3A78FF;
+			--accent-light: #EBF1FF;
+			--slate-50: #F8F9FA;
+			--slate-100: #E6EAF0;
+			--slate-400: #6B7280;
+			--slate-600: #374151;
+		}
+
+		html {
+			font-family: "Inter", system-ui, sans-serif;
+			color: var(--ink);
+			background: var(--paper);
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+		}
+
+		body {
+			max-width: 7.5in;
+			margin: 0 auto;
+			padding: 0;
+			font-size: 10.5pt;
+			line-height: 1.4;
+		}
+
+		/* ── Header ── */
+		.header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-bottom: 10pt;
+			border-bottom: 1.5pt solid var(--ink);
+			margin-bottom: 14pt;
+		}
+		.logo {
+			font-weight: 700;
+			font-size: 10pt;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+		}
+		.tagline {
+			font-size: 8pt;
+			color: var(--slate-400);
+			letter-spacing: 0.04em;
+		}
+
+		/* ── Hero ── */
+		.hero {
+			margin-bottom: 14pt;
+		}
+		.hero-label {
+			display: inline-block;
+			background: var(--accent);
+			color: white;
+			font-size: 7pt;
+			font-weight: 600;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			padding: 3pt 9pt;
+			border-radius: 3pt;
+			margin-bottom: 8pt;
+		}
+		.hero h1 {
+			font-size: 18pt;
+			font-weight: 700;
+			line-height: 1.2;
+			max-width: 90%;
+		}
+		.hero h1 span { color: var(--accent); }
+
+		/* ── Two-column problem/solution ── */
+		.problem-solution {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12pt;
+			margin-bottom: 14pt;
+		}
+		.ps-card {
+			padding: 10pt 12pt;
+			border-radius: 7pt;
+			font-size: 8.5pt;
+			line-height: 1.5;
+		}
+		.ps-card.problem {
+			background: var(--slate-50);
+			border: 0.75pt solid var(--slate-100);
+		}
+		.ps-card.solution {
+			background: var(--accent-light);
+			border: 0.75pt solid #D0DFFF;
+		}
+		.ps-label {
+			font-weight: 700;
+			font-size: 7pt;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			margin-bottom: 4pt;
+		}
+		.ps-card.problem .ps-label { color: var(--slate-600); }
+		.ps-card.solution .ps-label { color: var(--accent); }
+
+		/* ── Section headers ── */
+		.section-title {
+			font-size: 9.5pt;
+			font-weight: 700;
+			margin-bottom: 8pt;
+			padding-bottom: 3pt;
+			border-bottom: 1.5pt solid var(--accent);
+			display: inline-block;
+		}
+
+		/* ── Arsenal grid ── */
+		.arsenal {
+			margin-bottom: 12pt;
+		}
+		.arsenal-grid {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			gap: 8pt;
+		}
+		.arsenal-item {
+			text-align: center;
+			padding: 10pt 5pt 8pt;
+			background: var(--slate-50);
+			border-radius: 6pt;
+			border: 0.75pt solid var(--slate-100);
+		}
+		.arsenal-icon {
+			font-size: 14pt;
+			margin-bottom: 4pt;
+		}
+		.arsenal-name {
+			font-weight: 600;
+			font-size: 7.5pt;
+			line-height: 1.3;
+			margin-bottom: 2pt;
+		}
+		.arsenal-desc {
+			font-size: 6.5pt;
+			color: var(--slate-400);
+			line-height: 1.35;
+		}
+
+		/* ── Features row ── */
+		.features {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 8pt;
+			margin-bottom: 14pt;
+		}
+		.feature-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 7pt;
+			padding: 8pt 9pt;
+			background: var(--accent-light);
+			border-radius: 6pt;
+		}
+		.feature-check {
+			flex-shrink: 0;
+			width: 14pt;
+			height: 14pt;
+			background: var(--accent);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 1pt;
+		}
+		.feature-check svg {
+			width: 8pt;
+			height: 8pt;
+		}
+		.feature-text strong {
+			display: block;
+			font-size: 8pt;
+			font-weight: 600;
+			margin-bottom: 1pt;
+		}
+		.feature-text span {
+			font-size: 7pt;
+			color: var(--slate-600);
+			line-height: 1.4;
+		}
+
+		/* ── Pricing + Steps row ── */
+		.bottom-row {
+			display: grid;
+			grid-template-columns: 1fr 1.3fr;
+			gap: 12pt;
+			margin-bottom: 14pt;
+		}
+
+		/* Pricing */
+		.pricing-card {
+			background: var(--ink);
+			color: white;
+			border-radius: 7pt;
+			padding: 12pt 14pt;
+		}
+		.pricing-card .section-title {
+			color: white;
+			border-bottom-color: var(--accent);
+		}
+		.pricing-context {
+			font-size: 7pt;
+			color: #9CA3AF;
+			margin-bottom: 10pt;
+			line-height: 1.45;
+		}
+		.price-row {
+			display: flex;
+			align-items: baseline;
+			gap: 6pt;
+			margin-bottom: 2pt;
+		}
+		.price-amount {
+			font-size: 16pt;
+			font-weight: 700;
+			color: var(--accent);
+		}
+		.price-label {
+			font-size: 8pt;
+			color: #D1D5DB;
+		}
+		.price-desc {
+			font-size: 7pt;
+			color: #9CA3AF;
+			margin-bottom: 6pt;
+			line-height: 1.4;
+		}
+		.price-divider {
+			border: none;
+			border-top: 0.75pt solid #1F2937;
+			margin: 8pt 0;
+		}
+
+		/* Steps */
+		.steps-card {
+			padding: 12pt 14pt;
+			background: var(--slate-50);
+			border-radius: 7pt;
+			border: 0.75pt solid var(--slate-100);
+		}
+		.step {
+			display: flex;
+			gap: 9pt;
+			margin-bottom: 10pt;
+		}
+		.step:last-child { margin-bottom: 0; }
+		.step-num {
+			flex-shrink: 0;
+			width: 20pt;
+			height: 20pt;
+			background: var(--accent);
+			color: white;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+			font-size: 8pt;
+			margin-top: 1pt;
+		}
+		.step-content strong {
+			display: block;
+			font-size: 8.5pt;
+			font-weight: 600;
+			margin-bottom: 2pt;
+		}
+		.step-content span {
+			font-size: 7.5pt;
+			color: var(--slate-600);
+			line-height: 1.45;
+		}
+
+		/* ── CTA Footer ── */
+		.cta {
+			background: linear-gradient(135deg, var(--accent), #2B5FD9);
+			color: white;
+			border-radius: 7pt;
+			padding: 12pt 16pt;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.cta-text {
+			font-size: 10.5pt;
+			font-weight: 600;
+			line-height: 1.3;
+		}
+		.cta-text span {
+			display: block;
+			font-size: 7.5pt;
+			font-weight: 400;
+			opacity: 0.85;
+			margin-top: 3pt;
+		}
+		.cta-right {
+			text-align: right;
+			flex-shrink: 0;
+		}
+		.cta-right a {
+			color: white;
+			text-decoration: none;
+			font-weight: 500;
+		}
+		.cta-right .cta-site {
+			font-size: 8.5pt;
+			margin-bottom: 2pt;
+		}
+		.cta-right .cta-email {
+			font-size: 7.5pt;
+			opacity: 0.8;
+		}
+
+		/* Example sites */
+		.examples {
+			margin-top: 5pt;
+			display: flex;
+			gap: 10pt;
+			align-items: center;
+		}
+		.examples .label {
+			font-size: 6.5pt;
+			color: rgba(255,255,255,0.65);
+			font-weight: 500;
+		}
+		.examples a {
+			font-size: 6.5pt;
+			color: rgba(255,255,255,0.8);
+			text-decoration: none;
+			border-bottom: 0.5pt dotted rgba(255,255,255,0.4);
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Header -->
+	<header class="header">
+		<div class="logo">Elaren Studio</div>
+		<div class="tagline">elarenstudio.com</div>
+	</header>
+
+	<!-- Hero -->
+	<section class="hero">
+		<div class="hero-label">The Local Accelerator</div>
+		<h1>Turn Your Website from a Dead Digital Brochure<br>into a <span>24/7 Sales Rep.</span></h1>
+	</section>
+
+	<!-- Problem / Solution -->
+	<section class="problem-solution">
+		<div class="ps-card problem">
+			<div class="ps-label">The Problem</div>
+			<strong>You are losing leads to uglier businesses.</strong> When a potential customer searches for your services, they judge your credibility in under 3 seconds. If your site is slow, hard to read on a phone, or looks like it was built in 2010, they hit "back" and call your competitor — even if you're better at what you do.
+		</div>
+		<div class="ps-card solution">
+			<div class="ps-label">The Solution</div>
+			<strong>A conversion-optimized asset.</strong> We don't build over-complicated digital art projects. We build lean, lightning-fast lead-generation machines designed specifically for local service businesses. And we do it completely hands-off for you.
+		</div>
+	</section>
+
+	<!-- 5-Page Arsenal -->
+	<section class="arsenal">
+		<div class="section-title">What You Get — The 5-Page Arsenal</div>
+		<div class="arsenal-grid">
+			<div class="arsenal-item">
+				<div class="arsenal-icon">🎯</div>
+				<div class="arsenal-name">The "Closer" Homepage</div>
+				<div class="arsenal-desc">Builds trust &amp; pushes visitors to contact you</div>
+			</div>
+			<div class="arsenal-item">
+				<div class="arsenal-icon">📋</div>
+				<div class="arsenal-name">Services Menu</div>
+				<div class="arsenal-desc">Clean, scannable breakdown of what you do</div>
+			</div>
+			<div class="arsenal-item">
+				<div class="arsenal-icon">🤝</div>
+				<div class="arsenal-name">"Trust Builder" About</div>
+				<div class="arsenal-desc">Local roots, team, &amp; company values</div>
+			</div>
+			<div class="arsenal-item">
+				<div class="arsenal-icon">⭐</div>
+				<div class="arsenal-name">Reviews &amp; FAQ</div>
+				<div class="arsenal-desc">Kills objections before they happen</div>
+			</div>
+			<div class="arsenal-item">
+				<div class="arsenal-icon">✉️</div>
+				<div class="arsenal-name">Lead-Capture Contact</div>
+				<div class="arsenal-desc">Forms routed directly to your email</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Hands-Off Features -->
+	<div class="features">
+		<div class="feature-item">
+			<div class="feature-check">
+				<svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			</div>
+			<div class="feature-text">
+				<strong>Mobile-First Design</strong>
+				<span>Flawless on the screens your customers actually use.</span>
+			</div>
+		</div>
+		<div class="feature-item">
+			<div class="feature-check">
+				<svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			</div>
+			<div class="feature-text">
+				<strong>AI-Enhanced Copy</strong>
+				<span>You give us bullet points; we write the copy that sells.</span>
+			</div>
+		</div>
+		<div class="feature-item">
+			<div class="feature-check">
+				<svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			</div>
+			<div class="feature-text">
+				<strong>Delivered in 4 Days</strong>
+				<span>No endless meetings. No dragging timelines.</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Pricing + Steps -->
+	<section class="bottom-row">
+		<div class="pricing-card">
+			<div class="section-title">The Pricing — No Agency Bloat</div>
+			<div class="pricing-context">Most agencies quote $3,000–$5,000 and tie you up in weeks of Zoom calls. We do it differently.</div>
+			<div class="price-row">
+				<div class="price-amount">$500</div>
+				<div class="price-label">Upfront Build Fee</div>
+			</div>
+			<div class="price-desc">Covers entire design, build, and copywriting.</div>
+			<hr class="price-divider">
+			<div class="price-row">
+				<div class="price-amount">$99</div>
+				<div class="price-label">/ month</div>
+			</div>
+			<div class="price-desc">Premium hosting, SSL, weekly backups, and minor text/image updates whenever you need them.</div>
+		</div>
+
+		<div class="steps-card">
+			<div class="section-title">How It Works — 3 Simple Steps</div>
+			<div class="step">
+				<div class="step-num">1</div>
+				<div class="step-content">
+					<strong>The 5-Minute Intake</strong>
+					<span>You checkout and fill out a simple online form with your logo, business details, and services.</span>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">2</div>
+				<div class="step-content">
+					<strong>We Build, You Relax</strong>
+					<span>Within 4 days, we send you a private link to review your fully functioning website.</span>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">3</div>
+				<div class="step-content">
+					<strong>Launch &amp; Grow</strong>
+					<span>We make your tweaks (up to 2 rounds of revisions), connect your domain, and push it live.</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<footer class="cta">
+		<div>
+			<div class="cta-text">
+				Ready to stop leaving money on the table?
+				<span>Let's get your new digital home live by this time next week.</span>
+			</div>
+			<div class="examples">
+				<span class="label">Example sites:</span>
+				<a href="https://fdtorres.com">fdtorres.com</a>
+				<a href="https://elarenstudio.com">elarenstudio.com</a>
+				<a href="https://wright-wellness.vercel.app">wright-wellness.vercel.app</a>
+			</div>
+		</div>
+		<div class="cta-right">
+			<div class="cta-site"><a href="https://elarenstudio.com">elarenstudio.com</a></div>
+			<div class="cta-email"><a href="mailto:hello@elarenstudio.com">hello@elarenstudio.com</a></div>
+		</div>
+	</footer>
+
+</body>
+</html>
