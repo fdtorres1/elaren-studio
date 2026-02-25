@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import TherapistCta from '../components/TherapistCta.astro';
 
 // Format currency
 const usd = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
@@ -466,6 +467,8 @@ const FAQS = [
 				</div>
 			</div>
 		</section>
+
+		<TherapistCta />
 
 		<!-- Bottom CTA -->
 		<section class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">

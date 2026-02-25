@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import TherapistCta from '../components/TherapistCta.astro';
 import { readFile } from 'fs/promises';
 import { parseMarkdown } from '../utils/markdown';
 
@@ -71,6 +72,10 @@ const { frontmatter } = parseMarkdown(content);
 					icon="landing"
 				/>
 			</div>
+
+				<div class="mt-12">
+					<TherapistCta />
+				</div>
 
 				<div class="max-w-3xl mx-auto mt-16 pt-12 border-t border-slate-300 text-center">
 					<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">Not sure where to start?</h2>

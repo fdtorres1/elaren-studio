@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import WorkCard from '../components/WorkCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import TherapistCta from '../components/TherapistCta.astro';
 import { readFile } from 'fs/promises';
 import { parseMarkdown } from '../utils/markdown';
 import { markdownToHtml } from '../utils/markdownToHtml';
@@ -194,6 +195,8 @@ const binaryPattern = Array.from({ length: 150 }, () =>
 				</div>
 			</div>
 		</section>
+
+		<TherapistCta />
 
 		<!-- CTA Section with solid slate background -->
 		<section class="bg-slate-200 py-16 md:py-24">
