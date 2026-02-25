@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Therapist Website Design in Fort Worth";
+const description = "Private practice and counseling website design for Fort Worth therapists. Build trust, improve inquiries, and launch quickly with transparent pricing.";
+const FAQS = [
+	{
+		q: 'How quickly can a Fort Worth therapy practice get a new website?',
+		a: 'About 10 days once we have your copy, photos, and access. The build itself is fast—most timeline stretch comes from content collection.',
+	},
+	{
+		q: 'What if I already have a website that just needs improving?',
+		a: 'We can audit your current site for free and give you practical recommendations. If a rebuild makes sense, we handle the full transition. If small fixes are enough, we\'ll tell you that too.',
+	},
+	{
+		q: 'Do I need to provide all the copy for my website?',
+		a: 'We prefer client-provided copy since you know your practice best. That said, we can help refine and structure what you provide, and copywriting support is available as an add-on.',
+	},
+	{
+		q: 'What\'s the difference between Starter and Care+ plans?',
+		a: 'Starter ($99/month) covers hosting, security, backups, and 1 small edit per month. Care+ ($199/month) adds unlimited small edits with 48-hour turnaround, monthly conversion tune-ups, and priority support.',
+	},
+	{
+		q: 'Can I switch plans later?',
+		a: 'Yes. You can upgrade from Starter to Care+ anytime. It\'s a simple plan change—no rebuild, no downtime.',
+	},
+];
+
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": FAQS.map((faq) => ({
+		"@type": "Question",
+		"name": faq.q,
+		"acceptedAnswer": { "@type": "Answer", "text": faq.a }
+	}))
+};
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "ProfessionalService",
+	"name": "Elaren Studio – Therapist Website Design Fort Worth",
+	"description": description,
+	"url": "https://elarenstudio.com/therapist-website-design-fort-worth",
+	"provider": {
+		"@type": "Organization",
+		"name": "Elaren Studio",
+		"url": "https://elarenstudio.com"
+	},
+	"serviceType": "Web Design",
+	"areaServed": {
+		"@type": "City",
+		"name": "Fort Worth",
+		"containedInPlace": { "@type": "State", "name": "Texas" }
+	},
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Therapist Website Plans",
+		"itemListElement": [
+			{ "@type": "Offer", "name": "Website Launch", "price": "500", "priceCurrency": "USD", "description": "Custom website setup + design for therapy practices" },
+			{ "@type": "Offer", "name": "WaaS Starter", "price": "99", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" }, "description": "Hosting + maintenance essentials" },
+			{ "@type": "Offer", "name": "WaaS Care+", "price": "199", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" }, "description": "Full care plan with unlimited edits and SEO maintenance" }
+		]
+	}
+};
+---
+
+<BaseLayout title={title} description={description}>
+	<Header />
+	<main>
+		<!-- Hero -->
+		<section class="relative py-20 md:py-32 overflow-hidden" style="background: linear-gradient(to top, #eef2f6 0%, #f1f5f9 50%, #ffffff 100%);">
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+			<div class="absolute bottom-0 left-0 w-96 h-96 bg-slate-300/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+			<div class="container relative z-10">
+				<div class="max-w-3xl">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-4">Fort Worth Therapist Websites</p>
+					<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink leading-tight">
+						Therapist Website Design in Fort Worth for Practices That Want Better Inquiries
+					</h1>
+					<p class="text-xl text-ink/80 mb-4 leading-relaxed max-w-2xl">
+						If your Fort Worth therapy practice is growing, your website should do more than look nice—it should help the right people reach out. We design therapist websites that are clear, trustworthy, and built for conversion.
+					</p>
+					<p class="text-sm font-medium text-ink/50 mb-10">
+						Clear scope. No surprises. No long-term contracts.
+					</p>
+					<div class="flex flex-wrap gap-4">
+						<a
+							href="/therapist-websites#audit"
+							class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200 text-lg"
+						>
+							Request My Free Audit
+						</a>
+						<a
+							href="#pricing"
+							class="inline-flex items-center px-6 py-4 border-2 border-slate-200 text-ink rounded-xl font-semibold no-underline hover:border-accent/30 hover:bg-slate-50 transition-all duration-200 text-lg"
+						>
+							See Pricing
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Common issues we fix -->
+		<section class="bg-paper py-16 md:py-24">
+			<div class="container">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Common issues</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-8 text-ink">Problems we see on Fort Worth therapy practice websites</h2>
+					<div class="space-y-5">
+						{[
+							{ icon: 'M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z', text: 'Services are hard to understand from the homepage' },
+							{ icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z', text: 'Bios don\'t create confidence quickly' },
+							{ icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z', text: 'Visitors have to hunt for how to contact you' },
+							{ icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', text: 'Site updates are slow or depend on a developer every time' },
+						].map((item) => (
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center mt-0.5">
+									<svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+									</svg>
+								</div>
+								<p class="text-ink/80 pt-2">{item.text}</p>
+							</div>
+						))}
+					</div>
+					<p class="text-sm text-ink/60 mt-8">
+						Sound familiar? See how our <a href="/therapist-websites" class="text-accent font-medium hover:underline">therapist website package</a> addresses each of these.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- What a better Fort Worth therapy website looks like -->
+		<section class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-300/25 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+			<div class="container relative z-10">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">What better looks like</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-8 text-ink">What a higher-converting Fort Worth therapy website includes</h2>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+						<div class="bg-paper rounded-xl border-2 border-slate-200 p-6 shadow-sm">
+							<h3 class="font-semibold text-ink mb-2">Clear positioning</h3>
+							<p class="text-sm text-ink/70">Visitors immediately understand who you help and whether your practice is the right fit.</p>
+						</div>
+						<div class="bg-paper rounded-xl border-2 border-slate-200 p-6 shadow-sm">
+							<h3 class="font-semibold text-ink mb-2">Structured service pages</h3>
+							<p class="text-sm text-ink/70">Reduce confusion with clean, scannable service breakdowns that match how clients think about their needs.</p>
+						</div>
+						<div class="bg-paper rounded-xl border-2 border-slate-200 p-6 shadow-sm">
+							<h3 class="font-semibold text-ink mb-2">Better inquiry flow</h3>
+							<p class="text-sm text-ink/70">Strategic CTA placement, clear forms, and mobile UX that removes barriers to reaching out.</p>
+						</div>
+						<div class="bg-paper rounded-xl border-2 border-slate-200 p-6 shadow-sm">
+							<h3 class="font-semibold text-ink mb-2">Ongoing care options</h3>
+							<p class="text-sm text-ink/70">Monthly plans so your site stays current and doesn't go stale three months after launch.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Delivery timeline -->
+		<section class="bg-paper py-16 md:py-24">
+			<div class="container">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Timeline</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">Launch target: ~10 days</h2>
+					<p class="text-ink/70 leading-relaxed mb-6">
+						Our typical launch target is approximately 10 days once copy, assets, and access are provided. Most delays come from content collection, not development. We keep the process focused and predictable so you're not stuck in an open-ended project.
+					</p>
+					<div class="bg-slate-50 rounded-xl border-2 border-slate-200 p-6">
+						<p class="text-sm text-ink/70">
+							<strong class="text-ink">How the process works:</strong> Discover → Structure → Build → Launch. Each step has a clear deliverable. See the full <a href="/therapist-websites" class="text-accent font-medium hover:underline">therapist website package</a> for process details.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing -->
+		<section id="pricing" class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
+			<div class="container relative z-10">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Pricing</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">Transparent pricing</h2>
+					<p class="text-ink/70 mb-8">
+						View full <a href="/pricing" class="text-accent font-medium hover:underline">pricing details</a> or jump straight to our <a href="/therapist-websites#audit" class="text-accent font-medium hover:underline">free audit</a>.
+					</p>
+					<div class="space-y-4">
+						<div class="bg-paper rounded-xl border-2 border-slate-200 p-6 shadow-sm flex flex-wrap items-baseline justify-between gap-4">
+							<div>
+								<h3 class="font-semibold text-ink">Website Launch</h3>
+								<p class="text-sm text-ink/60">Setup + design (one-time)</p>
+							</div>
+							<span class="text-2xl font-bold text-ink">$500</span>
+						</div>
+						<div class="bg-paper rounded-xl border-2 border-slate-200 p-6 shadow-sm flex flex-wrap items-baseline justify-between gap-4">
+							<div>
+								<h3 class="font-semibold text-ink">WaaS Starter</h3>
+								<p class="text-sm text-ink/60">Hosting + maintenance essentials</p>
+							</div>
+							<div>
+								<span class="text-2xl font-bold text-ink">$99</span>
+								<span class="text-ink/60 ml-1">/month</span>
+							</div>
+						</div>
+						<div class="bg-paper rounded-xl border-2 border-accent/40 p-6 shadow-md ring-1 ring-accent/20 flex flex-wrap items-baseline justify-between gap-4">
+							<div>
+								<div class="flex items-center gap-2 mb-1">
+									<h3 class="font-semibold text-ink">WaaS Care+</h3>
+									<span class="text-xs font-bold text-accent bg-accent/10 px-2 py-0.5 rounded-full uppercase tracking-wider">Most Popular</span>
+								</div>
+								<p class="text-sm text-ink/60">Done-for-you edits + monthly optimization</p>
+							</div>
+							<div>
+								<span class="text-2xl font-bold text-ink">$199</span>
+								<span class="text-ink/60 ml-1">/month</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Local trust checklist -->
+		<section class="bg-paper py-16 md:py-24">
+			<div class="container">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Self-assessment</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">Local trust checklist for Fort Worth practices</h2>
+					<p class="text-ink/70 mb-8">Quick checks you can run on your current site right now.</p>
+					<div class="space-y-4">
+						{[
+							'Is your niche obvious on the first screen?',
+							'Are your service areas and ideal audience clear?',
+							'Is your form short enough to complete on mobile?',
+							'Do your pages guide visitors to one clear next step?',
+						].map((q) => (
+							<label class="flex items-start gap-3 cursor-pointer group">
+								<input type="checkbox" class="mt-1 w-5 h-5 rounded border-slate-300 text-accent focus:ring-accent/50" />
+								<span class="text-ink/80 group-hover:text-ink transition-colors">{q}</span>
+							</label>
+						))}
+					</div>
+					<p class="text-sm text-ink/60 mt-8">
+						If you checked fewer than 3, a <a href="/therapist-websites#audit" class="text-accent font-medium hover:underline">free 10-minute website audit</a> can help pinpoint what to fix first.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
+			<div class="container relative z-10">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">FAQ</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">Common questions about therapist website design in Fort Worth</h2>
+					<p class="text-ink/70 mb-8">Straightforward answers. No fine print.</p>
+					<div class="space-y-3">
+						{FAQS.map((faq) => (
+							<details class="bg-paper border-2 border-slate-200 rounded-xl shadow-sm group hover:border-slate-300 transition-colors">
+								<summary class="cursor-pointer font-medium text-ink list-none p-5 pr-12 relative">
+									{faq.q}
+									<svg class="w-5 h-5 text-ink/40 absolute right-5 top-1/2 -translate-y-1/2 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+									</svg>
+								</summary>
+								<div class="px-5 pb-5 -mt-2">
+									<p class="text-sm text-ink/70 leading-relaxed">{faq.a}</p>
+								</div>
+							</details>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- DFW cross-link -->
+		<section class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
+			<div class="container relative z-10">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Serving the DFW Metroplex</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">We work with practices across DFW</h2>
+					<p class="text-ink/70 leading-relaxed">
+						We also serve therapy practices in <a href="/therapist-website-design-dallas" class="text-accent font-medium hover:underline">Dallas</a> and across the metroplex. Running a <a href="/group-practice-website-design" class="text-accent font-medium hover:underline">group practice</a> with providers in multiple locations? We build sites that scale.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Final CTA -->
+		<section class="relative py-16 md:py-24 overflow-hidden bg-paper">
+			<div class="absolute top-0 left-1/4 w-96 h-96 bg-slate-300/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+			<div class="container relative z-10">
+				<div class="max-w-2xl mx-auto text-center">
+					<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">Want a practical plan for improving your current site?</h2>
+					<p class="text-lg text-ink/70 mb-8 leading-relaxed">
+						No pressure. Just clear, actionable recommendations.
+					</p>
+					<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+						<a
+							href="/therapist-websites#audit"
+							class="inline-flex items-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200 text-lg"
+						>
+							Request My Free Audit
+						</a>
+						<a
+							href="/contact"
+							class="inline-flex items-center px-6 py-4 border-2 border-slate-200 text-ink rounded-xl font-semibold no-underline hover:border-accent/30 hover:bg-slate-50 transition-all duration-200"
+						>
+							Prefer to talk? Book a 15-min call
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+
+	<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>
+
+<style>
+	details summary::-webkit-details-marker { display: none; }
+	details summary::marker { display: none; }
+</style>

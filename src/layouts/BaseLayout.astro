@@ -4,11 +4,12 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	ogImage?: string;
 }
 
-const { title, description = "Elaren Studio designs and maintains clean, fast websites. Static stack, preview-first workflow, Website-as-a-Service and one-time builds." } = Astro.props;
+const { title, description = "Elaren Studio designs and maintains clean, fast websites. Static stack, preview-first workflow, Website-as-a-Service and one-time builds.", ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL('/og-image.png', Astro.site);
+const ogImageURL = ogImage ? new URL(ogImage, Astro.site) : new URL('/og-image.png', Astro.site);
 
 // Structured data for SEO (Organization schema - no address required for online businesses)
 const structuredData = {
