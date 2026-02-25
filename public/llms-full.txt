@@ -1,0 +1,416 @@
+# Elaren Studio — Full Site Content
+
+> Bright, enduring websites—built fast, kept current.
+
+Website: https://elarenstudio.com
+
+---
+
+## Home
+
+Elaren Studio designs, launches, and cares for clean, fast websites—so your team can focus on the work that matters.
+
+### Services Overview
+
+**Design & Build**
+Custom static websites with modern frameworks, clear hierarchy, and precise typography.
+- 10-day launch window
+- Responsive design
+- Global CDN deploy
+- SEO and analytics setup
+- Starting at $3,800
+
+**Website-as-a-Service (WaaS)**
+Lease your site with $0 down and ongoing improvements. Or buy it up-front and add a light monthly care plan.
+- $0 down, hosting included
+- Unlimited small edits
+- Uptime monitoring & backups
+- Own your site after 12 months
+- From $175/month
+
+**Landing Pages**
+Campaign-ready pages that convert. Fast turnaround, measurable results.
+- Fast turnaround
+- Preview-first workflow
+- Conversion optimized
+- Analytics included
+- From $1,000
+
+### Our Approach: Structure. Light. Clarity.
+
+Every Elaren site starts with a clear structure, intentional typography, and a global CDN. No clutter. No bloat. Just clean, enduring architecture.
+
+---
+
+## About
+
+Elaren Studio was founded on a simple idea: websites should be as clear and enduring as the work they represent.
+
+### Values
+
+- **Clarity by design**: Simple layouts, typographic hierarchy, lean components. We strip away complexity to reveal what matters.
+- **Built to endure**: Static stack, global CDN, minimal dependencies. Your site stays fast and reliable for years, not months.
+- **Care that scales**: Lightweight monthly updates, proactive checks, usage alerts. We handle the details so you don't have to.
+- **Respect for your time**: No unnecessary meetings, no jargon, no surprises. Just clear communication and steady progress.
+
+---
+
+## Services
+
+Simple services built for clarity and longevity. Every project follows a transparent process—no surprises.
+
+### Design & Build
+We create custom static websites with modern frameworks, clear hierarchy, and precise typography.
+- 10-day launch window
+- Responsive design
+- Global CDN deploy (Vercel or Netlify)
+- SEO and analytics setup
+- Starting at $3,800
+
+### Website-as-a-Service
+Lease your site with $0 down and ongoing improvements. Or buy it up-front and add a light monthly care plan.
+- $0 down, hosting included
+- Unlimited small edits
+- Uptime monitoring & backups
+- Own your site after 12 months
+- From $175/month
+
+### Landing Pages
+Campaign-ready pages that convert. Fast turnaround, measurable results.
+- Fast turnaround
+- Preview-first workflow
+- Conversion optimized
+- From $1,000
+
+---
+
+## Pricing
+
+Websites that bring in customers, not just look pretty. We build and manage sites for home services and dental/med-spa businesses. Everything is flat-priced. No mystery hours.
+
+### Website Builds
+
+**Home Services** (HVAC, Plumbing, Roofing, Electrical) — $9,500 one-time
+- Strategy workshop + site plan
+- Custom design & copywriting (up to 8 pages)
+- Local SEO foundation
+- Lead capture integration
+- Basic tracking setup
+
+**Medical & Aesthetics** (Dental, Med-Spa, Private Practice) — $12,500 one-time
+- Everything in Home Services
+- Before/after gallery system
+- Patient intake workflows
+- HIPAA-aware form handling
+
+Terms: 50% deposit / 25% at design approval / 25% pre-launch. Multi-location: +$3,500 per additional location.
+
+### Monthly Care Plans
+
+**Standard Care** — $349/month
+- Hosting management
+- SSL, backups, security updates
+- Uptime monitoring
+- Technical breakage repair
+- Ideal for: set it and forget it
+
+**Care+** — $549/month
+- Everything in Standard Care
+- Unlimited text & image updates (queue-based, 48 business-hour turnaround, <30 min each)
+- Ideal for: teams needing frequent updates
+
+### Growth Retainers
+
+**Foundation** — $1,950/month
+- Google Business Profile management
+- 1 post/week + review response
+- Monthly performance report
+
+**Accelerator** (Most Popular) — $3,250/month
+- Everything in Foundation
+- 2 SEO blog posts/month
+- On-page SEO refinements
+- Citation & listing management
+
+**Authority** — $4,750/month
+- Everything in Accelerator
+- 4 SEO blog posts/month
+- Advanced outreach campaigns
+- Quarterly strategy deep-dive
+
+Growth retainers: 6-month minimum. Third-party tools and ad spend billed at cost.
+
+### Add-ons
+- Google Business Profile: $400/month (included in Growth retainers)
+- Analytics + Call Tracking: $500/month (live dashboard + monthly video)
+- Sales Landing Page: $1,250 (volume bundles available)
+- Standard Page: $650 (About, Team, FAQ, etc.)
+- SEO Blog Post: $550 (~1,500 words, researched & formatted)
+
+### Pricing FAQ
+
+**Do you guarantee rankings, leads, or revenue?**
+No. SEO and conversion work is measurable, but nobody can honestly promise specific outcomes. What we guarantee is clear scope, consistent execution, and transparent reporting.
+
+**Do I pay for Care on top of a Growth retainer?**
+No. All Growth retainers include Standard Care (hosting, security, backups, monitoring, technical repair).
+
+**What's included in "unlimited text & image updates" (Care+)?**
+Text and image swaps on existing pages. Queue-based (one active request at a time), 48 business-hour turnaround. Each request should take under 30 minutes. Excludes layout changes, new sections, new pages, or redesign work.
+
+**What counts as "technical breakage repair"?**
+Things that aren't working correctly: form failures, errors, plugin conflicts, platform issues. Different from content edits.
+
+**What are the payment terms for builds?**
+50% to start, 25% at design approval, 25% pre-launch.
+
+**What's the minimum commitment for Growth retainers?**
+6 months. SEO needs time to compound. Third-party tools and ad spend billed at cost.
+
+**Can I add a location to an existing site?**
+Yes. Additional locations using the same design system are $3,500 each.
+
+---
+
+## Therapist Websites
+
+URL: https://elarenstudio.com/therapist-websites/
+
+Websites for Therapy Practices That Build Trust and Book More Consults.
+
+We design and build bright, enduring websites for therapists and group practices—fast, clean, and conversion-focused.
+
+### Why It Matters
+
+Your website is often the first impression a potential client has of your practice.
+
+- **Build trust in 5 seconds**: A clean, professional site tells visitors they're in the right place before they read a single word.
+- **Make your services clear**: Help visitors understand what you offer and whether you're the right fit—without confusion.
+- **Increase consult inquiries**: Better conversion flow means more of the right people actually reach out to schedule.
+
+### What's Included
+
+- Custom design + setup — Tailored to your practice, not a generic template.
+- Mobile optimization — Looks and works beautifully on every device.
+- Up to 5 core pages — Home, About, Services, Contact, and one more of your choice.
+- Basic SEO setup — Title tags, meta descriptions, and local search basics.
+- Analytics setup — Know where your visitors come from and what they do.
+- Hosting, security & backups — SSL, uptime monitoring, and weekly backups included.
+
+### Pricing
+
+**Step 1: Get your site built**
+
+Website Launch — $500 one-time
+- Custom design + build
+- Up to 5 pages
+- Mobile-optimized
+- SEO + analytics setup
+- 2 rounds of revisions
+
+**Step 2: Choose your monthly plan**
+
+WaaS Starter — $99/month
+- Premium hosting + SSL
+- Weekly backups
+- Uptime monitoring
+- Security updates
+- 1 small edit request/month
+
+WaaS Care+ (Most Popular) — $199/month
+- Everything in Starter
+- Unlimited small edits (48-hr turnaround)
+- Monthly conversion tune-up
+- Monthly local SEO maintenance
+- Google Business Profile update support
+- Priority support
+- Quarterly strategy check-in
+
+Care+ is +$100/mo from Starter. Upgrade or downgrade anytime—no contracts on monthly plans.
+
+### Process
+
+1. **Discover** — We learn about your practice, your clients, and what makes your approach unique.
+2. **Structure** — We map out the pages, content flow, and calls to action that make sense for your practice.
+3. **Build** — We design and develop your site—mobile-first, fast, and conversion-focused.
+4. **Launch** — Final review, your tweaks, domain connected, live to the world.
+
+Realistic timeline: ~10-day launch target once copy, assets, and access are provided.
+
+### FAQ
+
+**How fast can we launch?**
+Our target is ~10 days from the time we have your copy, assets, and access. Most delays come from content gathering, not our build process.
+
+**Do you work with solo and group practices?**
+Yes. We work with solo therapists, group practices, and multi-location clinics. The core build scales to fit your team size.
+
+**Can I upgrade from Starter to Care+ later?**
+Absolutely. You can upgrade anytime. It's a simple plan change—no rebuild required.
+
+**Who writes the copy for my website?**
+We prefer client-provided copy since you know your practice best. We can help refine and structure what you provide, and copywriting support is available as an add-on.
+
+**Do you provide HIPAA compliance?**
+We build websites, not medical software. We can guide you toward HIPAA-aware hosting and form handling best practices, but we do not provide legal compliance guarantees. For regulated workflows like patient intake or telehealth, we recommend working with a compliance specialist alongside our web build.
+
+**What happens if I need changes after launch?**
+On Starter, you get 1 small edit per month. On Care+, unlimited small edits with 48-hour turnaround. Larger changes are scoped separately.
+
+**Do I own my website?**
+Yes. You own the design and content. Hosting and maintenance are part of the monthly plan, but the site itself is yours.
+
+---
+
+## Therapist Website Design in Dallas
+
+URL: https://elarenstudio.com/therapist-website-design-dallas/
+
+Therapist Website Design in Dallas That Builds Trust and Books More Consults.
+
+Dallas practices need websites that feel trustworthy fast and make it easy for the right clients to take the next step. We build calm, conversion-focused therapist websites designed for real private-practice workflows—not generic templates.
+
+### Who This Is For in Dallas
+
+- **Solo therapists**: Launching or refreshing a private practice and need a site that reflects your approach and attracts the right clients.
+- **Group practices**: Need clearer service pages, provider bios, and a structure that scales as clinicians join.
+- **Teams that want easy updates**: You want a site you can keep current without relying on a developer every time something changes.
+- **Practices expanding in the Dallas area**: Opening a second location or adding providers and need a site structure that supports growth without a full redesign.
+
+### What Makes a Dallas Therapist Website Convert
+
+- **Immediate trust signals**: Clear specialty, credentials, and audience fit—visible before a visitor scrolls.
+- **Friction-free contact path**: Simple inquiry flow with a clear CTA, not a scavenger hunt for your phone number.
+- **Mobile speed and clarity**: Most prospects find you on their phone. The site needs to load fast and read easily at any size.
+- **Local intent readiness**: Location and service relevance structured so Dallas-area searches connect with your practice.
+
+### Questions to Ask Any Therapist Web Designer in Dallas
+
+1. Can clients understand who we help in under 10 seconds?
+2. Is the contact flow clear on mobile?
+3. Are provider bios and specialties easy to scan?
+4. Is there a plan to keep content current after launch?
+
+### Dallas FAQ
+
+**How long does it take to launch a therapist website in Dallas?**
+Our typical target is ~10 days from the time we have your copy, images, and access. Most delays come from content gathering, not development.
+
+**Do you work with both solo therapists and group practices in Dallas?**
+Yes. We work with solo therapists, group practices, and multi-location clinics across the Dallas–Fort Worth area. The core build scales to fit your team size.
+
+**What does the $500 website launch fee include?**
+Custom design, up to 5 pages, mobile optimization, SEO foundations, analytics setup, and 2 rounds of revisions. You get a complete, conversion-ready site.
+
+**Can I update my site after launch without a developer?**
+With our Care+ plan ($199/month), we handle unlimited small edits for you with 48-hour turnaround. On Starter ($99/month), you get 1 edit per month. Either way, you never need to touch code.
+
+**Do you help with HIPAA compliance for therapist websites?**
+We can guide you toward HIPAA-aware hosting and form handling best practices, but we do not provide legal compliance guarantees. For regulated workflows, we recommend working with a compliance specialist alongside our web build.
+
+We also serve practices in Fort Worth and across the DFW metroplex.
+
+---
+
+## Therapist Website Design in Fort Worth
+
+URL: https://elarenstudio.com/therapist-website-design-fort-worth/
+
+Therapist Website Design in Fort Worth for Practices That Want Better Inquiries.
+
+If your Fort Worth therapy practice is growing, your website should do more than look nice—it should help the right people reach out. We design therapist websites that are clear, trustworthy, and built for conversion.
+
+### Common Issues We Fix
+
+- Services are hard to understand from the homepage
+- Bios don't create confidence quickly
+- Visitors have to hunt for how to contact you
+- Site updates are slow or depend on a developer every time
+
+### What a Better Fort Worth Therapy Website Looks Like
+
+- **Clear positioning**: Visitors immediately understand who you help and whether your practice is the right fit.
+- **Structured service pages**: Clean, scannable service breakdowns that match how clients think about their needs.
+- **Better inquiry flow**: Strategic CTA placement, clear forms, and mobile UX that removes barriers to reaching out.
+- **Ongoing care options**: Monthly plans so your site stays current and doesn't go stale three months after launch.
+
+### Delivery Timeline
+
+Launch target: ~10 days once copy, assets, and access are provided. Most delays come from content collection, not development.
+
+Process: Discover → Structure → Build → Launch. Each step has a clear deliverable.
+
+### Local Trust Checklist for Fort Worth Practices
+
+- Is your niche obvious on the first screen?
+- Are your service areas and ideal audience clear?
+- Is your form short enough to complete on mobile?
+- Do your pages guide visitors to one clear next step?
+
+### Fort Worth FAQ
+
+**How quickly can a Fort Worth therapy practice get a new website?**
+About 10 days once we have your copy, photos, and access. The build itself is fast—most timeline stretch comes from content collection.
+
+**What if I already have a website that just needs improving?**
+We can audit your current site for free and give you practical recommendations. If a rebuild makes sense, we handle the full transition. If small fixes are enough, we'll tell you that too.
+
+**Do I need to provide all the copy for my website?**
+We prefer client-provided copy since you know your practice best. We can help refine and structure what you provide, and copywriting support is available as an add-on.
+
+**What's the difference between Starter and Care+ plans?**
+Starter ($99/month) covers hosting, security, backups, and 1 small edit per month. Care+ ($199/month) adds unlimited small edits with 48-hour turnaround, monthly conversion tune-ups, and priority support.
+
+**Can I switch plans later?**
+Yes. You can upgrade from Starter to Care+ anytime. It's a simple plan change—no rebuild, no downtime.
+
+We also serve therapy practices in Dallas and across the DFW metroplex.
+
+---
+
+## Group Practice Website Design
+
+URL: https://elarenstudio.com/group-practice-website-design/
+
+Group Practice Website Design That Scales as Your Team Grows.
+
+Group practices have different website needs than solo providers. You need structure that supports multiple clinicians, specialties, and inquiry paths—without overwhelming visitors.
+
+### Built for Multi-Provider Practices
+
+- **Provider directory structure**: Bio pages that are easy to maintain and update as clinicians join or leave the practice.
+- **Clear service taxonomy**: Individual, couples, family, child/adolescent—organized so visitors find what they need fast.
+- **Inquiry routing**: Clear paths so prospective clients know who to contact and how—reducing confusion and admin overhead.
+- **Scalable architecture**: Page structure that grows with your team. Add clinicians and services without a redesign.
+
+### Conversion Priorities for Group Practices
+
+The biggest conversion challenge for groups isn't aesthetics—it's decision complexity. More providers, more services, more ways a visitor can get confused and leave.
+
+- **Help visitors self-select quickly**: Clear navigation and positioning so people find the right provider or service without guessing.
+- **Reduce drop-off with simpler decision paths**: Fewer clicks to get from "I might need help" to "here's how to reach out."
+- **Make scheduling/contact options explicit**: Whether it's a form, phone number, or intake link—make it obvious and accessible from every page.
+- **Keep messaging consistent across providers**: Each clinician page should feel like part of the same practice, not a disconnected profile.
+
+### What We Deliver
+
+- Custom design + setup
+- Up to 5 core pages at launch (expandable)
+- Mobile-first UX
+- SEO/analytics baseline
+- Provider directory structure
+- Optional ongoing care plans
+
+### Best Fit
+
+This page is for group practices that want a clear, durable website foundation now and incremental optimization over time. Solo therapists may prefer the main therapist website page. Either way, the build process and pricing are the same—the difference is in how we structure the site architecture.
+
+---
+
+## Contact
+
+Get in touch at: https://elarenstudio.com/contact/
+
+We respond within 2 business days. No spam. No pressure.
+
+For therapist website inquiries, request a free 10-minute website audit at: https://elarenstudio.com/therapist-websites/#audit

@@ -1,0 +1,54 @@
+# Elaren Studio
+
+> Bright, enduring websites—built fast, kept current.
+
+Elaren Studio is a web design studio that builds clean, fast, conversion-focused websites for local service businesses and therapy practices. We use a static-first stack (Astro, Tailwind CSS, global CDN) for speed, reliability, and longevity.
+
+## What We Do
+
+- **Design & Build**: Custom static websites with modern frameworks. 10-day launch window. Starting at $3,800.
+- **Website-as-a-Service (WaaS)**: Lease your site with $0 down and ongoing improvements. From $175/month.
+- **Landing Pages**: Campaign-ready pages that convert. From $1,000.
+- **Therapist Websites**: Specialized offer for therapy practices. $500 setup + $99–$199/month care plans.
+
+## Therapist Website Offer
+
+Our primary vertical is therapist and therapy practice websites:
+
+- **Website Launch**: $500 one-time (custom design, up to 5 pages, mobile optimization, SEO setup)
+- **WaaS Starter**: $99/month (hosting, SSL, backups, uptime monitoring, 1 edit/month)
+- **WaaS Care+**: $199/month (unlimited edits, monthly conversion tune-up, local SEO maintenance, priority support)
+
+Launch target: ~10 days once copy and assets are provided.
+
+We serve solo therapists, group practices, and multi-location clinics. We do not provide HIPAA legal compliance guarantees.
+
+## Service Areas
+
+- Dallas, TX
+- Fort Worth, TX
+- Nationwide (remote)
+
+## Values
+
+- Clarity by design
+- Built to endure
+- Care that scales
+- Respect for your time
+
+## Key Pages
+
+- [Home](https://elarenstudio.com/)
+- [Services](https://elarenstudio.com/services/)
+- [Pricing](https://elarenstudio.com/pricing/)
+- [Therapist Websites](https://elarenstudio.com/therapist-websites/)
+- [Therapist Website Design Dallas](https://elarenstudio.com/therapist-website-design-dallas/)
+- [Therapist Website Design Fort Worth](https://elarenstudio.com/therapist-website-design-fort-worth/)
+- [Group Practice Website Design](https://elarenstudio.com/group-practice-website-design/)
+- [About](https://elarenstudio.com/about/)
+- [Contact](https://elarenstudio.com/contact/)
+- [Work](https://elarenstudio.com/work/)
+
+## Optional
+
+- [Full site content in Markdown](https://elarenstudio.com/llms-full.txt)

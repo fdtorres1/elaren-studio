@@ -4,3 +4,6 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://elarenstudio.com/sitemap-index.xml
+
+# LLM content
+LLMs-Txt: https://elarenstudio.com/llms.txt
