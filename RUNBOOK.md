@@ -11,6 +11,7 @@ Operational reference for [elarenstudio.com](https://elarenstudio.com). Start he
 | Framework   | Astro 5 (static output)       |
 | Styling     | Tailwind CSS 4                |
 | Content     | MDX via `@astrojs/mdx`        |
+| RSS         | `@astrojs/rss`                |
 | Sitemap     | `@astrojs/sitemap` (auto)     |
 | Forms       | FormSubmit (third-party)      |
 | PDF gen     | Playwright (dev only)         |
@@ -37,7 +38,8 @@ Always run `build` and `validate` before pushing.
 
 ```
 ├── content/
-│   └── seo-pages/           # MDX content for SEO landing pages
+│   ├── resources/            # MDX content for resource articles
+│   └── seo-pages/            # MDX content for SEO landing pages
 ├── public/
 │   ├── robots.txt            # Crawl directives + sitemap + LLMs-Txt
 │   ├── llms.txt              # Structured summary for AI models
@@ -48,22 +50,30 @@ Always run `build` and `validate` before pushing.
 ├── src/
 │   ├── components/
 │   │   ├── seo/              # Reusable components for SEO pages
+│   │   ├── Breadcrumbs.astro # Breadcrumb nav + BreadcrumbList JSON-LD
+│   │   ├── ResourceCard.astro # Resource card for index grid
+│   │   ├── RelatedResources.astro # Related resources section
+│   │   ├── TableOfContents.astro  # Auto-generated TOC from headings
 │   │   ├── Header.astro
 │   │   ├── Footer.astro
 │   │   └── TherapistCta.astro
 │   ├── layouts/
-│   │   └── BaseLayout.astro  # Global layout (head, meta, OG tags)
+│   │   └── BaseLayout.astro  # Global layout (head, meta, OG, RSS)
 │   ├── lib/
 │   │   ├── cta-presets.ts    # CTA preset definitions + resolver
 │   │   ├── pricing.ts        # Centralized plan pricing
+│   │   ├── resources.ts      # Resource utilities, scoring, formatting
 │   │   ├── seo-pages.ts      # Related pages scoring + structured data
 │   │   └── icons.ts          # Shared SVG icon registry
 │   └── pages/
 │       ├── [slug].astro      # Dynamic route for SEO content pages
+│       ├── resources.astro   # Resource index (card grid + filtering)
+│       ├── resources/[...slug].astro  # Resource article template
+│       ├── rss.xml.ts        # RSS feed endpoint
 │       ├── index.astro
 │       ├── therapist-websites.astro  # Main money page
 │       └── ...               # Static pages
-└── src/content.config.ts     # Content collection schema (Zod)
+└── src/content.config.ts     # Content collection schemas (Zod)
 ```
 
 ---
@@ -132,6 +142,69 @@ Related pages are computed automatically via a scoring algorithm in `src/lib/seo
 Manual `relatedPages` entries always appear first. Up to 4 related pages are shown per page.
 
 The `validate` script checks that all `relatedPages` slugs resolve to actual MDX files and that no slug collides with an existing static page in `src/pages/`.
+
+---
+
+## Resource Content System
+
+Resource articles (guides, teardowns, templates) use a second Astro content collection. Content lives in MDX files under `content/resources/`.
+
+### How it works
+
+1. **Content entries** live in `content/resources/*.mdx`
+2. **Schema** is defined in `src/content.config.ts` (the `resources` collection)
+3. **Dynamic route** `src/pages/resources/[...slug].astro` renders each entry
+4. URLs are built from `type` + filename: `wright-wellness-before-after-teardown.mdx` with `type: teardown` → `/resources/teardowns/wright-wellness-before-after-teardown`
+
+### Adding a new resource
+
+1. Create `content/resources/your-slug.mdx`
+2. Add required frontmatter (see schema below)
+3. Write the MDX body (the template renders the H1 — don't include one in the body)
+4. Run `npm run build` to verify
+
+### Frontmatter schema
+
+| Field | Type | Required | Default | Notes |
+|---|---|---|---|---|
+| `title` | string | yes | — | Article title (rendered as H1 by template) |
+| `description` | string | no | "" | Meta description + card excerpt |
+| `date` | string | no | — | ISO date (e.g., "2026-02-25"). Enables Article schema + RSS |
+| `type` | "teardown" \| "guide" \| "template" | yes | — | Determines URL prefix + grouping on index |
+| `tags` | string[] | no | [] | For filtering, related scoring, and display |
+| `vertical` | string | no | — | Maps to SEO page verticals for cross-system linking |
+| `draft` | boolean | no | false | Set `true` to exclude from build |
+
+### Type → URL mapping
+
+| Type | URL prefix | Index section |
+|---|---|---|
+| `teardown` | `/resources/teardowns/` | Teardowns |
+| `guide` | `/resources/guides/` | Guides |
+| `template` | `/resources/templates/` | Templates |
+
+### Features included automatically
+
+- **Breadcrumbs** — UI + BreadcrumbList JSON-LD schema
+- **Table of contents** — auto-generated from H2/H3 headings (shown when 3+ headings)
+- **Reading time** — estimated from word count (200 wpm)
+- **Publish date** — displayed if `date` is set
+- **Related resources** — scored by shared type (+2), vertical (+3), and tags (+2 each)
+- **Article JSON-LD** — emitted if `date` is present
+- **RSS feed** — resources with dates appear at `/rss.xml`
+
+### Cross-system linking
+
+- **SEO pages → Resources:** SEO pages automatically show related resources that share the same `vertical`
+- **Resources → SEO pages:** Add contextual links in the MDX body (e.g., link to `/therapist-websites`)
+
+### Resource index
+
+The index page at `/resources` features:
+
+- Card grid grouped by type (teardowns, guides, templates)
+- Client-side type filtering (buttons + URL parameter `?type=teardown`)
+- Each card shows: type badge, date, reading time, title, description, tags
 
 ---
 
@@ -247,6 +320,15 @@ Each SEO page emits two schemas (injected by `[slug].astro`):
 
 Built by `buildStructuredData()` and `buildFaqSchema()` in `src/lib/seo-pages.ts`.
 
+Resource articles emit:
+
+1. **Article** — headline, description, date, author/publisher (if `date` is set)
+2. **BreadcrumbList** — navigation trail (via `Breadcrumbs` component)
+
+### RSS feed
+
+Auto-generated at `/rss.xml` from resources with dates. Discoverable via `<link rel="alternate">` in the HTML head (BaseLayout).
+
 ### LLM content
 
 - `public/llms.txt` — structured summary (studio overview, services, values)
@@ -300,9 +382,16 @@ When adding new pages or making significant changes:
 | What | Where |
 |------|-------|
 | Site config | `astro.config.mjs` |
-| Content schema | `src/content.config.ts` |
+| Content schemas | `src/content.config.ts` |
 | SEO page content | `content/seo-pages/*.mdx` |
 | SEO page template | `src/pages/[slug].astro` |
+| Resource content | `content/resources/*.mdx` |
+| Resource index | `src/pages/resources.astro` |
+| Resource template | `src/pages/resources/[...slug].astro` |
+| Resource utilities | `src/lib/resources.ts` |
+| RSS feed | `src/pages/rss.xml.ts` |
+| Breadcrumbs | `src/components/Breadcrumbs.astro` |
+| Table of contents | `src/components/TableOfContents.astro` |
 | CTA presets | `src/lib/cta-presets.ts` |
 | Pricing config | `src/lib/pricing.ts` |
 | Related pages logic | `src/lib/seo-pages.ts` |

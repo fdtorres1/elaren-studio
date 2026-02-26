@@ -43,4 +43,17 @@ const seoPages = defineCollection({
 	}),
 });
 
-export const collections = { seoPages };
+const resources = defineCollection({
+	loader: glob({ pattern: "**/*.mdx", base: "./content/resources" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string().default(""),
+		date: z.string().optional(),
+		type: z.enum(["teardown", "guide", "template"]),
+		tags: z.array(z.string()).default([]),
+		vertical: z.string().optional(),
+		draft: z.boolean().default(false),
+	}),
+});
+
+export const collections = { seoPages, resources };

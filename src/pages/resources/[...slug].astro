@@ -1,45 +1,104 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { readFile } from 'fs/promises';
-import { parseMarkdown } from '../../utils/markdown';
-import { markdownToHtml } from '../../utils/markdownToHtml';
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
+import RelatedResources from "../../components/RelatedResources.astro";
+import {
+	TYPE_LABELS,
+	TYPE_PLURALS,
+	getResourceUrl,
+	estimateReadingTime,
+	formatDate,
+	getRelatedResources,
+} from "../../lib/resources";
 
 export async function getStaticPaths() {
-	// Known resource paths
-	return [
-		{ params: { slug: 'guides/keep-a-static-site-fresh' } },
-		{ params: { slug: 'templates/project-brief' } },
-	];
+	const resources = await getCollection("resources", ({ data }) => !data.draft);
+	return resources.map((resource) => ({
+		params: { slug: `${TYPE_PLURALS[resource.data.type]}/${resource.id}` },
+		props: { resource },
+	}));
 }
 
-const { slug } = Astro.params;
-const slugPath = Array.isArray(slug) ? slug.join('/') : slug;
+const { resource } = Astro.props;
+const { Content, headings } = await render(resource);
+const related = await getRelatedResources(resource);
+const readingTime = resource.body ? estimateReadingTime(resource.body) : 1;
+const siteUrl = Astro.site?.origin ?? "https://elarenstudio.com";
+const canonicalUrl = `${siteUrl}${getResourceUrl(resource)}`;
+const typeLabel = TYPE_LABELS[resource.data.type];
+const typePlural = TYPE_PLURALS[resource.data.type];
 
-let content: string;
-try {
-	content = await readFile(`./elaren_site_content/resources/${slugPath}.md`, 'utf-8');
-} catch {
-	return Astro.redirect('/404');
-}
+const breadcrumbs = [
+	{ label: "Home", href: "/" },
+	{ label: "Resources", href: "/resources" },
+	{ label: typeLabel + "s", href: `/resources?type=${resource.data.type}` },
+	{ label: resource.data.title },
+];
 
-const { frontmatter, body } = parseMarkdown(content);
-const htmlContent = markdownToHtml(body);
+const articleSchema = resource.data.date
+	? {
+			"@context": "https://schema.org",
+			"@type": "Article",
+			headline: resource.data.title,
+			description: resource.data.description ?? "",
+			datePublished: resource.data.date,
+			url: canonicalUrl,
+			author: { "@type": "Organization", name: "Elaren Studio", url: siteUrl },
+			publisher: { "@type": "Organization", name: "Elaren Studio", url: siteUrl },
+		}
+	: null;
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout title={resource.data.title} description={resource.data.description}>
 	<Header />
 	<main>
-		<section class="container py-16 md:py-24">
+		<article class="container py-12 md:py-20">
 			<div class="max-w-3xl">
-				<div class="prose" set:html={htmlContent} />
+				<Breadcrumbs items={breadcrumbs} />
+
+				<header class="mt-6 mb-10">
+					<div class="flex flex-wrap items-center gap-3 mb-4">
+						<span class="text-xs font-medium uppercase tracking-wider px-2.5 py-1 bg-accent/10 text-accent rounded-md">
+							{typeLabel}
+						</span>
+						{resource.data.date && (
+							<span class="text-sm text-ink/50">{formatDate(resource.data.date)}</span>
+						)}
+						<span class="text-sm text-ink/30">&middot;</span>
+						<span class="text-sm text-ink/50">{readingTime} min read</span>
+					</div>
+					<h1 class="text-3xl md:text-4xl font-semibold text-ink mb-4">{resource.data.title}</h1>
+					{resource.data.description && (
+						<p class="text-lg text-ink/70 leading-relaxed">{resource.data.description}</p>
+					)}
+				</header>
+
+				<TableOfContents headings={headings} />
+
+				<div class="prose prose-lg">
+					<Content />
+				</div>
+
+				<RelatedResources resources={related} />
+
 				<div class="mt-8 pt-8 border-t border-slate-100">
-					<a href="/resources" class="text-accent hover:underline">← Back to Resources</a>
+					<a href="/resources" class="text-accent hover:underline inline-flex items-center gap-2 no-underline hover:no-underline">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+						</svg>
+						Back to Resources
+					</a>
 				</div>
 			</div>
-		</section>
+		</article>
 	</main>
 	<Footer />
-</BaseLayout>
 
+	{articleSchema && (
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+	)}
+</BaseLayout>

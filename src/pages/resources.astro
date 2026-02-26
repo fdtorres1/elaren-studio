@@ -1,46 +1,63 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { readFile } from 'fs/promises';
-import { parseMarkdown } from '../utils/markdown';
-import { markdownToHtml } from '../utils/markdownToHtml';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ResourceCard from "../components/ResourceCard.astro";
+import { getAllResources, TYPE_LABELS } from "../lib/resources";
 
-const content = await readFile('./elaren_site_content/resources.md', 'utf-8');
-const { frontmatter, body } = parseMarkdown(content);
-// Remove the # Resources heading from markdown since we'll render it in hero
-const bodyWithoutHeading = body.replace(/^# Resources\s*\n\n?/, '');
-const htmlContent = markdownToHtml(bodyWithoutHeading);
+const resources = await getAllResources();
+
+const activeTypes = [...new Set(resources.map((r) => r.data.type))];
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout
+	title="Resources"
+	description="Guides, teardowns, and templates to keep your site bright and enduring."
+>
 	<Header />
 	<main>
-		<!-- Hero -->
-		<section class="container pt-16 md:pt-24 pb-4 md:pb-6">
+		<section class="container pt-16 md:pt-24 pb-8">
 			<div class="max-w-3xl">
-				<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Resources</p>
-				<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink">Resources</h1>
-			</div>
-		</section>
+				<Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources" }]} />
+				<h1 class="text-4xl md:text-5xl font-semibold mt-6 mb-4 text-ink">Resources</h1>
+				<p class="text-lg text-ink/70 leading-relaxed mb-8">
+					Guides, teardowns, and templates to keep your site bright and enduring.
+				</p>
 
-		<!-- Main Content -->
-		<section class="relative py-16 md:py-24 overflow-hidden" style="background-color: #eef2f6;">
-			<!-- Decorative gradient elements -->
-			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-300/25 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-			<div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-300/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-			<div class="absolute top-1/2 left-1/4 w-72 h-72 bg-slate-300/15 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-			
-			<div class="container relative z-10">
-				<div class="max-w-3xl">
-					<div class="prose prose-lg" set:html={htmlContent} />
+				<div class="flex flex-wrap gap-2" id="resource-filters">
+					<button
+						data-filter="all"
+						class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 transition-all"
+					>
+						All
+					</button>
+					{activeTypes.map((type) => (
+						<button
+							data-filter={type}
+							class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 transition-all"
+						>
+							{TYPE_LABELS[type]}s
+						</button>
+					))}
 				</div>
 			</div>
 		</section>
 
-		<!-- CTA -->
-		<section class="container py-16 md:py-24">
-			<div class="max-w-3xl mx-auto text-center">
+		<section class="container pb-16 md:pb-24">
+			<div class="max-w-3xl">
+				<div class="flex flex-col gap-4" id="resource-list">
+					{resources.map((resource) => (
+						<div class="resource-item" data-type={resource.data.type}>
+							<ResourceCard resource={resource} />
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="container py-16 md:py-24 border-t border-slate-100">
+			<div class="max-w-2xl mx-auto text-center">
 				<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">Ready to work together?</h2>
 				<p class="text-lg text-ink/70 mb-8 leading-relaxed">
 					Tell us about your project and we'll help bring it to life.
@@ -57,3 +74,53 @@ const htmlContent = markdownToHtml(bodyWithoutHeading);
 	<Footer />
 </BaseLayout>
 
+<style>
+	.filter-btn {
+		color: var(--clr-ink);
+		opacity: 0.6;
+	}
+	.filter-btn:hover {
+		opacity: 0.8;
+		border-color: var(--clr-accent);
+	}
+	.filter-btn.active {
+		opacity: 1;
+		background-color: var(--clr-accent);
+		color: var(--clr-paper);
+		border-color: var(--clr-accent);
+	}
+</style>
+
+<script>
+	const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+	const items = document.querySelectorAll<HTMLElement>(".resource-item");
+
+	const params = new URLSearchParams(window.location.search);
+	const initialFilter = params.get("type") || "all";
+
+	function activate(filter: string) {
+		buttons.forEach((b) => {
+			b.classList.toggle("active", b.dataset.filter === filter);
+		});
+		items.forEach((item) => {
+			item.style.display =
+				filter === "all" || item.dataset.type === filter ? "" : "none";
+		});
+	}
+
+	activate(initialFilter);
+
+	buttons.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const filter = btn.dataset.filter || "all";
+			activate(filter);
+			const url = new URL(window.location.href);
+			if (filter === "all") {
+				url.searchParams.delete("type");
+			} else {
+				url.searchParams.set("type", filter);
+			}
+			window.history.replaceState({}, "", url.toString());
+		});
+	});
+</script>
