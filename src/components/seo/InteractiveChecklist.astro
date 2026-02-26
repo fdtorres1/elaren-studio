@@ -1,0 +1,36 @@
+---
+interface Props {
+	bg?: 'paper' | 'muted';
+	kicker: string;
+	title: string;
+	subtitle?: string;
+	items: string[];
+	footnote?: string;
+}
+
+const { bg = 'paper', kicker, title, subtitle, items, footnote } = Astro.props;
+
+const bgClass = bg === 'muted' ? 'relative py-16 md:py-24 overflow-hidden' : 'bg-paper py-16 md:py-24';
+const bgStyle = bg === 'muted' ? 'background-color: #eef2f6;' : undefined;
+---
+
+<section class={bgClass} style={bgStyle}>
+	<div class="container">
+		<div class="max-w-3xl mx-auto">
+			<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">{kicker}</p>
+			<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">{title}</h2>
+			{subtitle && <p class="text-ink/70 mb-8">{subtitle}</p>}
+			<div class="space-y-4">
+				{items.map((q) => (
+					<label class="flex items-start gap-3 cursor-pointer group">
+						<input type="checkbox" class="mt-1 w-5 h-5 rounded border-slate-300 text-accent focus:ring-accent/50" />
+						<span class="text-ink/80 group-hover:text-ink transition-colors">{q}</span>
+					</label>
+				))}
+			</div>
+			{footnote && (
+				<p class="text-sm text-ink/60 mt-8" set:html={footnote} />
+			)}
+		</div>
+	</div>
+</section>

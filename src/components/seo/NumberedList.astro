@@ -1,0 +1,32 @@
+---
+interface Props {
+	bg?: 'paper' | 'muted';
+	kicker: string;
+	title: string;
+	subtitle?: string;
+	items: string[];
+}
+
+const { bg = 'paper', kicker, title, subtitle, items } = Astro.props;
+
+const bgClass = bg === 'muted' ? 'relative py-16 md:py-24 overflow-hidden' : 'bg-paper py-16 md:py-24';
+const bgStyle = bg === 'muted' ? 'background-color: #eef2f6;' : undefined;
+---
+
+<section class={bgClass} style={bgStyle}>
+	<div class="container">
+		<div class="max-w-3xl mx-auto">
+			<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">{kicker}</p>
+			<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">{title}</h2>
+			{subtitle && <p class="text-ink/70 mb-8" set:html={subtitle} />}
+			<ol class="space-y-5 text-ink/80">
+				{items.map((item, i) => (
+					<li class="flex items-start gap-4">
+						<span class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center text-sm font-bold text-accent">{i + 1}</span>
+						<span>{item}</span>
+					</li>
+				))}
+			</ol>
+		</div>
+	</div>
+</section>

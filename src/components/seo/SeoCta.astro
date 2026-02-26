@@ -1,0 +1,41 @@
+---
+import { CTA_PRESETS } from '../../lib/cta-presets';
+
+interface Props {
+	headline: string;
+	subtext?: string;
+	ctaText?: string;
+	ctaHref?: string;
+}
+
+const {
+	headline,
+	subtext = "No pressure. Just clear, actionable recommendations.",
+	ctaText = CTA_PRESETS.audit.text,
+	ctaHref = CTA_PRESETS.audit.href,
+} = Astro.props;
+---
+
+<section class="relative py-16 md:py-24 overflow-hidden bg-paper">
+	<div class="absolute top-0 left-1/4 w-96 h-96 bg-slate-300/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+	<div class="container relative z-10">
+		<div class="max-w-2xl mx-auto text-center">
+			<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">{headline}</h2>
+			<p class="text-lg text-ink/70 mb-8 leading-relaxed" set:html={subtext} />
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+				<a
+					href={ctaHref}
+					class="inline-flex items-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200 text-lg"
+				>
+					{ctaText}
+				</a>
+				<a
+					href="/contact"
+					class="inline-flex items-center px-6 py-4 border-2 border-slate-200 text-ink rounded-xl font-semibold no-underline hover:border-accent/30 hover:bg-slate-50 transition-all duration-200"
+				>
+					Prefer to talk? Book a 15-min call
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,31 @@
+---
+import type { SeoPage } from '../../lib/seo-pages';
+
+interface Props {
+	relatedPages: SeoPage[];
+}
+
+const { relatedPages } = Astro.props;
+
+if (!relatedPages.length) return;
+---
+
+<section class="relative py-16 md:py-24 overflow-hidden bg-paper">
+	<div class="container relative z-10">
+		<div class="max-w-3xl mx-auto">
+			<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Related services</p>
+			<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">You might also be interested in</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+				{relatedPages.map((page) => (
+					<a
+						href={`/${page.id}`}
+						class="rounded-xl border-2 border-slate-200 p-5 hover:border-accent/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 no-underline group"
+					>
+						<h3 class="font-semibold text-ink mb-1 group-hover:text-accent transition-colors">{page.data.title}</h3>
+						<p class="text-sm text-ink/60 line-clamp-2">{page.data.description}</p>
+					</a>
+				))}
+			</div>
+		</div>
+	</div>
+</section>

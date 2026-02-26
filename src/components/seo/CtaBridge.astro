@@ -1,0 +1,14 @@
+---
+interface Props {
+	text: string;
+	linkText: string;
+	href: string;
+	suffix?: string;
+}
+
+const { text, linkText, href, suffix = "can help you find the gaps." } = Astro.props;
+---
+
+<p class="text-sm text-ink/60 mt-8">
+	{text} A <a href={href} class="text-accent font-medium hover:underline">{linkText}</a> {suffix}
+</p>

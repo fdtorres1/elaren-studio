@@ -1,0 +1,72 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SeoHero from '../components/seo/SeoHero.astro';
+import SeoPricing from '../components/seo/SeoPricing.astro';
+import SeoFaq from '../components/seo/SeoFaq.astro';
+import SeoCta from '../components/seo/SeoCta.astro';
+import CrossLinks from '../components/seo/CrossLinks.astro';
+import { getRelatedPages, buildStructuredData, buildFaqSchema } from '../lib/seo-pages';
+import { resolveCta } from '../lib/cta-presets';
+
+export async function getStaticPaths() {
+	const pages = await getCollection('seoPages');
+	return pages.map((page) => ({
+		params: { slug: page.id },
+		props: { page },
+	}));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+const relatedPages = await getRelatedPages(page);
+const siteUrl = Astro.site?.origin ?? 'https://elarenstudio.com';
+const structuredData = buildStructuredData(page, siteUrl);
+const faqSchema = buildFaqSchema(page);
+const pageTitle = page.data.title;
+const pricingVariant = page.data.pageType === 'practice-type' ? 'stepped' : 'stacked';
+const cta = resolveCta(page.data.ctaPreset, page.data.ctaText, page.data.ctaHref);
+---
+
+<BaseLayout title={pageTitle} description={page.data.description}>
+	<Header />
+	<main>
+		<SeoHero
+			kicker={page.data.heroKicker}
+			h1={page.data.h1}
+			subtitle={page.data.heroSubtitle}
+			trustLine={page.data.trustLine}
+			ctaText={cta.text}
+			ctaHref={cta.href}
+		/>
+
+		<Content />
+
+		<SeoPricing variant={pricingVariant} />
+
+		{page.data.faqs.length > 0 && (
+			<SeoFaq
+				faqs={page.data.faqs}
+				title={page.data.faqSectionTitle}
+				subtitle={page.data.faqSectionSubtitle}
+			/>
+		)}
+
+		<CrossLinks relatedPages={relatedPages} />
+
+		<SeoCta
+			headline={page.data.finalCtaHeadline}
+			subtext={page.data.finalCtaSubtext}
+			ctaText={cta.text}
+			ctaHref={cta.href}
+		/>
+	</main>
+	<Footer />
+
+	<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	{faqSchema && (
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	)}
+</BaseLayout>

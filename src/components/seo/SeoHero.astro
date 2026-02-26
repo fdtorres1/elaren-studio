@@ -1,0 +1,46 @@
+---
+interface Props {
+	kicker: string;
+	h1: string;
+	subtitle: string;
+	trustLine: string;
+	ctaText: string;
+	ctaHref: string;
+}
+
+const { kicker, h1, subtitle, trustLine, ctaText, ctaHref } = Astro.props;
+---
+
+<section class="relative py-20 md:py-32 overflow-hidden" style="background: linear-gradient(to top, #eef2f6 0%, #f1f5f9 50%, #ffffff 100%);">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-slate-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 bg-slate-300/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+	<div class="container relative z-10">
+		<div class="max-w-3xl">
+			<p class="text-sm font-medium text-accent uppercase tracking-wider mb-4">{kicker}</p>
+			<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink leading-tight">
+				{h1}
+			</h1>
+			<p class="text-xl text-ink/80 mb-4 leading-relaxed max-w-2xl">
+				{subtitle}
+			</p>
+			<p class="text-sm font-medium text-ink/50 mb-10">
+				{trustLine}
+			</p>
+			<div class="flex flex-wrap gap-4">
+				<a
+					href={ctaHref}
+					class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200 text-lg"
+				>
+					{ctaText}
+				</a>
+				<a
+					href="#pricing"
+					class="inline-flex items-center px-6 py-4 border-2 border-slate-200 text-ink rounded-xl font-semibold no-underline hover:border-accent/30 hover:bg-slate-50 transition-all duration-200 text-lg"
+				>
+					See Pricing
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
