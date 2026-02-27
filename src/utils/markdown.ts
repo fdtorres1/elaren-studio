@@ -3,6 +3,7 @@ export interface MarkdownFrontmatter {
 	slug?: string;
 	description?: string;
 	summary?: string;
+	date?: string;
 }
 
 export function parseMarkdown(content: string): { frontmatter: MarkdownFrontmatter; body: string } {
@@ -40,6 +41,7 @@ export function parseMarkdown(content: string): { frontmatter: MarkdownFrontmatt
 		if (key === 'slug') frontmatter.slug = value;
 		if (key === 'description') frontmatter.description = value;
 		if (key === 'summary') frontmatter.summary = value;
+		if (key === 'date') frontmatter.date = value;
 	});
 
 	return { frontmatter, body };

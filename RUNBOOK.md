@@ -202,9 +202,9 @@ Resource articles (guides, teardowns, templates) use a second Astro content coll
 
 The index page at `/resources` features:
 
-- Card grid grouped by type (teardowns, guides, templates)
+- Full-width card list (no grid)
 - Client-side type filtering (buttons + URL parameter `?type=teardown`)
-- Each card shows: type badge, date, reading time, title, description, tags
+- Each card shows: type badge, date, reading time, title, description (tags hidden on index by default; `showTags` prop available)
 
 ---
 

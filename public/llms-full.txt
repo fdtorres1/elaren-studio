@@ -407,6 +407,35 @@ This page is for group practices that want a clear, durable website foundation n
 
 ---
 
+## Resources
+
+URL: https://elarenstudio.com/resources/
+
+Guides, teardowns, and templates to keep your site bright and enduring.
+
+### Teardowns
+
+**Wright Wellness Website Teardown: Before vs After**
+URL: https://elarenstudio.com/resources/teardowns/wright-wellness-before-after-teardown/
+
+A real before-and-after website redesign for a mental health practice. See what changed, why it matters, and the practical lessons for service businesses. Covers homepage structure, mobile UX, service pages, provider bios, and conversion flow improvements.
+
+### Guides
+
+**Keep a Static Site Fresh**
+URL: https://elarenstudio.com/resources/guides/keep-a-static-site-fresh/
+
+Short, regular updates beat large, infrequent ones. A quick guide to keeping your static site current without the headache.
+
+### Templates
+
+**Project Brief Template**
+URL: https://elarenstudio.com/resources/templates/project-brief/
+
+A ready-to-use project brief template for web design engagements. Covers goals, audience, scope, timeline, and deliverables.
+
+---
+
 ## Contact
 
 Get in touch at: https://elarenstudio.com/contact/

@@ -39,21 +39,36 @@ const breadcrumbs = [
 	{ label: resource.data.title },
 ];
 
+const ogImageUrl = `${siteUrl}/og-image.png`;
+
 const articleSchema = resource.data.date
 	? {
 			"@context": "https://schema.org",
 			"@type": "Article",
 			headline: resource.data.title,
-			description: resource.data.description ?? "",
+			description: resource.data.description,
 			datePublished: resource.data.date,
 			url: canonicalUrl,
+			image: ogImageUrl,
+			mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
 			author: { "@type": "Organization", name: "Elaren Studio", url: siteUrl },
-			publisher: { "@type": "Organization", name: "Elaren Studio", url: siteUrl },
+			publisher: {
+				"@type": "Organization",
+				name: "Elaren Studio",
+				url: siteUrl,
+				logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.svg` },
+			},
 		}
 	: null;
 ---
 
-<BaseLayout title={resource.data.title} description={resource.data.description}>
+<BaseLayout
+	title={resource.data.title}
+	description={resource.data.description}
+	ogType={resource.data.date ? "article" : "website"}
+	articleDate={resource.data.date}
+	articleTags={resource.data.tags}
+>
 	<Header />
 	<main>
 		<article class="container py-12 md:py-20">
@@ -65,11 +80,13 @@ const articleSchema = resource.data.date
 						<span class="text-xs font-medium uppercase tracking-wider px-2.5 py-1 bg-accent/10 text-accent rounded-md">
 							{typeLabel}
 						</span>
-						{resource.data.date && (
-							<span class="text-sm text-ink/50">{formatDate(resource.data.date)}</span>
-						)}
-						<span class="text-sm text-ink/30">&middot;</span>
-						<span class="text-sm text-ink/50">{readingTime} min read</span>
+					{resource.data.date && (
+						<>
+							<time datetime={resource.data.date} class="text-sm text-ink/50">{formatDate(resource.data.date)}</time>
+							<span class="text-sm text-ink/30">&middot;</span>
+						</>
+					)}
+					<span class="text-sm text-ink/50">{readingTime} min read</span>
 					</div>
 					<h1 class="text-3xl md:text-4xl font-semibold text-ink mb-4">{resource.data.title}</h1>
 					{resource.data.description && (
@@ -86,7 +103,7 @@ const articleSchema = resource.data.date
 				<RelatedResources resources={related} />
 
 				<div class="mt-8 pt-8 border-t border-slate-100">
-					<a href="/resources" class="text-accent hover:underline inline-flex items-center gap-2 no-underline hover:no-underline">
+					<a href="/resources" class="text-accent inline-flex items-center gap-2 no-underline hover:underline">
 						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 						</svg>

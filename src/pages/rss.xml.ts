@@ -15,7 +15,7 @@ export async function GET(context: APIContext) {
 			.map((r) => ({
 				title: r.data.title,
 				description: r.data.description || "",
-				pubDate: new Date(r.data.date + "T00:00:00Z"),
+				pubDate: new Date(r.data.date! + "T12:00:00Z"),
 				link: getResourceUrl(r),
 			})),
 	});

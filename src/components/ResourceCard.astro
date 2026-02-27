@@ -27,7 +27,7 @@ const readingTime = resource.body ? estimateReadingTime(resource.body) : 1;
 					</span>
 					{resource.data.date && (
 						<>
-							<span class="text-xs text-ink/40">{formatDate(resource.data.date)}</span>
+							<time datetime={resource.data.date} class="text-xs text-ink/40">{formatDate(resource.data.date)}</time>
 							<span class="text-xs text-ink/25">&middot;</span>
 						</>
 					)}

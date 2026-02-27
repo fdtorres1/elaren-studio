@@ -25,22 +25,24 @@ const activeTypes = [...new Set(resources.map((r) => r.data.type))];
 					Guides, teardowns, and templates to keep your site bright and enduring.
 				</p>
 
-				<div class="flex flex-wrap gap-2" id="resource-filters">
+			<div class="flex flex-wrap gap-2" id="resource-filters" role="group" aria-label="Filter resources by type">
+				<button
+					data-filter="all"
+					aria-pressed="true"
+					class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 transition-all"
+				>
+					All
+				</button>
+				{activeTypes.map((type) => (
 					<button
-						data-filter="all"
-						class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 transition-all"
+						data-filter={type}
+						aria-pressed="false"
+						class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 transition-all"
 					>
-						All
+						{TYPE_LABELS[type]}s
 					</button>
-					{activeTypes.map((type) => (
-						<button
-							data-filter={type}
-							class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 transition-all"
-						>
-							{TYPE_LABELS[type]}s
-						</button>
-					))}
-				</div>
+				))}
+			</div>
 			</div>
 		</section>
 
@@ -100,7 +102,9 @@ const activeTypes = [...new Set(resources.map((r) => r.data.type))];
 
 	function activate(filter: string) {
 		buttons.forEach((b) => {
-			b.classList.toggle("active", b.dataset.filter === filter);
+			const isActive = b.dataset.filter === filter;
+			b.classList.toggle("active", isActive);
+			b.setAttribute("aria-pressed", String(isActive));
 		});
 		items.forEach((item) => {
 			item.style.display =

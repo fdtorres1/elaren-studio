@@ -40,6 +40,12 @@ const breadcrumbs = [
 const allResources = await getCollection("resources", ({ data }) => !data.draft);
 const relatedResources = allResources
 	.filter((r: Resource) => r.data.vertical === page.data.vertical)
+	.sort((a, b) => {
+		if (a.data.date && b.data.date) return b.data.date.localeCompare(a.data.date);
+		if (a.data.date) return -1;
+		if (b.data.date) return 1;
+		return 0;
+	})
 	.slice(0, 3);
 ---
 

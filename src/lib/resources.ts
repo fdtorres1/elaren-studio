@@ -27,7 +27,7 @@ export function estimateReadingTime(text: string): number {
 }
 
 export function formatDate(dateStr: string): string {
-	const date = new Date(dateStr + "T00:00:00");
+	const date = new Date(dateStr + "T12:00:00Z");
 	return date.toLocaleDateString("en-US", {
 		year: "numeric",
 		month: "long",

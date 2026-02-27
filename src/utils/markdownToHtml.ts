@@ -12,7 +12,6 @@ export function markdownToHtml(markdown: string): string {
 		// Header row
 		const headerCells = lines[0].split('|').map(c => c.trim()).filter(c => c);
 		headerCells.forEach(cell => {
-			// Remove bold markers
 			const cleanCell = cell.replace(/\*\*/g, '');
 			tableHtml += `<th class="border border-slate-100 px-4 py-3 text-left font-semibold">${cleanCell}</th>`;
 		});
@@ -23,7 +22,6 @@ export function markdownToHtml(markdown: string): string {
 			const cells = lines[i].split('|').map(c => c.trim()).filter(c => c);
 			tableHtml += '<tr>';
 			cells.forEach((cell, idx) => {
-				// First column might be bold
 				const cleanCell = cell.replace(/\*\*/g, '');
 				const isFirstCol = idx === 0;
 				tableHtml += `<td class="border border-slate-100 px-4 py-3 ${isFirstCol ? 'font-medium' : ''}">${cleanCell}</td>`;
@@ -34,6 +32,12 @@ export function markdownToHtml(markdown: string): string {
 		tableHtml += '</tbody></table>';
 		return tableHtml;
 	});
+
+	// Horizontal rules
+	html = html.replace(/^---\s*$/gm, '<hr class="border-t border-slate-200 my-10" />');
+
+	// Line breaks: trailing double-space → <br>
+	html = html.replace(/ {2,}\n/g, '<br />\n');
 
 	// Headers
 	html = html.replace(/^### (.*$)/gim, '<h3 class="text-h3 font-semibold mt-8 mb-4">$1</h3>');
@@ -65,14 +69,13 @@ export function markdownToHtml(markdown: string): string {
 	// Blockquotes
 	html = html.replace(/^> (.*$)/gim, '<blockquote class="border-l-4 border-accent pl-6 py-2 my-6 italic text-ink/80">$1</blockquote>');
 
-	// Paragraphs - process remaining text as paragraphs
+	// Paragraphs
+	const blockTags = /^<(h[1-6]|ul|ol|table|blockquote|hr|div|section|details|nav|figure)/i;
 	const paragraphs = html.split(/\n\n+/);
 	html = paragraphs.map(para => {
 		para = para.trim();
 		if (!para) return '';
-		// Skip if already processed (starts with <)
-		if (para.match(/^<[a-z]/i)) return para;
-		// Skip if it's part of a list or table
+		if (para.match(blockTags)) return para;
 		if (para.includes('<ul>') || para.includes('<table>')) return para;
 		return `<p class="mb-4 leading-relaxed">${para}</p>`;
 	}).join('\n');
