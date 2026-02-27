@@ -469,6 +469,11 @@ A real before-and-after website redesign for a mental health practice. See what 
 
 ### Guides
 
+**How Much Does a Website Redesign Cost in 2026?**
+URL: https://elarenstudio.com/resources/guides/website-redesign-cost-2026/
+
+A comprehensive cost guide for service business owners evaluating a website redesign. Covers real 2026 price ranges by scope (landing page through enterprise), the six factors that drive price variance, hidden costs, four payment models compared (one-time, subscription/WaaS, hybrid, retainer), 24-month total cost comparisons, pricing transparency research, and ROI benchmarks. Sourced from GoodFirms, Elementor, Clutch, BLS, TrustRadius, HockeyStack Labs, and others. Includes therapy-practice-specific data and an 8-question FAQ.
+
 **Keep a Static Site Fresh**
 URL: https://elarenstudio.com/resources/guides/keep-a-static-site-fresh/
 
