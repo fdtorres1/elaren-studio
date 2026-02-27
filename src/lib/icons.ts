@@ -13,6 +13,7 @@ export const ICONS: Record<string, string> = {
 	frown: "M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
 	search: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
 	clock: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+	lock: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z",
 };
 
 export function resolveIcon(key: string): string {
