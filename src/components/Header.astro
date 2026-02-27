@@ -15,25 +15,37 @@ const navItems = [
 			<a href="/" class="text-xl font-semibold tracking-tight text-ink no-underline hover:no-underline transition-opacity hover:opacity-80">
 				ELAREN STUDIO
 			</a>
-			<div class="hidden md:flex items-center gap-6">
-				{navItems.map((item) => (
-					<a
-						href={item.href}
-						class:list={[
-							"text-sm font-medium no-underline transition-colors",
-							currentPath.startsWith(item.href) ? "text-accent" : "text-ink hover:text-ink/80",
-						]}
-					>
-						{item.label}
-					</a>
-				))}
+		<div class="hidden md:flex items-center gap-6">
+			{navItems.map((item) => (
 				<a
-					href="/contact"
-					class="px-5 py-2.5 bg-accent text-paper rounded-xl text-sm font-semibold no-underline shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+					href={item.href}
+					class:list={[
+						"text-sm font-medium no-underline transition-colors",
+						currentPath.startsWith(item.href) ? "text-accent" : "text-ink hover:text-ink/80",
+					]}
 				>
-					Start a project
+					{item.label}
 				</a>
-			</div>
+			))}
+			<button
+				id="theme-toggle-desktop"
+				class="p-2 rounded-lg text-ink/60 hover:text-ink hover:bg-slate-100 transition-colors"
+				aria-label="Toggle dark mode"
+			>
+				<svg class="w-5 h-5 theme-icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+				</svg>
+				<svg class="w-5 h-5 theme-icon-moon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+				</svg>
+			</button>
+			<a
+				href="/contact"
+				class="px-5 py-2.5 bg-accent text-paper rounded-xl text-sm font-semibold no-underline shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+			>
+				Start a project
+			</a>
+		</div>
 			<button
 				class="md:hidden text-ink hover:text-accent transition-colors"
 				aria-label="Open menu"
@@ -65,14 +77,26 @@ const navItems = [
 					{item.label}
 				</a>
 			))}
-			<div class="pt-3 mt-2 border-t border-slate-200/60">
-				<a
-					href="/contact"
-					class="block text-center px-5 py-3 bg-accent text-paper rounded-xl text-base font-semibold no-underline shadow-lg shadow-accent/40"
-				>
-					Start a project
-				</a>
-			</div>
+		<div class="flex items-center justify-between pt-3 mt-2 border-t border-slate-200/60">
+			<a
+				href="/contact"
+				class="flex-1 block text-center px-5 py-3 bg-accent text-paper rounded-xl text-base font-semibold no-underline shadow-lg shadow-accent/40"
+			>
+				Start a project
+			</a>
+			<button
+				id="theme-toggle-mobile"
+				class="ml-3 p-3 rounded-lg text-ink/60 hover:text-ink hover:bg-slate-100 transition-colors"
+				aria-label="Toggle dark mode"
+			>
+				<svg class="w-5 h-5 theme-icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+				</svg>
+				<svg class="w-5 h-5 theme-icon-moon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+				</svg>
+			</button>
+		</div>
 		</div>
 	</div>
 </header>
@@ -89,6 +113,30 @@ const navItems = [
 		toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
 		iconOpen?.classList.toggle("hidden", isOpen);
 		iconClose?.classList.toggle("hidden", !isOpen);
+	});
+
+	function syncThemeIcons() {
+		const isDark = document.documentElement.classList.contains("dark");
+		document.querySelectorAll(".theme-icon-sun").forEach(el => el.classList.toggle("hidden", isDark));
+		document.querySelectorAll(".theme-icon-moon").forEach(el => el.classList.toggle("hidden", !isDark));
+	}
+
+	function handleThemeToggle() {
+		const isDark = document.documentElement.classList.toggle("dark");
+		localStorage.setItem("theme", isDark ? "dark" : "light");
+		syncThemeIcons();
+	}
+
+	document.getElementById("theme-toggle-desktop")?.addEventListener("click", handleThemeToggle);
+	document.getElementById("theme-toggle-mobile")?.addEventListener("click", handleThemeToggle);
+
+	syncThemeIcons();
+
+	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+		if (!localStorage.getItem("theme")) {
+			document.documentElement.classList.toggle("dark", e.matches);
+			syncThemeIcons();
+		}
 	});
 </script>
 

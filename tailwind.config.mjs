@@ -1,25 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	darkMode: 'selector',
 	theme: {
 		extend: {
-			colors: {
-				ink: '#101317',
-				paper: '#ffffff',
-				accent: '#3A78FF', // Original brand blue (Lumen)
-				slate: {
-					50: '#F8F9FA',
-					100: '#E6EAF0',
-					200: '#D1D5DB',
-					300: '#9CA3AF',
-					400: '#6B7280',
-					500: '#4B5563',
-					600: '#374151',
-					700: '#1F2937',
-					800: '#111827',
-					900: '#0F1720',
-				},
-			},
 			borderRadius: {
 				xl: '14px',
 			},

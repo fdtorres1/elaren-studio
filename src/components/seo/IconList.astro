@@ -17,7 +17,7 @@ interface Props {
 const { bg = 'paper', kicker, title, items } = Astro.props;
 
 const bgClass = bg === 'muted' ? 'relative py-16 md:py-24 overflow-hidden' : 'bg-paper py-16 md:py-24';
-const bgStyle = bg === 'muted' ? 'background-color: #eef2f6;' : undefined;
+const bgStyle = bg === 'muted' ? 'background-color: var(--clr-muted);' : undefined;
 ---
 
 <section class={bgClass} style={bgStyle}>

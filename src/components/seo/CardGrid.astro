@@ -18,7 +18,7 @@ interface Props {
 const { bg = 'muted', kicker, title, items, cardBg = 'paper' } = Astro.props;
 
 const bgClass = bg === 'muted' ? 'relative py-16 md:py-24 overflow-hidden' : 'bg-paper py-16 md:py-24';
-const bgStyle = bg === 'muted' ? 'background-color: #eef2f6;' : undefined;
+const bgStyle = bg === 'muted' ? 'background-color: var(--clr-muted);' : undefined;
 const cardBgClass = cardBg === 'slate' ? 'bg-slate-50' : 'bg-paper';
 ---
 
