@@ -51,6 +51,7 @@ Guides, teardowns, and templates for service businesses and therapy practices.
 
 ## Key Pages
 
+- [Local SEO Care](https://elarenstudio.com/local-seo/)
 - [Home](https://elarenstudio.com/)
 - [Services](https://elarenstudio.com/services/)
 - [Pricing](https://elarenstudio.com/pricing/)
