@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const title = "Local SEO Care for Home Services";
-const description = "Turn local search into qualified calls and form leads. Elaren Studio's Local SEO Care includes setup, Google Business Profile optimization, local pages, citations, and monthly growth support.";
+const description = "Turn local search into qualified calls and form leads. Elaren Studio's Local SEO Care includes GBP optimization, local pages, citations, and monthly support.";
 
 const FOCUS_AREAS = [
 	{ title: 'Local visibility', desc: 'Show up in the markets you actually serve — Google Maps, local pack, organic.' },
@@ -116,7 +116,7 @@ const structuredData = {
 	"@type": "ProfessionalService",
 	"name": "Elaren Studio – Local SEO Care",
 	"description": description,
-	"url": "https://elarenstudio.com/local-seo",
+	"url": "https://elarenstudio.com/local-seo/",
 	"provider": {
 		"@type": "Organization",
 		"name": "Elaren Studio",
@@ -439,14 +439,14 @@ const structuredData = {
 				<h2 class="text-2xl md:text-3xl font-semibold mb-3 text-ink">So projects stay clean.</h2>
 				<p class="text-ink/70 mb-8">Clear definitions keep work on track and expectations aligned.</p>
 
-				<div class="space-y-4">
-					{SCOPE_ITEMS.map((item) => (
-						<div class="bg-paper border-2 border-slate-200 rounded-xl p-5 shadow-sm hover:border-slate-300 transition-colors">
-							<dt class="font-semibold text-ink mb-1">{item.term}</dt>
-							<dd class="text-sm text-ink/70">{item.def}</dd>
-						</div>
-					))}
-				</div>
+			<dl class="space-y-4">
+				{SCOPE_ITEMS.map((item) => (
+					<div class="bg-paper border-2 border-slate-200 rounded-xl p-5 shadow-sm hover:border-slate-300 transition-colors">
+						<dt class="font-semibold text-ink mb-1">{item.term}</dt>
+						<dd class="text-sm text-ink/70">{item.def}</dd>
+					</div>
+				))}
+			</dl>
 			</div>
 		</section>
 
