@@ -474,6 +474,16 @@ URL: https://elarenstudio.com/resources/guides/website-redesign-cost-2026/
 
 A comprehensive cost guide for service business owners evaluating a website redesign. Covers real 2026 price ranges by scope (landing page through enterprise), the six factors that drive price variance, hidden costs, four payment models compared (one-time, subscription/WaaS, hybrid, retainer), 24-month total cost comparisons, pricing transparency research, and ROI benchmarks. Sourced from GoodFirms, Elementor, Clutch, BLS, TrustRadius, HockeyStack Labs, and others. Includes therapy-practice-specific data and an 8-question FAQ.
 
+**How Long Does a Website Take in 2026? Real Timelines and Common Delays**
+URL: https://elarenstudio.com/resources/guides/how-long-does-a-website-take-2026/
+
+Honest timeline expectations for service business owners. Covers real 2026 benchmarks by project type (landing page through enterprise), stage-by-stage phase durations, a 10-day sample timeline for streamlined builds, the seven most common delay causes with a risk matrix, fast-launch strategies from top studios, a pre-project client checklist, and an 8-question FAQ. Sourced from Elementor, Forbes Advisor, Wix, IMPACT (4,000+ site dataset), Standish Group, PMI Pulse of the Profession, and Wrike. Includes therapy-practice-specific pricing and process context.
+
+**Squarespace vs WordPress vs Webflow in 2026: Platform Fit by Business Stage**
+URL: https://elarenstudio.com/resources/guides/squarespace-vs-wordpress-vs-webflow-2026/
+
+An evidence-based platform comparison for service businesses, including a fourth path: custom static-stack builds on Astro, Next.js, TypeScript, and Tailwind CSS. Covers 2026 Web Almanac performance benchmarks (Lighthouse scores, CrUX field data), year 1 and five-year total cost of ownership, the three most common platform mistakes, lock-in and migration realities with agency cost ranges, SEO/security/performance analysis showing platform vs. execution, the WordPress governance dispute as a risk factor, and when custom static builds make sense vs. when they're overkill. Sourced from HTTP Archive Web Almanac 2025, CrUX, Patchstack, Forrester, SEOSpace (21,327-site analysis), W3Techs, Melapress, and court filings. Includes a 10-question FAQ and Elaren's specific pricing for custom static builds.
+
 **Keep a Static Site Fresh**
 URL: https://elarenstudio.com/resources/guides/keep-a-static-site-fresh/
 

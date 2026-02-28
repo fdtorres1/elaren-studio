@@ -44,6 +44,8 @@ Guides, teardowns, and templates for service businesses and therapy practices.
 - [Resources Index](https://elarenstudio.com/resources/)
 - [Wright Wellness Website Teardown: Before vs After](https://elarenstudio.com/resources/teardowns/wright-wellness-before-after-teardown/) — A real before-and-after website redesign for a mental health practice.
 - [How Much Does a Website Redesign Cost in 2026?](https://elarenstudio.com/resources/guides/website-redesign-cost-2026/) — Real cost ranges, hidden costs, and payment models compared for service businesses.
+- [How Long Does a Website Take in 2026?](https://elarenstudio.com/resources/guides/how-long-does-a-website-take-2026/) — Honest timelines, the seven delay killers, and how to launch in 10 days instead of 10 weeks.
+- [Squarespace vs WordPress vs Webflow in 2026](https://elarenstudio.com/resources/guides/squarespace-vs-wordpress-vs-webflow-2026/) — Evidence-based platform comparison for service businesses. Real performance data, total cost of ownership, and which platform fits which business stage.
 - [Keep a Static Site Fresh](https://elarenstudio.com/resources/guides/keep-a-static-site-fresh/) — Short, regular updates beat large, infrequent ones.
 - [Project Brief Template](https://elarenstudio.com/resources/templates/project-brief/) — A ready-to-use project brief template for web design engagements.
 
