@@ -1,6 +1,7 @@
 ---
 title: "Terms of Service"
 slug: "/terms"
+description: "Terms of service for Elaren Studio's web design, Website-as-a-Service plans, and ongoing care engagements."
 ---
 
 # Terms of Service
