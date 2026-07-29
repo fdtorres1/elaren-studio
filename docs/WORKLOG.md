@@ -87,6 +87,15 @@
 - Deferred the Astro 5-to-7 and @astrojs/mdx 4-to-7 major upgrades as a separate migration project.
 - Link validation and the production build passed at 29 pages, including the new /studioregister landing page added since the last entry.
 
+## 2026-07-29 - Astro 7 and MDX 7 major upgrade
+
+- Upgraded astro 5.18.2 to 7.1.5 and @astrojs/mdx 4.3.14 to 7.0.5 on a branch with a Vercel preview build before merging.
+- The only code break was a manual Fragment import in ServiceCard.astro that collided with the new Rust compiler's auto-injection; removed it.
+- Moved the z import in content.config.ts from astro:content to astro/zod per the v6 deprecation; the existing schemas required no Zod 4 changes.
+- Verified v7 output against a v5 snapshot: rendered text, JSON-LD blocks, rss.xml, and sitemap are identical across representative pages including MDX resources and SEO pages under the new Sätteri markdown pipeline.
+- npm audit now reports zero vulnerabilities; production builds dropped from about 20 seconds to about 6.
+- Updated the README and RUNBOOK stack references from Astro 5 to Astro 7.
+
 ## 2026-07-23 - Studio Register landing page for Stripe verification
 
 - Added /studioregister, a Studio Register product landing page intended to support Stripe business verification and serve as the basis for a fuller product site later.

@@ -6,7 +6,7 @@ This repository owns website source, public copy, site-specific design implement
 
 ## Stack
 
-- Astro 5
+- Astro 7
 - TypeScript in strict mode
 - Tailwind CSS 4
 - MDX content collections
