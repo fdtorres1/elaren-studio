@@ -8,7 +8,7 @@ Operational reference for [elarenstudio.com](https://elarenstudio.com). Start he
 
 | Layer        | Tool                          |
 |-------------|-------------------------------|
-| Framework   | Astro 5 (static output)       |
+| Framework   | Astro 7 (static output)       |
 | Styling     | Tailwind CSS 4                |
 | Content     | MDX via `@astrojs/mdx`        |
 | RSS         | `@astrojs/rss`                |
