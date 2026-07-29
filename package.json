@@ -10,11 +10,11 @@
     "validate": "npx tsx scripts/validate-links.ts"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.1.17",
-    "astro": "^5.15.4",
+    "astro": "^7.1.5",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
