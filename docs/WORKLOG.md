@@ -80,6 +80,13 @@
 - Generalized the About clarity value from website-layout language to software language.
 - Left cta-presets.ts unchanged because only the deliberately retained SEO pages consume it.
 
+## 2026-07-29 - In-range dependency updates
+
+- Updated all in-range dependencies: Astro 5.15.4 to 5.18.2, Tailwind CSS and its Vite plugin 4.1.17 to 4.3.3, and patch/minor bumps for the MDX, RSS, and sitemap integrations, Playwright, and tsx; only the lockfile changed.
+- npm audit dropped from 17 vulnerabilities to 4; the remaining four require the Astro 7 major and do not apply to this site: no define:vars or server islands are used, the esbuild advisory is Windows dev-server only, and sharp only processes local trusted images at build time.
+- Deferred the Astro 5-to-7 and @astrojs/mdx 4-to-7 major upgrades as a separate migration project.
+- Link validation and the production build passed at 29 pages, including the new /studioregister landing page added since the last entry.
+
 ## 2026-07-23 - Studio Register landing page for Stripe verification
 
 - Added /studioregister, a Studio Register product landing page intended to support Stripe business verification and serve as the basis for a fuller product site later.
