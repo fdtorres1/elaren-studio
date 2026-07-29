@@ -1,6 +1,6 @@
 # Active Context
 
-Last updated: July 23, 2026
+Last updated: July 29, 2026
 
 ## Current state
 
@@ -9,8 +9,9 @@ Last updated: July 23, 2026
 - Git history and tags were cloned from the former elaren_studio_com checkout.
 - Canonical remote is https://github.com/elaren-studio/website.git.
 - Current production domain configured in source is https://elarenstudio.com.
-- The site uses Astro, TypeScript, Tailwind, MDX content collections, FormSubmit, and Plausible.
-- A clean dependency install, link validation, and production build passed from this relocated checkout on July 22, 2026.
+- The site uses Astro 7, TypeScript, Tailwind CSS 4, MDX content collections, FormSubmit, and Plausible.
+- The site presents Elaren Studio as an app studio and dev shop per D-007; therapist and local-SEO pages remain live but unlinked from navigation.
+- Dependencies were fully updated on July 29, 2026, including the Astro 5-to-7 and MDX 4-to-7 majors; npm audit reports zero vulnerabilities.
 - The production build currently generates 29 static pages.
 - /studioregister is a Studio Register product landing page added on July 23, 2026 to support Stripe business verification; it follows the product's legal-naming boundary (An Elaren Studio product; owned and operated by Wright Torres Group, LLC; no d/b/a language) and may later grow into a fuller product site.
 
@@ -35,8 +36,8 @@ This repository owns website implementation and public copy. Elaren company stra
 - Vercel is connected to GitHub repository ID 1092039889 at elaren-studio/website with production branch main, Astro preset, repository-root builds, and Node.js 22.x.
 - The Vercel GitHub App is installed on elaren-studio with selected-repository access limited to website.
 - elarenstudio.com remains attached to the Vercel project with the intended Vercel nameservers.
-- The first post-transfer Git push of 728a060 created Vercel Production deployment dpl_8Q7CHcYRb4Ykj9jGMwthhpZcdg8F. Vercel and GitHub report success, the deployment is Ready, and elarenstudio.com is attached and returns HTTP 200.
-- The push of 510b4c5 created Vercel Production deployment dpl_Gr3LTi7ZdgQud5MvSz6CgbzoUozB, which is Ready and aliased to elarenstudio.com.
+- Pushes to main reliably create Ready Production deployments aliased to elarenstudio.com; the deployment history is recorded in WORKLOG.md.
+- Preview deployments are protected by Vercel SSO.
 - Main is not branch-protected.
 
 ## External state not yet verified
