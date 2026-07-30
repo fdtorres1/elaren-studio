@@ -30,6 +30,24 @@ const products = [
 		linkText: 'Learn about Studio Register →',
 	},
 	{
+		name: 'CareLedger',
+		stage: 'In development',
+		summary:
+			'A private, local-first pet-care ledger for iPhone. Medications, wellness notes, measurements, and timelines that stay on your device—with exports you own. Currently in internal TestFlight.',
+	},
+	{
+		name: 'OrchestraOS',
+		stage: 'In development',
+		summary:
+			'Organization management for performing arts groups—public event pages, registration, ensemble assignment, and admin workflows. In development with its first pilot organization.',
+	},
+	{
+		name: 'Mileage Pilot',
+		stage: 'In development',
+		summary:
+			'Automatic drive detection and mileage records for iPhone. Review a classification queue, correct entries, and export accounting-friendly CSVs—everything recorded locally.',
+	},
+	{
 		name: 'OmniSearch',
 		stage: 'In development',
 		summary:
@@ -42,11 +60,6 @@ const workshop = [
 		title: 'Music notation intelligence',
 		summary:
 			'Tooling that helps musicians and publishers get from scanned scores to reliable digital notation with less manual correction.',
-	},
-	{
-		title: 'Everyday records for pet care',
-		summary:
-			'A private, local-first way for households to keep the health and care details that otherwise live in shoeboxes and memory.',
 	},
 	{
 		title: 'Bilingual early childhood',
@@ -63,14 +76,17 @@ const productListJsonLd = {
 		{ "@type": "ListItem", position: 1, name: "OpusGraph", url: "https://elarenstudio.com/opusgraph/" },
 		{ "@type": "ListItem", position: 2, name: "AgentMeter", url: "https://elarenstudio.com/agentmeter/" },
 		{ "@type": "ListItem", position: 3, name: "Studio Register", url: "https://elarenstudio.com/studioregister/" },
-		{ "@type": "ListItem", position: 4, name: "OmniSearch", url: "https://elarenstudio.com/products/" },
+		{ "@type": "ListItem", position: 4, name: "CareLedger", url: "https://elarenstudio.com/products/" },
+		{ "@type": "ListItem", position: 5, name: "OrchestraOS", url: "https://elarenstudio.com/products/" },
+		{ "@type": "ListItem", position: 6, name: "Mileage Pilot", url: "https://elarenstudio.com/products/" },
+		{ "@type": "ListItem", position: 7, name: "OmniSearch", url: "https://elarenstudio.com/products/" },
 	],
 };
 ---
 
 <BaseLayout
 	title="Products"
-	description="The software Elaren Studio designs, ships, and maintains: OpusGraph, AgentMeter, Studio Register, OmniSearch, and what's next in the workshop."
+	description="The software Elaren Studio designs, ships, and maintains: OpusGraph, AgentMeter, Studio Register, CareLedger, OrchestraOS, Mileage Pilot, OmniSearch, and what's next in the workshop."
 >
 	<script type="application/ld+json" set:html={JSON.stringify(productListJsonLd)} />
 	<Header />

@@ -9,9 +9,12 @@ Elaren Studio is an app studio and dev shop. We design, ship, and maintain our o
 - **OpusGraph** (live): Music library management for orchestras, choirs, bands, and other performing ensembles—catalog sheet music, track parts, log performance history, and plan seasons, powered by a curated classical music reference database. https://elarenstudio.com/opusgraph/ (app: https://opusgraph.vercel.app)
 - **AgentMeter** (shipped, open source): A macOS menu bar app that keeps AI coding usage limits visible at a glance—Codex, Cursor, Claude Code, Gemini, and more. https://elarenstudio.com/agentmeter/ (source: https://github.com/fdtorres1/AgentMeter)
 - **Studio Register** (in development): Booking, deposits, agreements, and studio operations for independent photographers. https://elarenstudio.com/studioregister/
+- **CareLedger** (in development): A private, local-first pet-care ledger for iPhone—medications, wellness notes, measurements, and timelines that stay on your device. Currently in internal TestFlight.
+- **OrchestraOS** (in development): Organization management for performing arts groups—public event pages, registration, ensemble assignment, and admin workflows, in development with its first pilot organization.
+- **Mileage Pilot** (in development): Automatic drive detection and mileage records for iPhone, with a classification queue and accounting-friendly CSV export—recorded locally.
 - **OmniSearch** (in development): Unified search across the places your work actually lives.
 
-Earlier-stage explorations (unnamed): music notation intelligence, local-first pet-care records, and bilingual early-childhood tools.
+Earlier-stage explorations (unnamed): music notation intelligence and bilingual early-childhood tools.
 
 The storefront and catalog-operations platform behind Resonance Music Press was designed and built by Elaren Studio.
 

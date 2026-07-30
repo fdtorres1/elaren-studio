@@ -104,6 +104,12 @@
 - Updated llms.txt (product URLs, Key Pages) and llms-full.txt (three new page sections) to include all product landing pages.
 - Link validation and the production build passed at 31 pages.
 
+## 2026-07-30 - Named CareLedger, OrchestraOS, and Mileage Pilot
+
+- Added CareLedger, OrchestraOS, and Mileage Pilot to the products page as named in-development products per HQ decision D-013, with stage-accurate summaries and no landing pages yet.
+- Retired the unnamed pet-care workshop entry now that CareLedger is named; music notation intelligence and bilingual early childhood remain unnamed.
+- Extended the products ItemList JSON-LD to seven products and updated llms.txt and llms-full.txt to match.
+
 ## 2026-07-23 - Studio Register landing page for Stripe verification
 
 - Added /studioregister, a Studio Register product landing page intended to support Stripe business verification and serve as the basis for a fuller product site later.

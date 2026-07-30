@@ -58,6 +58,21 @@ URL: https://elarenstudio.com/studioregister/
 
 Booking, deposits, agreements, and studio operations for independent photographers. One place to run the business side of a creative practice.
 
+### CareLedger
+**In development**
+
+A private, local-first pet-care ledger for iPhone. Medications, wellness notes, measurements, and timelines that stay on your device—with exports you own. Currently in internal TestFlight.
+
+### OrchestraOS
+**In development**
+
+Organization management for performing arts groups—public event pages, registration, ensemble assignment, and admin workflows. In development with its first pilot organization.
+
+### Mileage Pilot
+**In development**
+
+Automatic drive detection and mileage records for iPhone. Review a classification queue, correct entries, and export accounting-friendly CSVs—everything recorded locally.
+
 ### OmniSearch
 **In development**
 
@@ -68,7 +83,6 @@ Unified search across the places your work actually lives. Currently in active d
 Earlier-stage work we aren't naming yet. Each one graduates to a named product only when the evidence supports it.
 
 - **Music notation intelligence** — Tooling that helps musicians and publishers get from scanned scores to reliable digital notation with less manual correction.
-- **Everyday records for pet care** — A private, local-first way for households to keep the health and care details that otherwise live in shoeboxes and memory.
 - **Bilingual early childhood** — Tools that help bilingual families build language-rich routines with their youngest children.
 
 ### Also from the studio: Resonance Music Press
