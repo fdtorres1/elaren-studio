@@ -34,6 +34,8 @@ Software we ship and live with.
 Every Elaren product starts as a real problem we care about. We build small, focused apps—then maintain them for the long run. The same discipline goes into everything we build for clients.
 
 ### OpusGraph
+URL: https://elarenstudio.com/opusgraph/
+
 **Live**
 
 Music library management for orchestras, choirs, bands, and other performing ensembles. Catalog sheet music, track parts and copies, log performance history, and plan seasons—powered by a curated classical music reference database.
@@ -41,6 +43,8 @@ Music library management for orchestras, choirs, bands, and other performing ens
 Visit OpusGraph: https://opusgraph.vercel.app
 
 ### AgentMeter
+URL: https://elarenstudio.com/agentmeter/
+
 **Shipped · Open source**
 
 A tiny macOS menu bar app that keeps AI coding usage limits visible at a glance—Codex, Cursor, Claude Code, Gemini, and more—with detailed meters and reset countdowns. Free and open source.
@@ -48,6 +52,8 @@ A tiny macOS menu bar app that keeps AI coding usage limits visible at a glance�
 View on GitHub: https://github.com/fdtorres1/AgentMeter
 
 ### Studio Register
+URL: https://elarenstudio.com/studioregister/
+
 **In development**
 
 Booking, deposits, agreements, and studio operations for independent photographers. One place to run the business side of a creative practice.
@@ -68,6 +74,198 @@ Earlier-stage work we aren't naming yet. Each one graduates to a named product o
 ### Also from the studio: Resonance Music Press
 
 The storefront, catalog operations, and publishing workflow platform behind Resonance Music Press was designed and built by Elaren Studio—an example of the platform work we take on for the right project.
+
+---
+
+## OpusGraph
+
+URL: https://elarenstudio.com/opusgraph/
+
+An Elaren Studio product
+
+Music library management for orchestras, choirs, bands, and other performing ensembles—replacing the spreadsheets most organizations rely on today.
+
+Catalog your sheet music, track parts and copies, log performance history, and plan seasons—powered by a curated classical music reference database that fills in the details for you.
+
+### Your music library, finally in order
+
+Everything an ensemble librarian tracks—works, parts, copies, conditions, locations, and programs—in one place instead of seventeen tabs.
+
+### Catalog your whole library
+
+Title, composer, arranger, publisher, instrumentation, copies owned, physical location, and condition—searchable and filterable by any combination.
+
+### Track parts, not just pieces
+
+Structured part-by-part tracking with quantity and condition per part, so you know exactly what is on the shelf before you program it.
+
+### Performance history that sticks
+
+Log concerts and services with full programs, and see at a glance when each piece was last performed as you plan the next season.
+
+### A reference database that fills in the blanks
+
+Type a work title and OpusGraph suggests matches from its curated classical music database—auto-filling instrumentation, duration, and publisher.
+
+### Escape the spreadsheet
+
+CSV import migrates your existing Google Sheets or Excel library with column mapping and duplicate detection.
+
+### Built for organizations
+
+Each ensemble gets its own isolated library with owner, manager, and member roles—and individuals get the same features in a personal library.
+
+### Any ensemble with a library to keep
+
+OpusGraph is multi-tenant: organizations get isolated libraries with roles, and individual musicians get a personal library with the same features.
+
+### Orchestras
+
+Season planning, part tracking, and performance history for professional and community orchestras.
+
+### Choirs and church music
+
+Catalog octavos and service music, log services, and know your copy counts before rehearsal.
+
+### Bands and ensembles
+
+From wind bands to chamber groups—any ensemble that owns sheet music and programs concerts.
+
+### Status
+
+**Live**
+
+OpusGraph is live and in active development, with its reference database and library tools growing steadily. The studio maintains OpusGraph as one of its flagship products.
+
+OpusGraph is built by Elaren Studio, a product studio operated by Wright Torres Group, LLC, which owns and operates OpusGraph.
+
+---
+
+## AgentMeter
+
+URL: https://elarenstudio.com/agentmeter/
+
+An Elaren Studio product
+
+A tiny macOS menu bar app that keeps your AI coding usage limits visible at a glance—so you find out you're near a limit before your tools do.
+
+Free and open source. No Dock icon, no accounts, no telemetry—just meters and reset countdowns for the providers you actually use.
+
+### Usage meters that respect your attention
+
+One quiet menu bar item covering subscription limits and pay-as-you-go balances across the AI coding tools you rely on.
+
+### Every provider, one glance
+
+Codex, Cursor, Claude Code, and Gemini limits read automatically from the tools you already use—plus balance meters for OpenRouter, DeepSeek, Kimi, Z.ai, and Venice API keys.
+
+### Reads well before it runs out
+
+Count usage up or down, see relative or exact reset times, and get optional notifications when a limit window or balance crosses your threshold.
+
+### Never cries wolf
+
+If a provider briefly fails to respond, the last known numbers stay visible—dimmed, with a "stale since" note—instead of an alarming error in your menu bar.
+
+### Fits your menu bar
+
+Full, compact, or icon-only styles, with color states at the same thresholds as the meters. Show every provider or just the most constrained one.
+
+### Accessible by design
+
+Full VoiceOver support: the menu bar item speaks a per-provider summary, meters announce values and severity, and warning states use symbols, not just color.
+
+### Your agents can read it too
+
+An opt-in, read-only JSON snapshot and an agentmeter CLI let scripts and coding agents check remaining quota before starting a big task.
+
+### Built to be verified, not trusted
+
+AgentMeter reads sensitive credentials, so it is engineered—and open-sourced—to prove it handles them correctly.
+
+### Credentials stay yours
+
+For Codex, Cursor, Claude, and Gemini, credentials are read fresh on each refresh from the locations the official tools already use. AgentMeter never writes them anywhere, and they never leave your machine except on the request to that provider's own API.
+
+### Keys live in your Keychain
+
+API keys you provide are stored only in your macOS Keychain, shown masked in Settings, removable with one click, and sent only to that provider's own API. AgentMeter detects key types and always recommends the least-privileged key that works.
+
+### No telemetry, ever
+
+No analytics, no accounts, no tracking. AgentMeter is open source under the MIT license, so you can verify exactly what it does—and updates ship through signed, notarized releases.
+
+### Status
+
+**Shipped and open source**
+
+AgentMeter is released under the MIT license with signed, notarized builds and automatic updates. Source code, releases, and the agent interface documentation live on GitHub.
+
+AgentMeter is free, open-source software built by Elaren Studio, a product studio operated by Wright Torres Group, LLC.
+
+---
+
+## Studio Register
+
+URL: https://elarenstudio.com/studioregister/
+
+An Elaren Studio product
+
+Booking, deposits, agreements, and studio operations for independent photographers. One place to run the business side of a creative practice—without a photography-platform subscription.
+
+Clients see real availability, reserve an actual time, accept the session agreement, and pay a secure deposit. The photographer gets a private workspace that keeps bookings, balances, and requests in order.
+
+### A complete booking flow, built carefully
+
+From published availability to a confirmed session, every step is designed to be unambiguous for the client and reliable for the studio.
+
+### Real availability, no double-booking
+
+The studio owner publishes exact session slots. Clients pick a real date and time, and an expiring hold protects it while they finish checkout—so two people can never book the same slot.
+
+### Secure deposits through Stripe
+
+Clients pay a session deposit through Stripe-hosted Checkout. Card details go directly to Stripe and are never seen or stored by Studio Register. The remaining balance is settled with the studio.
+
+### Clear pricing before payment
+
+Every booking shows the package, session price, deposit amount, and remaining balance before any payment step. What the client reviews is exactly what is charged.
+
+### Versioned session agreements
+
+Clients review and accept the exact agreement version in effect at booking time. The accepted text is kept immutably with the booking record.
+
+### Request-first event coverage
+
+Venue-dependent sessions like birthday and quinceañera coverage start as a request—no payment taken and no date reserved until the studio confirms the details.
+
+### A calm owner workspace
+
+A private workspace for the booking queue, availability changes, package catalog, agreement history, and payment-provider status—focused on upcoming work, not vanity metrics.
+
+### How money moves through Studio Register
+
+Payments are simple by design: one deposit per booking, processed by Stripe, with nothing charged until the client completes checkout.
+
+### What clients pay for
+
+Photography session bookings: portrait, headshot, senior, quinceañera, and event sessions offered by the studio using Studio Register. Clients pay a deposit at booking; the balance is due to the studio around the session.
+
+### How payment works
+
+Payments are processed by Stripe through a secure, Stripe-hosted checkout page created for each individual booking. Studio Register verifies payment through Stripe before confirming a reservation, and Stripe issues the payment receipt.
+
+### Cancellations and refunds
+
+Each booking is governed by the session agreement the client reviews and accepts before paying, including its cancellation and refund terms. If a checkout is abandoned or a hold expires, no charge is made.
+
+### Status
+
+**In development, first studio onboarding**
+
+Studio Register is in active development, with its first deployment being configured for an independent Dallas–Fort Worth photography studio. Each deployment serves a single studio, with the booking experience carrying that studio's own brand.
+
+Studio Register is built by Elaren Studio, a product studio operated by Wright Torres Group, LLC, which owns and operates Studio Register.
 
 ---
 

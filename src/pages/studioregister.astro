@@ -51,12 +51,25 @@ const paymentFacts = [
 		body: 'Each booking is governed by the session agreement the client reviews and accepts before paying, including its cancellation and refund terms. If a checkout is abandoned or a hold expires, no charge is made.',
 	},
 ];
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	name: "Studio Register",
+	description:
+		"Booking, deposits, agreements, and studio operations for independent photographers. Clients book real availability, accept session agreements, and pay secure deposits through Stripe.",
+	url: "https://elarenstudio.com/studioregister/",
+	operatingSystem: "Web",
+	applicationCategory: "BusinessApplication",
+	author: { "@type": "Organization", name: "Elaren Studio", url: "https://elarenstudio.com" },
+};
 ---
 
 <BaseLayout
 	title="Studio Register"
 	description="Studio Register is booking, deposits, agreements, and studio operations for independent photographers. Clients book real availability and pay secure deposits through Stripe. An Elaren Studio product."
 >
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	<Header />
 	<main>
 		<!-- Hero -->

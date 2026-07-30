@@ -10,16 +10,16 @@ const products = [
 		stage: 'Live',
 		summary:
 			'Music library management for orchestras, choirs, bands, and other performing ensembles. Catalog sheet music, track parts and copies, log performance history, and plan seasons—powered by a curated classical music reference database.',
-		link: 'https://opusgraph.vercel.app',
-		linkText: 'Visit OpusGraph →',
+		link: '/opusgraph',
+		linkText: 'Learn about OpusGraph →',
 	},
 	{
 		name: 'AgentMeter',
 		stage: 'Shipped · Open source',
 		summary:
 			'A tiny macOS menu bar app that keeps AI coding usage limits visible at a glance—Codex, Cursor, Claude Code, Gemini, and more—with detailed meters and reset countdowns. Free and open source.',
-		link: 'https://github.com/fdtorres1/AgentMeter',
-		linkText: 'View on GitHub →',
+		link: '/agentmeter',
+		linkText: 'Learn about AgentMeter →',
 	},
 	{
 		name: 'Studio Register',
@@ -54,12 +54,25 @@ const workshop = [
 			'Tools that help bilingual families build language-rich routines with their youngest children.',
 	},
 ];
+
+const productListJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	name: "Elaren Studio Products",
+	itemListElement: [
+		{ "@type": "ListItem", position: 1, name: "OpusGraph", url: "https://elarenstudio.com/opusgraph/" },
+		{ "@type": "ListItem", position: 2, name: "AgentMeter", url: "https://elarenstudio.com/agentmeter/" },
+		{ "@type": "ListItem", position: 3, name: "Studio Register", url: "https://elarenstudio.com/studioregister/" },
+		{ "@type": "ListItem", position: 4, name: "OmniSearch", url: "https://elarenstudio.com/products/" },
+	],
+};
 ---
 
 <BaseLayout
 	title="Products"
 	description="The software Elaren Studio designs, ships, and maintains: OpusGraph, AgentMeter, Studio Register, OmniSearch, and what's next in the workshop."
 >
+	<script type="application/ld+json" set:html={JSON.stringify(productListJsonLd)} />
 	<Header />
 	<main>
 		<!-- Hero -->

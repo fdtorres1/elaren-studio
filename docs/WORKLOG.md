@@ -96,6 +96,14 @@
 - npm audit now reports zero vulnerabilities; production builds dropped from about 20 seconds to about 6.
 - Updated the README and RUNBOOK stack references from Astro 5 to Astro 7.
 
+## 2026-07-30 - Product landing pages and structured data
+
+- Added /opusgraph and /agentmeter landing pages following the /studioregister pattern: product hero with the An Elaren Studio product kicker, feature grid, a product-specific trust section (OpusGraph audiences, AgentMeter privacy facts), status, and the D-010 legal attribution line.
+- Added SoftwareApplication JSON-LD to all three product landing pages and an ItemList to /products; AgentMeter's schema records the MIT license and free pricing.
+- Product cards on the homepage and /products now link to the on-site landing pages, which in turn link out to the live app and GitHub.
+- Updated llms.txt (product URLs, Key Pages) and llms-full.txt (three new page sections) to include all product landing pages.
+- Link validation and the production build passed at 31 pages.
+
 ## 2026-07-23 - Studio Register landing page for Stripe verification
 
 - Added /studioregister, a Studio Register product landing page intended to support Stripe business verification and serve as the basis for a fuller product site later.

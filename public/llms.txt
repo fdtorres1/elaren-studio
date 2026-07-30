@@ -6,9 +6,9 @@ Elaren Studio is an app studio and dev shop. We design, ship, and maintain our o
 
 ## Products
 
-- **OpusGraph** (live): Music library management for orchestras, choirs, bands, and other performing ensembles—catalog sheet music, track parts, log performance history, and plan seasons, powered by a curated classical music reference database. https://opusgraph.vercel.app
-- **AgentMeter** (shipped, open source): A macOS menu bar app that keeps AI coding usage limits visible at a glance—Codex, Cursor, Claude Code, Gemini, and more. https://github.com/fdtorres1/AgentMeter
-- **Studio Register** (in development): Booking, deposits, agreements, and studio operations for independent photographers.
+- **OpusGraph** (live): Music library management for orchestras, choirs, bands, and other performing ensembles—catalog sheet music, track parts, log performance history, and plan seasons, powered by a curated classical music reference database. https://elarenstudio.com/opusgraph/ (app: https://opusgraph.vercel.app)
+- **AgentMeter** (shipped, open source): A macOS menu bar app that keeps AI coding usage limits visible at a glance—Codex, Cursor, Claude Code, Gemini, and more. https://elarenstudio.com/agentmeter/ (source: https://github.com/fdtorres1/AgentMeter)
+- **Studio Register** (in development): Booking, deposits, agreements, and studio operations for independent photographers. https://elarenstudio.com/studioregister/
 - **OmniSearch** (in development): Unified search across the places your work actually lives.
 
 Earlier-stage explorations (unnamed): music notation intelligence, local-first pet-care records, and bilingual early-childhood tools.
@@ -46,6 +46,9 @@ Guides, teardowns, and templates.
 
 - [Home](https://elarenstudio.com/)
 - [Products](https://elarenstudio.com/products/)
+- [OpusGraph](https://elarenstudio.com/opusgraph/)
+- [AgentMeter](https://elarenstudio.com/agentmeter/)
+- [Studio Register](https://elarenstudio.com/studioregister/)
 - [Services](https://elarenstudio.com/services/)
 - [Resources](https://elarenstudio.com/resources/)
 - [About](https://elarenstudio.com/about/)

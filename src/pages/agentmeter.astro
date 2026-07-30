@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const features = [
+	{
+		title: 'Every provider, one glance',
+		summary:
+			'Codex, Cursor, Claude Code, and Gemini limits read automatically from the tools you already use—plus balance meters for OpenRouter, DeepSeek, Kimi, Z.ai, and Venice API keys.',
+	},
+	{
+		title: 'Reads well before it runs out',
+		summary:
+			'Count usage up or down, see relative or exact reset times, and get optional notifications when a limit window or balance crosses your threshold.',
+	},
+	{
+		title: 'Never cries wolf',
+		summary:
+			'If a provider briefly fails to respond, the last known numbers stay visible—dimmed, with a "stale since" note—instead of an alarming error in your menu bar.',
+	},
+	{
+		title: 'Fits your menu bar',
+		summary:
+			'Full, compact, or icon-only styles, with color states at the same thresholds as the meters. Show every provider or just the most constrained one.',
+	},
+	{
+		title: 'Accessible by design',
+		summary:
+			'Full VoiceOver support: the menu bar item speaks a per-provider summary, meters announce values and severity, and warning states use symbols, not just color.',
+	},
+	{
+		title: 'Your agents can read it too',
+		summary:
+			'An opt-in, read-only JSON snapshot and an agentmeter CLI let scripts and coding agents check remaining quota before starting a big task.',
+	},
+];
+
+const privacyFacts = [
+	{
+		title: 'Credentials stay yours',
+		body: 'For Codex, Cursor, Claude, and Gemini, credentials are read fresh on each refresh from the locations the official tools already use. AgentMeter never writes them anywhere, and they never leave your machine except on the request to that provider\u2019s own API.',
+	},
+	{
+		title: 'Keys live in your Keychain',
+		body: 'API keys you provide are stored only in your macOS Keychain, shown masked in Settings, removable with one click, and sent only to that provider\u2019s own API. AgentMeter detects key types and always recommends the least-privileged key that works.',
+	},
+	{
+		title: 'No telemetry, ever',
+		body: 'No analytics, no accounts, no tracking. AgentMeter is open source under the MIT license, so you can verify exactly what it does—and updates ship through signed, notarized releases.',
+	},
+];
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	name: "AgentMeter",
+	description:
+		"A macOS menu bar app that keeps AI coding usage limits visible at a glance—Codex, Cursor, Claude Code, Gemini, and more—with detailed meters and reset countdowns.",
+	url: "https://elarenstudio.com/agentmeter/",
+	operatingSystem: "macOS",
+	applicationCategory: "DeveloperApplication",
+	isAccessibleForFree: true,
+	offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+	license: "https://opensource.org/licenses/MIT",
+	author: { "@type": "Organization", name: "Elaren Studio", url: "https://elarenstudio.com" },
+	downloadUrl: "https://github.com/fdtorres1/AgentMeter",
+};
+---
+
+<BaseLayout
+	title="AgentMeter"
+	description="AgentMeter is a free, open-source macOS menu bar app that keeps AI coding usage limits visible at a glance—Codex, Cursor, Claude Code, Gemini, and more. An Elaren Studio product."
+>
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+	<Header />
+	<main>
+		<!-- Hero -->
+		<section class="container py-16 md:py-24">
+			<div class="max-w-3xl">
+				<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">An Elaren Studio product</p>
+				<h1 class="text-4xl md:text-5xl font-semibold mb-6 text-ink">AgentMeter</h1>
+				<p class="text-xl text-ink/80 leading-relaxed mb-6">
+					A tiny macOS menu bar app that keeps your AI coding usage limits visible at a glance—so you find out you're near a limit before your tools do.
+				</p>
+				<p class="text-ink/70 leading-relaxed mb-8">
+					Free and open source. No Dock icon, no accounts, no telemetry—just meters and reset countdowns for the providers you actually use.
+				</p>
+				<div class="flex flex-wrap gap-4">
+					<a
+						href="https://github.com/fdtorres1/AgentMeter"
+						rel="noopener"
+						class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+					>
+						Get AgentMeter on GitHub
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Features -->
+		<section class="relative py-16 md:py-24 overflow-hidden" style="background-color: var(--clr-muted);">
+			<div class="absolute top-0 right-0 w-96 h-96 bg-slate-300/25 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+			<div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-300/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+			<div class="container relative z-10">
+				<SectionHeading
+					kicker="What it does"
+					title="Usage meters that respect your attention"
+					description="One quiet menu bar item covering subscription limits and pay-as-you-go balances across the AI coding tools you rely on."
+				/>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{features.map((feature) => (
+						<div class="bg-paper rounded-xl p-8 border-2 border-slate-200 shadow-md hover:shadow-xl hover:shadow-slate-900/10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+							<h3 class="text-xl font-semibold mb-3 text-ink">{feature.title}</h3>
+							<p class="text-ink/70 leading-relaxed mb-0">{feature.summary}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Privacy -->
+		<section class="bg-paper py-16 md:py-24">
+			<div class="container">
+				<SectionHeading
+					kicker="Privacy and trust"
+					title="Built to be verified, not trusted"
+					description="AgentMeter reads sensitive credentials, so it is engineered—and open-sourced—to prove it handles them correctly."
+				/>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					{privacyFacts.map((fact) => (
+						<div class="bg-paper rounded-xl p-8 border-2 border-slate-200">
+							<h3 class="text-lg font-semibold mb-3 text-ink">{fact.title}</h3>
+							<p class="text-ink/70 leading-relaxed mb-0">{fact.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Status -->
+		<section class="relative py-16 md:py-24" style="background-color: var(--clr-muted);">
+			<div class="container">
+				<div class="max-w-3xl mx-auto text-center">
+					<p class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Status</p>
+					<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">Shipped and open source</h2>
+					<p class="text-lg text-ink/70 leading-relaxed mb-0">
+						AgentMeter is released under the MIT license with signed, notarized builds and automatic updates. Source code, releases, and the agent interface documentation live on GitHub.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact and legal -->
+		<section class="container py-16 md:py-24">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-2xl md:text-3xl font-semibold mb-4 text-ink">Questions about AgentMeter?</h2>
+				<p class="text-lg text-ink/70 mb-8 leading-relaxed">
+					Open an issue on
+					<a href="https://github.com/fdtorres1/AgentMeter" rel="noopener" class="text-accent font-medium hover:underline">GitHub</a>,
+					email
+					<a href="mailto:hello@elarenstudio.com" class="text-accent font-medium hover:underline">hello@elarenstudio.com</a>,
+					or use the studio contact page.
+				</p>
+				<a
+					href="/contact"
+					class="inline-flex items-center justify-center px-8 py-4 bg-accent text-paper rounded-xl font-semibold no-underline shadow-xl shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-0.5 transition-all duration-200"
+				>
+					Contact Elaren Studio
+				</a>
+				<p class="text-sm text-ink/60 mt-10 mb-0 leading-relaxed">
+					AgentMeter is free, open-source software built by Elaren Studio, a product studio operated by Wright Torres Group, LLC.
+				</p>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</BaseLayout>

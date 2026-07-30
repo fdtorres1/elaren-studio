@@ -12,7 +12,7 @@ Last updated: July 29, 2026
 - The site uses Astro 7, TypeScript, Tailwind CSS 4, MDX content collections, FormSubmit, and Plausible.
 - The site presents Elaren Studio as an app studio and dev shop per D-007; therapist and local-SEO pages remain live but unlinked from navigation.
 - Dependencies were fully updated on July 29, 2026, including the Astro 5-to-7 and MDX 4-to-7 majors; npm audit reports zero vulnerabilities.
-- The production build currently generates 29 static pages.
+- The production build currently generates 31 static pages.
 - /studioregister is a Studio Register product landing page added on July 23, 2026 to support Stripe business verification; it follows the product's legal-naming boundary (An Elaren Studio product; owned and operated by Wright Torres Group, LLC; no d/b/a language) and may later grow into a fuller product site.
 
 ## Repository boundary
