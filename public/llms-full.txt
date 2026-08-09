@@ -452,24 +452,25 @@ Your website is often the first impression a potential client has of your practi
 
 **Step 1: Get your site built**
 
-Website Launch — $500 one-time
+Website Launch — $500 one-time (founding client rate; standard rate $1,200)
 - Custom design + build
 - Up to 5 pages
 - Mobile-optimized
 - SEO + analytics setup
 - 2 rounds of revisions
+- Optional add-on: We write your pages (professional copywriting) — +$750
 
 **Step 2: Choose your monthly plan**
 
-WaaS Starter — $99/month
+Essentials — $49/month
 - Premium hosting + SSL
 - Weekly backups
 - Uptime monitoring
 - Security updates
 - 1 small edit request/month
 
-WaaS Care+ (Most Popular) — $199/month
-- Everything in Starter
+Care+ (Most Popular) — $129/month
+- Everything in Essentials
 - Unlimited small edits (48-hr turnaround)
 - Monthly conversion tune-up
 - Monthly local SEO maintenance
@@ -477,7 +478,7 @@ WaaS Care+ (Most Popular) — $199/month
 - Priority support
 - Quarterly strategy check-in
 
-Care+ is +$100/mo from Starter. Upgrade or downgrade anytime—no contracts on monthly plans.
+Care+ is +$80/mo from Essentials. Upgrade or downgrade anytime—no contracts on monthly plans.
 
 ### Process
 
@@ -496,17 +497,17 @@ Our target is ~10 days from the time we have your copy, assets, and access. Most
 **Do you work with solo and group practices?**
 Yes. We work with solo therapists, group practices, and multi-location clinics. The core build scales to fit your team size.
 
-**Can I upgrade from Starter to Care+ later?**
+**Can I upgrade from Essentials to Care+ later?**
 Absolutely. You can upgrade anytime. It's a simple plan change—no rebuild required.
 
 **Who writes the copy for my website?**
-We prefer client-provided copy since you know your practice best. We can help refine and structure what you provide, and copywriting support is available as an add-on.
+We prefer client-provided copy since you know your practice best. We can help refine and structure what you provide, and copywriting support is available as an add-on (+$750 for all your pages).
 
 **Do you provide HIPAA compliance?**
 We build websites, not medical software. We can guide you toward HIPAA-aware hosting and form handling best practices, but we do not provide legal compliance guarantees. For regulated workflows like patient intake or telehealth, we recommend working with a compliance specialist alongside our web build.
 
 **What happens if I need changes after launch?**
-On Starter, you get 1 small edit per month. On Care+, unlimited small edits with 48-hour turnaround. Larger changes are scoped separately.
+On Essentials, you get 1 small edit per month. On Care+, unlimited small edits with 48-hour turnaround. Larger changes are scoped separately.
 
 **Do I own my website?**
 Yes. You own the design and content. Hosting and maintenance are part of the monthly plan, but the site itself is yours.
@@ -554,7 +555,7 @@ Yes. We work with solo therapists, group practices, and multi-location clinics a
 Custom design, up to 5 pages, mobile optimization, SEO foundations, analytics setup, and 2 rounds of revisions. You get a complete, conversion-ready site.
 
 **Can I update my site after launch without a developer?**
-With our Care+ plan ($199/month), we handle unlimited small edits for you with 48-hour turnaround. On Starter ($99/month), you get 1 edit per month. Either way, you never need to touch code.
+With our Care+ plan ($129/month), we handle unlimited small edits for you with 48-hour turnaround. On Essentials ($49/month), you get 1 edit per month. Either way, you never need to touch code.
 
 **Do you help with HIPAA compliance for therapist websites?**
 We can guide you toward HIPAA-aware hosting and form handling best practices, but we do not provide legal compliance guarantees. For regulated workflows, we recommend working with a compliance specialist alongside our web build.
@@ -607,13 +608,13 @@ About 10 days once we have your copy, photos, and access. The build itself is fa
 We can audit your current site for free and give you practical recommendations. If a rebuild makes sense, we handle the full transition. If small fixes are enough, we'll tell you that too.
 
 **Do I need to provide all the copy for my website?**
-We prefer client-provided copy since you know your practice best. We can help refine and structure what you provide, and copywriting support is available as an add-on.
+We prefer client-provided copy since you know your practice best. We can help refine and structure what you provide, and copywriting support is available as an add-on (+$750 for all your pages).
 
-**What's the difference between Starter and Care+ plans?**
-Starter ($99/month) covers hosting, security, backups, and 1 small edit per month. Care+ ($199/month) adds unlimited small edits with 48-hour turnaround, monthly conversion tune-ups, and priority support.
+**What's the difference between Essentials and Care+ plans?**
+Essentials ($49/month) covers hosting, security, backups, and 1 small edit per month. Care+ ($129/month) adds unlimited small edits with 48-hour turnaround, monthly conversion tune-ups, and priority support.
 
 **Can I switch plans later?**
-Yes. You can upgrade from Starter to Care+ anytime. It's a simple plan change—no rebuild, no downtime.
+Yes. You can upgrade from Essentials to Care+ anytime. It's a simple plan change—no rebuild, no downtime.
 
 We also serve therapy practices in Dallas and across the DFW metroplex.
 
@@ -659,8 +660,8 @@ Each location gets a clear section with address, hours, and parking notes. Teleh
 **What should a contact form ask to feel safe and not invasive?**
 Name, preferred contact method, and a brief note about what they're looking for. Add a short line explaining what happens next. Skip intake-level questions on the website—those come later, through your secure EHR.
 
-**What's the difference between Starter and Care+ month to month?**
-Starter ($99/mo) covers hosting, security, backups, and 1 small edit per month. Care+ ($199/mo) adds unlimited small edits with 48-hour turnaround, monthly conversion tune-ups, local SEO maintenance, and priority support. Switch anytime.
+**What's the difference between Essentials and Care+ month to month?**
+Essentials ($49/mo) covers hosting, security, backups, and 1 small edit per month. Care+ ($129/mo) adds unlimited small edits with 48-hour turnaround, monthly conversion tune-ups, local SEO maintenance, and priority support. Switch anytime.
 
 We also serve practices in Dallas, Fort Worth, and across Texas.
 

@@ -117,3 +117,12 @@
 - Followed the product's legal-naming boundary: attribution reads "An Elaren Studio product," Wright Torres Group, LLC is identified as owner-operator, and no d/b/a language is used.
 - Linked the Studio Register card on the Products page to /studioregister.
 - Link validation and the production build passed at 29 pages, including /studioregister/index.html.
+
+## 2026-08-09 - Therapist website repricing for the AI-builder era
+
+- Repriced the unlinked therapist offering after market research against 2026 competitors (Brighter Vision, TherapySites, WebsiteTherapy, Empathysites, Wix/Squarespace/Durable AI builders): Website Launch stays $500 but is now framed as a founding client rate against a $1,200 standard rate; WaaS Starter $99/mo became Essentials $49/mo; WaaS Care+ $199/mo became Care+ $129/mo; added a +$750 "We write your pages" copywriting add-on.
+- Research conclusion: the old monthly band was market-normal for therapist WaaS, but $500 was below the boutique floor and the "WaaS" naming plus hosting framing read as a required tax; the new structure lowers the monthly floor, differentiates on done-for-you copy, and supports promotion in a DFW counseling Facebook group.
+- Added an honest "Couldn't I just use Wix or an AI site builder?" comparison section and FAQ to /therapist-websites, dropped WaaS jargon, and updated the JSON-LD offer catalog.
+- Synchronized src/lib/pricing.ts (feeds the SEO city pages and their offer catalogs), the Dallas/Fort Worth/Houston MDX FAQs and trust lines, llms-full.txt, and the three resource guides' Elaren examples with recomputed totals (Essentials year 1 $1,088, 24 months $1,676; Care+ year 1 $2,048, 24 months $3,596); third-party market figures were left untouched. llms.txt had no therapist plan references.
+- The /pricing, /plans, and /local-accelerator pages belong to the separate local-business offering and were intentionally not changed.
+- Link validation and the production build passed at 31 pages.
