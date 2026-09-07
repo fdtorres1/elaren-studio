@@ -748,6 +748,24 @@ URL: https://elarenstudio.com/resources/templates/project-brief/
 
 A ready-to-use project brief template for web design engagements. Covers goals, audience, scope, timeline, and deliverables.
 
+## Content Marketing
+
+URL: https://elarenstudio.com/content-marketing/
+
+A focused month-to-month content marketing service for small organizations. The first month is $495 for the first two new marketing clients; ongoing continuation is $750/month if chosen, with no automatic renewal. Deliverables include two articles or substantial page updates up to 1,000 words each, twelve original social posts adapted across up to two selected platforms, one email campaign up to 500 words, design from supplied brand assets or photos, scheduling or publishing in existing client systems, topic and intent research, basic on-page SEO for those pages, and a concise monthly performance review. Includes one 30-minute kickoff and one consolidated revision per monthly batch. No guaranteed leads, rankings, sales, or AI citations; no filming, paid ads, daily DM/comment support, redesigns/migrations, technical SEO campaigns, or new tools/registrations. Paid in advance after scope fit confirmation and month to month thereafter.
+
+## Content Partner Guide
+
+URL: https://elarenstudio.com/resources/guides/what-to-send-a-content-partner/
+
+A practical brief covering the source plan, audience, campaign goal, selected channels, approved assets, access, and review path a content partner needs before publishing responsibly.
+
+## Demonstration Campaign Example
+
+URL: https://elarenstudio.com/work-examples/program-campaign/
+
+Fictional Northside Arts Workshop campaign example showing landing-page copy, a parent email, six sample social posts, and a publish-readiness checklist. It is not a real client, organization, registration, endorsement, or achieved result; venue, accessibility, and registration details would be verified before promotion.
+
 ---
 
 ## Local SEO Care
