@@ -4,6 +4,8 @@ Last updated: September 7, 2026
 
 ## Immediate
 
+- Content-marketing inquiry mailbox delivery and Search Console owner access are verified. Sitemap resubmission remains pending through the owner UI or an OAuth write-scope upgrade; current API access is read-only. Recheck discovery/indexing of the three new routes after Google recrawls.
+
 - Keep link validation and the 34-page production build green from the canonical Elaren/website path.
 - Keep README, RUNBOOK, and handoff documents aligned with the actual dual content system.
 - Website transferred to elaren-studio/website with repository identity and history preserved.
