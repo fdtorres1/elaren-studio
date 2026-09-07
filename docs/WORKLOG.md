@@ -148,3 +148,10 @@
 - Pushed successfully to `origin/feature/marketing-offer-2026-09-07` in `elaren-studio/website`; upstream tracking was established.
 - Remote readback at 15:18 UTC returned the identical full SHA via `git ls-remote`. Required validator and 34-page production build passed before pushing; the initial sandbox IPC error was resolved by rerunning the validator with local IPC access.
 - This second, documentation-only commit records that first-push evidence and updates current context/roadmap. No main merge, production deployment, external inquiry, or LinkedIn post was performed.
+
+## 2026-09-07 - Authorized main merge and production verification
+
+- User explicitly authorized the merge. Verified the exact feature head, main comparison, repository permissions, and successful Vercel preview status before merging through GitHub.
+- Main merge: `601873983159a660fea4e68dc3e1dd3ffffd20b4`. Production deployment: `6312066835`, successful at 15:49:01 UTC.
+- Verified HTTP 200 and expected content on the public content-marketing offer, program-campaign example, and content-partner guide. Responses were served by Vercel on `elarenstudio.com`.
+- Recorded release evidence in current context and roadmap using a clean checkout of merged main. No email or LinkedIn post was sent; indexing, actual inquiry delivery, and conversion outcomes remain unmeasured.

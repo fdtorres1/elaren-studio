@@ -26,5 +26,5 @@ Last updated: September 7, 2026
 ## September 7, 2026 content marketing delivery
 
 - Completed: content marketing page, fictional example, resource guide, desktop/mobile browser QA, and inquiry preparation/copy checks.
-- Implementation pushed and verified: `5d08255483e3b3bd8dea80ca04b6a858854c5fde` on `origin/feature/marketing-offer-2026-09-07`. The documentation follow-up records the first-push readback; production release remains separate.
+- Merged to main as `601873983159a660fea4e68dc3e1dd3ffffd20b4`; Vercel Production deployment `6312066835` succeeded. All three new production routes returned HTTP 200 with expected content.
 - Verify live search-console/indexing and analytics state separately; this local implementation contains no measured traffic or conversion claim.

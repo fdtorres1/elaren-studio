@@ -2,6 +2,12 @@
 
 Last updated: September 7, 2026
 
+## Production release verified September 7, 2026
+
+The user authorized merging the content marketing branch into `main`. GitHub merge commit `601873983159a660fea4e68dc3e1dd3ffffd20b4` triggered Vercel Production deployment `6312066835`, which completed successfully at 15:49:01 UTC. All three new public routes returned HTTP 200 from Vercel with their expected page content: `/content-marketing/`, `/work-examples/program-campaign/`, and `/resources/guides/what-to-send-a-content-partner/` on `https://elarenstudio.com`.
+
+This production record supersedes earlier feature-branch-only release boundaries below. Actual inquiry delivery, indexing, search appearance, and conversion outcomes were not tested by this release check.
+
 ## Current state
 
 - This is the canonical local Elaren Studio website checkout.
@@ -59,7 +65,7 @@ The repository owner, name, local origin, and Vercel Git connection changed succ
 - Added `/content-marketing` service page with scoped pricing, boundaries, visible FAQs, Service structured data, and a mailto-only inquiry composer addressed to the existing public `hello@elarenstudio.com` route.
 - Added fictional demonstration route `/work-examples/program-campaign` and guide resource `/resources/guides/what-to-send-a-content-partner`.
 - Linked the new services from `/services`, the footer, and cross-linked examples and guides. Updated `public/llms.txt` with the new offers/resources.
-- This implementation is committed and pushed to its feature branch. Validation/build and root desktop/mobile browser QA passed, including offer navigation, FAQ, inquiry preparation/copy, and both themes. No external inquiry was sent, no production deployment or indexing/analytics outcome is claimed, and no credentials or third-party integrations were added.
+- This implementation is merged to main and deployed to production as recorded above. Validation/build and root desktop/mobile browser QA passed, including offer navigation, FAQ, inquiry preparation/copy, and both themes. No external inquiry was sent, no indexing/analytics outcome is claimed, and no credentials or third-party integrations were added.
 
 ### Source publication
 
