@@ -59,8 +59,8 @@ The repository owner, name, local origin, and Vercel Git connection changed succ
 - Added `/content-marketing` service page with scoped pricing, boundaries, visible FAQs, Service structured data, and a mailto-only inquiry composer addressed to the existing public `hello@elarenstudio.com` route.
 - Added fictional demonstration route `/work-examples/program-campaign` and guide resource `/resources/guides/what-to-send-a-content-partner`.
 - Linked the new services from `/services`, the footer, and cross-linked examples and guides. Updated `public/llms.txt` with the new offers/resources.
-- This work is local and ready for user review. Validation/build and root desktop/mobile browser QA passed, including offer navigation, FAQ, inquiry preparation/copy, and both themes. No external inquiry was sent, no deployment or indexing/analytics outcome is claimed, and no credentials or third-party integrations were added.
+- This implementation is committed and pushed to its feature branch. Validation/build and root desktop/mobile browser QA passed, including offer navigation, FAQ, inquiry preparation/copy, and both themes. No external inquiry was sent, no production deployment or indexing/analytics outcome is claimed, and no credentials or third-party integrations were added.
 
 ### Source publication
 
-The user authorized committing and pushing this implementation, followed by a second documentation commit recording the verified first push. Target: `origin`, repository `elaren-studio/website`, branch `feature/marketing-offer-2026-09-07`. Main and production deployment are not part of this branch push. Push confirmation will be recorded after remote readback.
+First push verified September 7, 2026 at 15:18 UTC: commit `5d08255483e3b3bd8dea80ca04b6a858854c5fde` is on `origin/feature/marketing-offer-2026-09-07` in `elaren-studio/website`. `git ls-remote` returned the same full SHA as local HEAD after the successful push. This documentation follow-up records that evidence, as requested. Main and production deployment are not part of the branch push; read the remote branch for the latest documentation commit.

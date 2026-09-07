@@ -141,3 +141,10 @@
 - Updated active context, roadmap, decision D-008, and runbook to describe the completed 34-page implementation, offer pricing, and local-only email preparation behavior.
 - User requested implementation/documentation push followed by a documentation update recording that push and a second push. The target is `origin/feature/marketing-offer-2026-09-07`; no main merge, production deployment, or social post is included.
 - Remote success is not yet asserted in this entry; the follow-up entry will record the confirmed commit and branch.
+
+## 2026-09-07 - First push verified; documentation follow-up
+
+- Committed implementation and documentation as `5d08255483e3b3bd8dea80ca04b6a858854c5fde` (`feat: add scoped content marketing offer and work example`).
+- Pushed successfully to `origin/feature/marketing-offer-2026-09-07` in `elaren-studio/website`; upstream tracking was established.
+- Remote readback at 15:18 UTC returned the identical full SHA via `git ls-remote`. Required validator and 34-page production build passed before pushing; the initial sandbox IPC error was resolved by rerunning the validator with local IPC access.
+- This second, documentation-only commit records that first-push evidence and updates current context/roadmap. No main merge, production deployment, external inquiry, or LinkedIn post was performed.
