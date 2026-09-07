@@ -2,6 +2,13 @@
 
 Last updated: September 7, 2026
 
+## Technical foundation verified September 7, 2026
+
+- Search Console domain owner access is verified. The homepage is indexed with the expected canonical; its last reported crawl was August 30. The three new content-marketing routes are not yet known to Google in the inspected URL variants.
+- The live sitemap index returns HTTP 200 and points to `sitemap-0.xml`. Search Console already lists the index with zero errors/warnings and a February 25 last-download timestamp. Resubmission was attempted but rejected because the existing OAuth grant has only `webmasters.readonly`; use the owner UI or a separately consented write-scope upgrade to complete it.
+- A clearly labeled synthetic inquiry from the owner's external iCloud mailbox reached the Google inbox addressed and delivered to `hello@elarenstudio.com`, with exact body integrity and SPF/DKIM/DMARC passing. The production composer prepared the expected recipient/body. The browser connection became unavailable before a repeat copy test; earlier desktop/mobile preparation/copy checks remain recorded below.
+- These checks concern the content-marketing email route. They do not verify the separate legacy FormSubmit integration or establish conversions. Private email identifiers and message evidence stay outside the public repository.
+
 ## Production release verified September 7, 2026
 
 The user authorized merging the content marketing branch into `main`. GitHub merge commit `601873983159a660fea4e68dc3e1dd3ffffd20b4` triggered Vercel Production deployment `6312066835`, which completed successfully at 15:49:01 UTC. All three new public routes returned HTTP 200 from Vercel with their expected page content: `/content-marketing/`, `/work-examples/program-campaign/`, and `/resources/guides/what-to-send-a-content-partner/` on `https://elarenstudio.com`.

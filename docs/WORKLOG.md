@@ -155,3 +155,11 @@
 - Main merge: `601873983159a660fea4e68dc3e1dd3ffffd20b4`. Production deployment: `6312066835`, successful at 15:49:01 UTC.
 - Verified HTTP 200 and expected content on the public content-marketing offer, program-campaign example, and content-partner guide. Responses were served by Vercel on `elarenstudio.com`.
 - Recorded release evidence in current context and roadmap using a clean checkout of merged main. No email or LinkedIn post was sent; indexing, actual inquiry delivery, and conversion outcomes remain unmeasured.
+
+## 2026-09-07 - Technical foundation and external inquiry delivery
+
+- Verified domain owner access in Search Console, homepage index/canonical status, and existing error-free sitemap index registration. Three newly added routes remain unknown in the inspected URL variants; sitemap freshness requires a later Google crawl.
+- Verified live sitemap-index HTTP 200. Resubmission returned HTTP 403 because the existing OAuth grant has only `webmasters.readonly`; submission remains pending through the owner UI or separately consented write access.
+- Exercised production content-marketing inquiry preparation with synthetic data. Sent the prepared content as a clearly labeled self-test through the owner's external iCloud SMTP account, then verified exact recipient, inbox placement, body integrity, and passing SPF/DKIM/DMARC in Google.
+- The browser connection was lost before a repeat copy check; prior local desktop/mobile copy checks remain valid historical evidence. No legacy FormSubmit or analytics claim, prospect outreach, or social posting is implied.
+- Updated current context, roadmap, and runbook; private mailbox evidence remains outside the public repository.
