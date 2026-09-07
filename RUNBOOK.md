@@ -376,6 +376,10 @@ Handled by `src/layouts/BaseLayout.astro`. Accepts `title`, `description`, and o
 
 ## Forms
 
+The content marketing page (`/content-marketing`) uses `src/components/InquiryComposer.astro` to prepare an email locally to `hello@elarenstudio.com`. The visitor can review/copy the prepared details or explicitly open an email draft. The component sends no request to a form provider and never reports message delivery. Browser preparation/copy has been checked; actual mailbox delivery must be verified separately.
+
+Content marketing offer pricing is currently declared in `src/pages/content-marketing.astro`, including its visible copy and Service/Offer data. Keep these aligned with `public/llms.txt` and `public/llms-full.txt` when changing the offer. The related example is `/work-examples/program-campaign`; the preparation guide is `/resources/guides/what-to-send-a-content-partner`.
+
 The therapist websites page (`/therapist-websites`) uses [FormSubmit](https://formsubmit.co/) for lead capture. The form POSTs to FormSubmit's endpoint and redirects on success. Fields: name, email, practice name, current website URL, team size, timeline.
 
 ---

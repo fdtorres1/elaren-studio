@@ -1,6 +1,6 @@
 # Active Context
 
-Last updated: August 9, 2026
+Last updated: September 7, 2026
 
 ## Current state
 
@@ -12,7 +12,7 @@ Last updated: August 9, 2026
 - The site uses Astro 7, TypeScript, Tailwind CSS 4, MDX content collections, FormSubmit, and Plausible.
 - The site presents Elaren Studio as an app studio and dev shop per D-007; therapist and local-SEO pages remain live but unlinked from navigation.
 - Dependencies were fully updated on July 29, 2026, including the Astro 5-to-7 and MDX 4-to-7 majors; npm audit reports zero vulnerabilities.
-- The production build currently generates 31 static pages.
+- The production build currently generates 34 static pages.
 - The therapist offering was repriced on August 9, 2026: Website Launch $500 founding client rate (standard $1,200), Essentials $49/mo (formerly WaaS Starter $99), Care+ $129/mo (formerly WaaS Care+ $199), plus a +$750 copywriting add-on; /therapist-websites gained an AI-builder comparison section, and pricing.ts, the city SEO pages, resource guides, and llms-full.txt were synchronized.
 - /studioregister is a Studio Register product landing page added on July 23, 2026 to support Stripe business verification; it follows the product's legal-naming boundary (An Elaren Studio product; owned and operated by Wright Torres Group, LLC; no d/b/a language) and may later grow into a fuller product site.
 - Therapist offering repriced August 9, 2026 for Facebook-group promotion: Website Launch $500 founding rate (standard $1,200), Essentials $49/mo (was WaaS Starter $99), Care+ $129/mo (was WaaS Care+ $199), plus a +$750 copywriting add-on; synchronized across the therapist page, src/lib/pricing.ts, city SEO pages, resource guides, and llms-full.txt.
@@ -53,3 +53,14 @@ The repository owner, name, local origin, and Vercel Git connection changed succ
 
 1. Continue running validation and a production build before pushes to main.
 2. Verify FormSubmit and Plausible account ownership separately when needed.
+
+## September 7, 2026 content marketing implementation
+
+- Added `/content-marketing` service page with scoped pricing, boundaries, visible FAQs, Service structured data, and a mailto-only inquiry composer addressed to the existing public `hello@elarenstudio.com` route.
+- Added fictional demonstration route `/work-examples/program-campaign` and guide resource `/resources/guides/what-to-send-a-content-partner`.
+- Linked the new services from `/services`, the footer, and cross-linked examples and guides. Updated `public/llms.txt` with the new offers/resources.
+- This work is local and ready for user review. Validation/build and root desktop/mobile browser QA passed, including offer navigation, FAQ, inquiry preparation/copy, and both themes. No external inquiry was sent, no deployment or indexing/analytics outcome is claimed, and no credentials or third-party integrations were added.
+
+### Source publication
+
+The user authorized committing and pushing this implementation, followed by a second documentation commit recording the verified first push. Target: `origin`, repository `elaren-studio/website`, branch `feature/marketing-offer-2026-09-07`. Main and production deployment are not part of this branch push. Push confirmation will be recorded after remote readback.

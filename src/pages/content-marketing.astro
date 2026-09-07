@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import InquiryComposer from "../components/InquiryComposer.astro";
+
+const faqs = [
+	["What does the first month include?", "Two articles or substantial page updates up to 1,000 words each, twelve original social posts adapted across up to two selected platforms, one email campaign or newsletter up to 500 words, design from supplied brand assets or photos, scheduling or publishing in existing client systems, topic and intent research, basic on-page SEO for those pages, and a concise monthly performance review."],
+	["What does it cost?", "The first month is $495 for the first two new marketing clients. If you choose to continue, the ongoing rate is $750 per month. The first two launch clients keep that continuation price for six months."],
+	["Are leads, rankings, or sales guaranteed?", "No. The work is designed to make consistent, useful publishing easier; it does not guarantee leads, rankings, sales, or AI citations."],
+	["Is there a long-term contract?", "It is month to month. Stop before the next invoice; there is no automatic renewal without agreed written terms."],
+];
+
+const serviceSchema = {
+	"@context": "https://schema.org", "@type": "Service", name: "Elaren content marketing", serviceType: "Content marketing", provider: { "@type": "Organization", name: "Elaren Studio", url: "https://elarenstudio.com" }, offers: [{ "@type": "Offer", price: "495", priceCurrency: "USD", description: "Introductory first month for the first two new marketing clients; paid in advance after scope fit confirmation." }, { "@type": "Offer", price: "750", priceCurrency: "USD", description: "Ongoing monthly continuation if the client chooses to continue; month to month with no automatic renewal." }], url: "https://elarenstudio.com/content-marketing"
+};
+---
+<BaseLayout title="Content Marketing" description="A focused, month-to-month content marketing service for small organizations that need useful publishing with clear scope.">
+	<Header />
+	<main>
+		<section class="container py-16 md:py-24">
+			<div class="max-w-3xl">
+				<p class="mb-3 text-sm font-medium uppercase tracking-wider text-accent">Content, social, and email</p>
+				<h1 class="mb-6 text-4xl font-semibold text-ink md:text-5xl">Keep your website, social posts, and email moving.</h1>
+				<p class="text-xl leading-relaxed text-ink/80">A complete monthly batch of useful content for small organizations—with writing, design from your existing assets, and publishing handled together.</p>
+				<div class="mt-7 rounded-xl border-2 border-accent/30 bg-accent/5 p-6">
+					<p class="text-3xl font-semibold text-ink">$495 <span class="text-lg font-normal">for your first month</span></p>
+					<p class="mt-2 text-ink/75">Available to the first two new marketing clients. Continue at $750/month, with that rate held for six months. No setup fee.</p>
+				</div>
+				<div class="mt-7 flex flex-wrap items-center gap-4">
+					<a href="#inquiry" class="inline-flex rounded-xl bg-accent px-6 py-3 font-semibold text-paper no-underline shadow-lg shadow-accent/30">Check fit for my organization</a>
+					<a href="/work-examples/program-campaign" class="font-semibold text-accent hover:underline">See a complete work example →</a>
+				</div>
+			</div>
+		</section>
+		<section class="bg-[var(--clr-muted)] py-16 md:py-24"><div class="container"><div class="grid gap-8 md:grid-cols-2"><div><h2 class="mb-5 text-3xl font-semibold text-ink">What is included</h2><ul class="space-y-3 text-ink/80">{["Two articles or substantial page updates, up to 1,000 words each", "Twelve original social posts adapted across up to two selected platforms", "One email campaign or newsletter, up to 500 words", "Design from supplied brand assets or photos; scheduling in existing client systems", "Topic and intent research, basic on-page SEO, and a concise monthly performance review", "One 30-minute kickoff and one consolidated revision per monthly batch"].map((item) => <li class="flex gap-3"><span class="text-accent" aria-hidden="true">✓</span><span>{item}</span></li>)}</ul></div><div class="rounded-xl border-2 border-slate-200 bg-paper p-7"><h2 class="mb-4 text-2xl font-semibold text-ink">Boundaries that keep it useful</h2><p class="leading-relaxed text-ink/75">No filming, paid ads, daily DM or comment support, redesigns or migrations, technical SEO campaigns, new tools or registrations, or guaranteed leads, rankings, sales, or AI citations.</p><p class="mt-5 leading-relaxed text-ink/75">Paid in advance after scope fit confirmation. Month to month, with no hidden setup fee or automatic price change.</p></div></div></div></section>
+		<section class="container py-16 md:py-24"><div class="grid gap-10 md:grid-cols-[1fr_0.9fr]"><div><h2 class="mb-4 text-3xl font-semibold text-ink">A good first month starts with fit</h2><p class="mb-6 leading-relaxed text-ink/75">Bring a public website, the channels you already use, a campaign goal, and a target month. We will confirm scope personally before any engagement.</p><InquiryComposer /></div><div><h2 class="mb-5 text-3xl font-semibold text-ink">Questions, answered</h2>{faqs.map(([q,a]) => <details class="border-b border-slate-200 py-4"><summary class="cursor-pointer font-semibold text-ink">{q}</summary><p class="mt-3 text-ink/75">{a}</p></details>)}</div></div></section>
+		<section class="container border-t border-slate-100 py-12"><p class="text-sm text-ink/65">See a representative campaign plan in <a href="/work-examples/program-campaign" class="text-accent hover:underline">the Northside Arts Workshop example</a>, or read <a href="/resources/guides/what-to-send-a-content-partner" class="text-accent hover:underline">what to send a content partner</a>.</p></section>
+	</main><Footer />
+	<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+</BaseLayout>

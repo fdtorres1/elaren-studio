@@ -126,3 +126,18 @@
 - Synchronized src/lib/pricing.ts (feeds the SEO city pages and their offer catalogs), the Dallas/Fort Worth/Houston MDX FAQs and trust lines, llms-full.txt, and the three resource guides' Elaren examples with recomputed totals (Essentials year 1 $1,088, 24 months $1,676; Care+ year 1 $2,048, 24 months $3,596); third-party market figures were left untouched. llms.txt had no therapist plan references.
 - The /pricing, /plans, and /local-accelerator pages belong to the separate local-business offering and were intentionally not changed.
 - Link validation and the production build passed at 31 pages.
+
+## 2026-09-07 - Local offer and demonstration pages
+
+- Added `/content-marketing` with visible scope, pricing, FAQs, Service JSON-LD, and a mailto-only inquiry composer.
+- Added the fictional Northside Arts Workshop campaign example at `/work-examples/program-campaign`; no real-client, registration, award, or outcome claims are made.
+- Added the content-partner guide and cross-linked services, example, resources, footer, and `public/llms.txt`.
+- Pending `npm run validate`, `npm run build`, root browser QA, and any later deployment/indexing checks. No external messages or submissions were made.
+
+- Final verification: `npm run validate`, `npm run build` (34 pages), and `git diff --check` passed. Root reviewed the production build in the in-app browser at desktop and 390px mobile widths, including both themes, mobile menu, offer CTA, FAQ expansion, prepared inquiry text, and successful copy feedback. No browser console errors; existing Plausible deliberately ignores localhost events. All three new routes render without horizontal overflow. Deployment, indexing, and actual email delivery remain untested external steps.
+
+## 2026-09-07 - Prepare authorized source pushes
+
+- Updated active context, roadmap, decision D-008, and runbook to describe the completed 34-page implementation, offer pricing, and local-only email preparation behavior.
+- User requested implementation/documentation push followed by a documentation update recording that push and a second push. The target is `origin/feature/marketing-offer-2026-09-07`; no main merge, production deployment, or social post is included.
+- Remote success is not yet asserted in this entry; the follow-up entry will record the confirmed commit and branch.

@@ -48,3 +48,12 @@ Status: implemented
 Date: July 23, 2026
 
 The site presents Elaren Studio as a product studio with a select client-build lane, per HQ decision D-012. Navigation is Products, Services, Resources, About. OpusGraph, AgentMeter, Studio Register, and OmniSearch are named publicly; earlier-stage work appears only as unnamed problem spaces; Resonance Music Press is credited as designed and built by Elaren Studio. The therapist, local-SEO, pricing, and plans pages remain live but are removed from navigation, and no public pricing is shown for application work.
+
+## D-008 - Scoped content marketing offer and demonstration
+
+Status: implemented and locally verified; branch push authorized
+Date: September 7, 2026
+
+The new content marketing page uses explicit scope, pricing, approval, and no-guarantee boundaries from the implementation brief. Its inquiry composer only prepares a mailto draft to the existing public business email and never claims delivery. The Northside Arts Workshop example is prominently fictional, with no active registration, client endorsement, award, or achieved-result claims. Deployment, external sends, indexing, and analytics verification remain separate gates.
+
+The first two new clients may start at $495 for the first month and continue at $750/month, held for six months. The user authorized two source pushes: implementation/documentation first, then documentation recording the verified first push. This does not imply a production deployment or LinkedIn publication.
